@@ -2,22 +2,45 @@ project:
   type: book
 
 book:
-  title: "Buch"
-  author: "Norah Jones"
-  date: "12/19/2024"
+  title: "Programmieren lernen mit Java"
+  subtitle: "Eine Einführung auf Hochschulniveau"
+  author: "© [Dominikus Herzberg](https://www.thm.de/mni/dominikus-herzberg)"
+  date: today
+  date-format: long
+  # affilliation: "Technische Hochschule Mittelhessen (THM)"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
+    - Classes.md
+    - KodierungUndRepräsentation.md
+    #- file: impressum.md
+    #  visible: false
+    #- file: datenschutz.md
+    #  visible: false
+    # - intro.qmd
+    # - summary.qmd
+    # - references.qmd
+  #page-footer:
+    # left: "Copyright 2024, [Dominikus Herzberg](https://www.thm.de/mni/dominikus-herzberg)"
+    # right:
+      # - icon: github
+      #  href: https://github.com/denkspuren/plj
 
-bibliography: references.bib
+# bibliography: references.bib
 
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
-
+    title-block-banner: false
+    toc: true
+    toc-depth: 2
+    toc-title: Inhalte
+    number-sections: true
+    number-depth: 3
+    fig-cap-location: margin
+    lang: de
+    # footer: "[Impressum](impressum.md) & [Datenschutzerklärung](datenschutz.md) "
+    include-after-body: footer.html
+#  pdf:
+#    documentclass: scrreprt
 
 

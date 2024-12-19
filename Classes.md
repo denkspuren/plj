@@ -1,19 +1,3 @@
----
-title: "Programmieren Lernen mit Java"
-author: "© [Dominikus Herzberg](https://www.thm.de/mni/dominikus-herzberg)"
-date: 2024-12-18
-lang: de
-format:
-  html:
-    toc: true
-    toc-depth: 2
-    toc-title: Inhalte
-    number-sections: true
-    number-depth: 3
-    fig-cap-location: margin
-    table-cap-location: margin
----
-
 # Einfache Klassen
 
 Eine Klasse definiert ein Kodierschema für seine Instanzen (damit sind die Variablen, genauer Instanzvariablen gemeint) und Umgangsweisen mit dem Kodierungschema (Methoden, genauer Instanzmethoden).  
