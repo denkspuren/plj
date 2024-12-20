@@ -1,8 +1,3 @@
----
-title: "Impressum"
-format: html
----
-
 # Impressum
 
 Prof. Dr. Dr. Dominikus Herzberg<br>
