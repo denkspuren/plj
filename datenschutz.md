@@ -1,8 +1,3 @@
----
-title: "Datenschutzerklärung"
-format: html
----
-
 # Datenschutzerklärung
 
 Im folgenden möchten wir Sie aufklären, wie Ihre Daten von uns verarbeitet werden.
@@ -48,7 +43,7 @@ United States<br>
 
 Dieser ist Empfänger deiner personenbezogenen Daten. Dies entspricht unserem berechtigten Interesse im Sinne des Art. 6 Abs. 1 S. 1 lit. f DSGVO, selbst keinen Server in unseren Räumlichkeiten vorhalten zu müssen. Serverstandort ist USA.
 
-Weitere Informationen zu Widerspruchs- und Beseitigungsmöglichkeiten gegenüber GitHub findest du unter: https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages
+Weitere Informationen zu Widerspruchs- und Beseitigungsmöglichkeiten gegenüber GitHub findest du unter: [https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages](https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages)
 
 Du hast das Recht der Verarbeitung zu widersprechen. Ob der Widerspruch erfolgreich ist, ist im Rahmen einer Interessenabwägung zu ermitteln.
 
@@ -56,7 +51,7 @@ Die Daten werden gelöscht, sobald der Zweck der Verarbeitung entfällt.
 
 Die Verarbeitung der unter diesem Abschnitt angegebenen Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Die Funktionsfähigkeit der Website ist ohne die Verarbeitung nicht gewährleistet.
 
-GitHub hat Compliance-Maßnahmen für internationale Datenübermittlungen umgesetzt. Diese gelten für alle weltweiten Aktivitäten, bei denen GitHub personenbezogene Daten von natürlichen Personen in der EU verarbeitet. Diese Maßnahmen basieren auf den EU-Standardvertragsklauseln (SCCs). Weitere Informationen findest du unter: https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors
+GitHub hat Compliance-Maßnahmen für internationale Datenübermittlungen umgesetzt. Diese gelten für alle weltweiten Aktivitäten, bei denen GitHub personenbezogene Daten von natürlichen Personen in der EU verarbeitet. Diese Maßnahmen basieren auf den EU-Standardvertragsklauseln (SCCs). Weitere Informationen findest du unter: [https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors](https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors)
 
 ## Betroffenenrechte und Hinweise
 
@@ -76,7 +71,7 @@ Als betroffene Person haben Sie folgende Rechte nach der DSGVO:
 
 * Widerruf der Einwilligung (Art. 21 DSGVO) – Sie können die Einwilligung zur Verarbeitung Ihrer Daten jederzeit widerrufen.
 
-* Beschwerderecht – Sie haben das Recht, sich bei einer Aufsichtsbehörde über die Verarbeitung zu beschweren. Eine Liste der entsprechenden Behörden finden Sie unter: https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html.
+* Beschwerderecht – Sie haben das Recht, sich bei einer Aufsichtsbehörde über die Verarbeitung zu beschweren. Eine Liste der entsprechenden Behörden finden Sie unter: [https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html](https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html).
 
 Hinweisen möchten wir Sie zudem auf Folgendes:
 
@@ -92,6 +87,6 @@ Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Goo
 
 Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse diese Website aufgerufen wurde. Die Nutzung von Google Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der einheitlichen Darstellung des Schriftbildes auf seiner Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z.B. Device-Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.
 
-Wenn Ihr Browser Google Fonts nicht unterstützt, wird eine Standardschrift von Ihrem Computer genutzt. Weitere Informationen zu Google Fonts finden Sie unter https://developers.google.com/fonts/faq und in der Datenschutzerklärung von Google: https://policies.google.com/privacy?hl=de.
+Wenn Ihr Browser Google Fonts nicht unterstützt, wird eine Standardschrift von Ihrem Computer genutzt. Weitere Informationen zu Google Fonts finden Sie unter [https://developers.google.com/fonts/faq](https://developers.google.com/fonts/faq) und in der Datenschutzerklärung von Google: [https://policies.google.com/privacy?hl=de](https://policies.google.com/privacy?hl=de).
 
-Das Unternehmen verfügt über eine Zertifizierung nach dem „EU-US Data Privacy Framework“ (DPF). Der DPF ist ein Übereinkommen zwischen der Europäischen Union und den USA, der die Einhaltung europäischer Datenschutzstandards bei Datenverarbeitungen in den USA gewährleisten soll. Jedes nach dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: https://www.dataprivacyframework.gov/participant/5780.
+Das Unternehmen verfügt über eine Zertifizierung nach dem „EU-US Data Privacy Framework“ (DPF). Der DPF ist ein Übereinkommen zwischen der Europäischen Union und den USA, der die Einhaltung europäischer Datenschutzstandards bei Datenverarbeitungen in den USA gewährleisten soll. Jedes nach dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: [https://www.dataprivacyframework.gov/participant/5780](https://www.dataprivacyframework.gov/participant/5780).
