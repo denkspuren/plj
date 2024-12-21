@@ -12,18 +12,12 @@ book:
     - index.qmd
     - Classes.md
     - KodierungUndRepräsentation.md
-    #- file: impressum.md
-    #  visible: false
-    #- file: datenschutz.md
-    #  visible: false
-    # - intro.qmd
-    # - summary.qmd
-    # - references.qmd
-  #page-footer:
-    # left: "Copyright 2024, [Dominikus Herzberg](https://www.thm.de/mni/dominikus-herzberg)"
-    # right:
-      # - icon: github
-      #  href: https://github.com/denkspuren/plj
+  page-footer: 
+    center:
+      - text: "Impressum"
+        href: legal/impressum.md
+      - text: "Datenschutzerklärung"
+        href: legal/datenschutz.md
 
 # bibliography: references.bib
 
@@ -38,8 +32,11 @@ format:
     number-depth: 3
     fig-cap-location: margin
     lang: de
+    #format-resources:
+    #  - impressum.md
+    #  - datenschutz.md
     # footer: "[Impressum](impressum.md) & [Datenschutzerklärung](datenschutz.md) "
-    include-after-body: footer.html
+    # include-after-body: footer.html
 #  pdf:
 #    documentclass: scrreprt
 
