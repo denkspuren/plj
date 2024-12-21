@@ -669,5 +669,5 @@ Die Variable `p` im obigen Beispiel enthält also die Referenz auf ein Objekt, d
 
 Als Mensch helfen die technischen Einblicke für das Verständnis, aber Bilder sind besser, um einen Gesamtblick zu bekommen. Man kann Referenzen sehr gut als Pfeile (= Verweise) auf Objekte verstehen, wobei der Name am Pfeil den Variablennamen kennzeichnet. Objekte sind in dem nachstehenden Bild als Kästen mit abgerundeten Ecken dargestellt. In dem Objekt steht entweder der Name der Klasse, von der das Objekt instanziiert wurde, oder seine Repräsentation, wie sie durch die `toString`-Methode bestimmt ist.
 
-![Eine Instanz von Person](Person-Instanz.svg){width=40%}
+![Eine Instanz von Person](Klassen/Person-Instanz.svg){width=40%}
 

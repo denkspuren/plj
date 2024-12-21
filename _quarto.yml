@@ -10,7 +10,7 @@ book:
   # affilliation: "Technische Hochschule Mittelhessen (THM)"
   chapters:
     - index.qmd
-    - Classes.md
+    - Klassen.md
     - KodierungUndRepräsentation.md
   page-footer: 
     center:
@@ -20,24 +20,24 @@ book:
         href: legal/datenschutz.md
 
 # bibliography: references.bib
+# csl: citestyle.csl
 
 format:
   html:
+    # Theming: https://quarto.org/docs/output-formats/html-themes.html
     theme: cosmo
     title-block-banner: false
     toc: true
-    toc-depth: 2
+    toc-depth: 3
     toc-title: Inhalte
     number-sections: true
     number-depth: 3
     fig-cap-location: margin
     lang: de
-    #format-resources:
-    #  - impressum.md
-    #  - datenschutz.md
-    # footer: "[Impressum](impressum.md) & [Datenschutzerklärung](datenschutz.md) "
-    # include-after-body: footer.html
-#  pdf:
-#    documentclass: scrreprt
+  pdf:
+    documentclass: scrbook
+
+#  typst:
+#    title: "Programmieren lernen mit Java"
 
 
