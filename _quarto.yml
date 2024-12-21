@@ -12,6 +12,9 @@ book:
     - index.qmd
     - Klassen.md
     - KodierungUndRepräsentation.md
+  navbar: 
+    title: "Programmieren lernen mit Java: Eine Einführung auf Hochschulniveau"
+    
   page-footer: 
     center:
       - text: "Impressum"
