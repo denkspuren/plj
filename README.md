@@ -8,6 +8,8 @@ Das Projekt ist derzeit nicht terminiert, d.h. ich habe mir kein Datum gesetzt, 
 
 Wenn Sie mögen, ich freue mich über alle Korrekturen, Hinweise und Vorschläge. Das Schreibprojekt ist unter die Lizenz [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de) gestellt.
 
+Herzlichst,
+
 Dominikus Herzberg<br>
 [https://www.thm.de/mni/dominikus-herzberg](https://www.thm.de/mni/dominikus-herzberg)
 
