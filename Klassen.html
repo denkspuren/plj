@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Einfache Klassen – Programmieren lernen mit Java</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Programmieren lernen mit Java: Eine Einführung auf Hochschulniveau</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de"> 
+<span class="menu-text">CC BY-NC-ND 4.0</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/denkspuren/plj" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Klassen.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einfache Klassen</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vorwort</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Klassen.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einfache Klassen</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhalte</h2>
+   
+  <ul>
+  <li><a href="#das-schema-einer-klassendeklaration" id="toc-das-schema-einer-klassendeklaration" class="nav-link active" data-scroll-target="#das-schema-einer-klassendeklaration"><span class="header-section-number">1.1</span> Das Schema einer Klassendeklaration</a></li>
+  <li><a href="#beispiel-klasse-person-mit-instanzvariablen" id="toc-beispiel-klasse-person-mit-instanzvariablen" class="nav-link" data-scroll-target="#beispiel-klasse-person-mit-instanzvariablen"><span class="header-section-number">1.2</span> Beispiel: Klasse <code>Person</code> mit Instanzvariablen</a></li>
+  <li><a href="#beispiel-person-mit-konstruktoren-und-methoden" id="toc-beispiel-person-mit-konstruktoren-und-methoden" class="nav-link" data-scroll-target="#beispiel-person-mit-konstruktoren-und-methoden"><span class="header-section-number">1.3</span> Beispiel: <code>Person</code> mit Konstruktoren und Methoden</a>
+  <ul class="collapse">
+  <li><a href="#hilfsklassen-für-datumsangaben" id="toc-hilfsklassen-für-datumsangaben" class="nav-link" data-scroll-target="#hilfsklassen-für-datumsangaben"><span class="header-section-number">1.3.1</span> Hilfsklassen für Datumsangaben</a></li>
+  <li><a href="#die-überarbeitete-klasse-person" id="toc-die-überarbeitete-klasse-person" class="nav-link" data-scroll-target="#die-überarbeitete-klasse-person"><span class="header-section-number">1.3.2</span> Die überarbeitete Klasse <code>Person</code></a></li>
+  </ul></li>
+  <li><a href="#beispiel-person-mit-statischer-of-methode" id="toc-beispiel-person-mit-statischer-of-methode" class="nav-link" data-scroll-target="#beispiel-person-mit-statischer-of-methode"><span class="header-section-number">1.4</span> Beispiel: <code>Person</code> mit statischer <code>of</code>-Methode</a></li>
+  <li><a href="#counter-beispiel-klassen--und-instanzmethoden-bzw.--variablen" id="toc-counter-beispiel-klassen--und-instanzmethoden-bzw.--variablen" class="nav-link" data-scroll-target="#counter-beispiel-klassen--und-instanzmethoden-bzw.--variablen"><span class="header-section-number">1.5</span> <code>Counter</code>-Beispiel: Klassen- und Instanzmethoden bzw. -Variablen</a></li>
+  <li><a href="#ausblick-record-datenklasse" id="toc-ausblick-record-datenklasse" class="nav-link" data-scroll-target="#ausblick-record-datenklasse"><span class="header-section-number">1.6</span> Ausblick: <code>record</code> (Datenklasse)</a></li>
+  <li><a href="#beispiel-stringcomposer-methodenüberladung-method-overloading" id="toc-beispiel-stringcomposer-methodenüberladung-method-overloading" class="nav-link" data-scroll-target="#beispiel-stringcomposer-methodenüberladung-method-overloading"><span class="header-section-number">1.7</span> Beispiel <code>StringComposer</code>: Methodenüberladung (<em>method overloading</em>)</a></li>
+  <li><a href="#counter-initiale-codeblöcke-static-...-und-..." id="toc-counter-initiale-codeblöcke-static-...-und-..." class="nav-link" data-scroll-target="#counter-initiale-codeblöcke-static-...-und-..."><span class="header-section-number">1.8</span> <code>Counter</code>: Initiale Codeblöcke <code>static { ... }</code> und <code>{ ... }</code></a></li>
+  <li><a href="#gratis-methoden-von-object" id="toc-gratis-methoden-von-object" class="nav-link" data-scroll-target="#gratis-methoden-von-object"><span class="header-section-number">1.9</span> “Gratis”-Methoden von <code>Object</code></a></li>
+  <li><a href="#was-genau-ist-ein-objekt" id="toc-was-genau-ist-ein-objekt" class="nav-link" data-scroll-target="#was-genau-ist-ein-objekt"><span class="header-section-number">1.10</span> Was genau ist ein Objekt?</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/denkspuren/plj/edit/main/Klassen.md" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/denkspuren/plj/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li><li><a href="https://github.com/denkspuren/plj/blob/main/Klassen.md" class="toc-action"><i class="bi empty"></i>Quellcode anzeigen</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einfache Klassen</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Eine Klasse definiert ein Kodierschema für seine Instanzen (damit sind die Variablen, genauer Instanzvariablen gemeint) und Umgangsweisen mit dem Kodierungschema (Methoden, genauer Instanzmethoden).</p>
+<p>In der Objektorientierung strebt man an, die Realisierung der Implementierung, d.h. die Details der Kodierung (die Variablen) und die Details des Umgangs mit der Kodierung (die Methoden), zu verbergen. Das geschieht in aller Regel dadurch, dass die intern geführten Variablen <em>private</em> gesetzt werden und dass die Methoden keinen Einblick in den zugrundeliegenden Programmcode geben.</p>
+<p>Das heißt, anders gesagt: Mit Klassen werden zusammengesetzte Datentypen (im Javasprech “Referenztypen”) erstellt, wobei die Methoden die entscheidenden Abstraktionsebene sind, um mit den Instanzen einer Klasse zu arbeiten.</p>
+<blockquote class="blockquote">
+<p>Aus pragmatischen Gründen werden wir bei der Arbeit mit der JShell Variablen nicht <em>private</em> setzen, damit wir während der Entwicklungsarbeit sehen können, welche Datenwerte in den Variablen gespeichert sind. Ein anderer Weg ist, über die <code>toString</code>-Methode Einblicke in maßgebliche Variablenwerte zu geben.</p>
+</blockquote>
+<section id="das-schema-einer-klassendeklaration" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="das-schema-einer-klassendeklaration"><span class="header-section-number">1.1</span> Das Schema einer Klassendeklaration</h2>
+<p>Das Schema einer einfachen Klassendeklaration sieht wie folgt aus:<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<pre><code>class &lt;Name&gt; {
+    &lt;Deklaration von Klassenvariablen mit `static`&gt;
+    &lt;Deklaration von Instanzvariablen&gt;
+    &lt;Deklaration von Klassenmethoden mit `static`&gt;
+    &lt;Deklaration von Instanzmethoden&gt;
+}</code></pre>
+<p>Die Reihenfolge der Deklarationen von Variablen und Methoden spielt keinerlei Rolle und kann beliebig sein.</p>
+<p>Variablen werden wie gewohnt deklariert nach dem Schema</p>
+<pre><code>&lt;Typ&gt; &lt;VariablenName&gt;;</code></pre>
+<p>Dazu kommen kann die Zuweisung eines Initialwertes</p>
+<pre><code>&lt;Typ&gt; &lt;VariablenName&gt; = &lt;InitExpression&gt;;</code></pre>
+<p>Bei Klassenvariablen wird ein <code>static</code> vorangestellt, z.B.:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> initCounter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Methoden werden nach diesem Schema deklariert; bei Klassenmethoden wird ein <code>static</code> vorangestellt</p>
+<pre><code>&lt;Rückgabetyp&gt; &lt;Methodenname&gt;(&lt;Parameter&gt;) {
+    &lt;Anweisungen&gt;
+}</code></pre>
+<p>Den Parametern im Kopf einer Methode entsprechen Variablen-Deklarationen ohne initiale Zuweisung. Die Parameter werden durch ein Komma getrennt. Eine Besonderheit ist die Notation für Parameter als sogenannte Varargs. Varargs sammeln beim Aufruf der Methode beliebig viele Argumentwerte des angegebenen Typs als Array (<code>&lt;Typ&gt;[] ParameterName</code>) auf.</p>
+<pre><code>&lt;Typ&gt;... &lt;ParameterName&gt;</code></pre>
+</section>
+<section id="beispiel-klasse-person-mit-instanzvariablen" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="beispiel-klasse-person-mit-instanzvariablen"><span class="header-section-number">1.2</span> Beispiel: Klasse <code>Person</code> mit Instanzvariablen</h2>
+<p>Sobald eine Klasse deklariert und verbucht ist, können Instanzen von ihr mithilfe des <code>new</code>-Operators erzeugt werden. Mangels geeigneter zeichnerischer Möglichkeiten (Sie erinnern sich, Objekte sind “Kreise” 😎), notieren wir den Verweis auf ein Objekt, das stets eine Instanz einer Klasse ist, wie folgt:</p>
+<pre><code>Objekt := &lt;Klassenname&gt;@&lt;Identifier&gt;{ &lt;Variablenwerte&gt; }</code></pre>
+<ul>
+<li>Der Klassenname entspricht dem Namen der Klasse, die beim <code>new</code>-Operator angegeben ist</li>
+<li>Der Identifier ist eine eindeutige Zahl, die sich von den Identifiern aller anderen Objekte unterscheidet.</li>
+<li>Der jeweilige Variablenwert verweist mit einem Pfeil <code>-&gt;</code> auf Referenztypen. Ist der Datenwert ein primitiver Typ, wird ein <code>=</code> verwendet.</li>
+<li>Die Darstellung der Objekte für Zeichenketten (<em>strings</em>) wird verkürzt durch die Darstellung des Literals.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Wenn Variablen ohne Zuweisung deklariert sind, werden sie im instanziierten Objekt auf die Default-Werte gesetzt, d.h. <code>false</code> bei <code>boolean</code>, Null bei Zahlenwerten und <code>null</code> bei Referenztypen.</p>
+</blockquote>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> age<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>Person p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">();</span> <span class="co">// p1 -&gt; Person@1{ age = 0, name -&gt; null }</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>p1<span class="op">.</span><span class="fu">name</span> <span class="op">=</span> <span class="st">"Ada"</span><span class="op">;</span>          <span class="co">// p1 -&gt; Person@2{ age = 0, name -&gt; "Ada" }</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>Person p2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">();</span> <span class="co">// p2 -&gt; Person@2{ age = 0, name -&gt; null }</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>p2<span class="op">.</span><span class="fu">name</span> <span class="op">=</span> <span class="st">"Mo"</span><span class="op">;</span>           <span class="co">// p2 -&gt; Person@2{ age = 0, name -&gt; "Mo" }</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>p2<span class="op">.</span><span class="fu">age</span> <span class="op">=</span> <span class="dv">20</span><span class="op">;</span>              <span class="co">// p2 -&gt; Person@2{ age = 20, name -&gt; "Mo" }</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wie man sieht, kann man mittels des Punkt-Operators (<code>.</code>) vom Objekt aus auf die Variablen über die Variablenname zugreifen. Links vom Zuweisungs-Operator (<code>=</code>) entspricht dem Zugriff eine Schreiboperation, rechts davon eine Leseoperation.</p>
+<p><strong>Was man hier lernt:</strong></p>
+<ul>
+<li>Die Klasse <code>Person</code> hat genau zwei Instanzvariablen, <code>age</code> und <code>name</code>, die mit ihren Defaultwerten (Grundwerten) initialisiert werden, <code>0</code> bzw. <code>null</code>.</li>
+<li>Der <code>new</code>-Operator ruft den Default-Konstruktor auf. Dieser Konstruktor wird nur dann erstellt, wenn man keine Konstruktoren in der Klasse deklariert.</li>
+</ul>
+<p>Der unsichtbare Code des Default-Konstruktors sieht wie folgt</p>
+<pre><code>    Person() {
+        super();
+    }</code></pre>
+<p>Der Konstruktor ruft schlicht den Konstruktor der Oberklasse auf. Jede Klasse hat eine Oberklasse. Wenn die Oberklasse nicht explizit mit <code>extends</code> angegeben wird, ist es die Klasse <code>Object</code>.</p>
+<ul>
+<li>Nachdem eine Instanz erzeugt ist, kann man die Werte der Instanzvariablen auslesen bzw. ihnen neue Werte zuweisen.</li>
+</ul>
+<p><strong>Ausprobieren:</strong></p>
+<p>Ergänzen Sie eine <code>toString</code>-Methode, so dass man <code>age</code> und <code>name</code> zu einer Instanz angezeigt bekommt.</p>
+</section>
+<section id="beispiel-person-mit-konstruktoren-und-methoden" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="beispiel-person-mit-konstruktoren-und-methoden"><span class="header-section-number">1.3</span> Beispiel: <code>Person</code> mit Konstruktoren und Methoden</h2>
+<blockquote class="blockquote">
+<p>Da das Alter (<em>age</em>) einer Person etwas ist, was sich mit der Zeit verändert, ist es keine so gute Idee, das Alter als Variablenwert zu modellieren. Wir überarbeiten die Klasse <code>Person</code>.</p>
+</blockquote>
+<section id="hilfsklassen-für-datumsangaben" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="hilfsklassen-für-datumsangaben"><span class="header-section-number">1.3.1</span> Hilfsklassen für Datumsangaben</h3>
+<p>Für die Arbeit mit Datumsangaben stellt das JDK die <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/time/package-summary.html"><code>java.time</code></a>-Bibliothek zur Verfügung. Für unsere Zwecke benötigen wir die Klasse <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/time/LocalDate.html"><code>LocalDate</code></a> und <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/time/Period.html"><code>Period</code></a>, die wir zuvor importieren. Schauen Sie sich die Klassen an (die Klassenname oben sind auf die Oracle-Dokumentation verlinkt) und lesen Sie nach, wie man eine Instanz von <code>LocalDate</code> erzeugt und wie man aus zwei Datumsangaben einen Zeitraum <code>Period</code> berechnet.</p>
+<blockquote class="blockquote">
+<p>Im JDK gibt es viele Klassen für Standardaufgaben, deren Programmierung ausgereift ist. Zum Beispiel ist der Umgang mit Datumsangaben nicht trivial (Zeitzonen, Schaltjahre etc.). Man sucht sich heraus, was man braucht und verwendet die angebotenen Klassen mit ihren Methoden. Mit der JShell kann man rasch den Gebrauch solcher Klassen ausprobieren.</p>
+</blockquote>
+<pre><code>jshell&gt; import java.time.LocalDate;
+
+jshell&gt; LocalDate.of(2024,12,16)
+$3 ==&gt; 2024-12-16
+
+jshell&gt; import java.time.Period;
+
+jshell&gt; Period.between($3, LocalDate.of(2026,12,16))
+$5 ==&gt; P2Y
+
+jshell&gt; $5.getYears()
+$6 ==&gt; 2</code></pre>
+<p><strong>Was man hier lernt:</strong></p>
+<ul>
+<li>Die <code>toString</code>-Methode ist in beiden Klassen angepasst, damit man weiß, wofür das Objekt steht. <code>P2Y</code> ist also eine Kurzdarstellung einer Periode von 2 Jahren (<em>years</em>).</li>
+<li>Die Instanzen dieser beiden Klassen bieten einige Methoden an. Hier verwenden wir die <code>getYears</code>-Methode.</li>
+<li><code>LocalDate.of</code> und <code>Period.between</code> sind Klassenmethoden (<em>static methods</em>). Woran man das erkennt? <code>LocalDate</code> und <code>Period</code> sind Klassen. Wären <code>of</code> und <code>between</code> Instanzmethoden, dann hätte man zuvor mit <code>new</code> ein Objekt anlegen müssen. Interessanterweise wird dennoch eine Instanz der entsprechenden Klasse zurückgeliefert. Wie das geht, schauen wir uns später bei der Klasse <code>Person</code> an.</li>
+</ul>
+</section>
+<section id="die-überarbeitete-klasse-person" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="die-überarbeitete-klasse-person"><span class="header-section-number">1.3.2</span> Die überarbeitete Klasse <code>Person</code></h3>
+<p>Statt einer Altersangabe geben wir im Konstruktor ein Geburtsdatum <code>birth</code> und optional (wahlweise) einen Namen <code>name</code> an.</p>
+<p>Damit niemand Zugriff auf die Variable <code>birth</code> hat, denn das Geburtsdatum soll nicht verändert werden können (auch nicht in der JShell), ist die Variable auf <code>private</code> gesetzt. Der Name kann auch später nach der Geburt oder irgendwann im Leben einer Person angepasst werden. Der Zugriff auf die Variable ist nicht reglementiert.</p>
+<p>Das Alter wird über die Methode <code>getAge</code> abhängig von einem gegebenen Datum (oder dem aktuellen Tagesdatum) berechnet. Für Zeiträume die <em>vor</em> der Geburt liegen, wir eine “negative” Dauer angegeben.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDate</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">Period</span><span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person <span class="op">{</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDate birth<span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Person</span><span class="op">(</span>LocalDate birth<span class="op">,</span> <span class="bu">String</span> name<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">birth</span> <span class="op">=</span> birth<span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Person</span><span class="op">(</span>LocalDate birth<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">(</span>birth<span class="op">,</span> <span class="st">""</span><span class="op">);</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    Period <span class="fu">getAge</span><span class="op">(</span>LocalDate date<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Period<span class="op">.</span><span class="fu">between</span><span class="op">(</span>birth<span class="op">,</span> date<span class="op">);</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    Period <span class="fu">getAge</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">getAge</span><span class="op">(</span>LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span> <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">super</span><span class="op">.</span><span class="fu">toString</span><span class="op">()</span> <span class="op">+</span> <span class="st">"{ "</span> <span class="op">+</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"birth -&gt; "</span> <span class="op">+</span> birth <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name -&gt; </span><span class="sc">\"</span><span class="st">"</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"</span><span class="sc">\"</span><span class="st"> }"</span><span class="op">;</span> </span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- TODO: getBirth würde Sinn machen. -->
+<p><strong>Was man hier lernt:</strong></p>
+<ul>
+<li>Konstruktoren sind eine besondere Form der Methode (<em>Initialisierungsmethoden</em>), die eine Instanz der Klasse zurückgeben, es aber erlauben, z.B. übergebene Initialisierungswerte vor der Zuweisung zu überprüfen (etwa mittels <code>assert</code>).</li>
+<li>Mit <code>this()</code> kann man einen anderen Konstruktor (mit einer anderen Signatur) aufrufen. Auf diese Weise wird hier der Default-Wert (Standardwert) für <code>name</code> auf eine leere Zeichenkette gesetzt. (Alternativ hätte man <code>String name = "";</code> deklarieren können.)</li>
+<li>Die Methode <code>getAge</code> ist für zwei verschiedene Signaturen deklariert. Auch hier sieht man, wie man Default-Werte setzen kann: Bei einem Aufruf ohne Argument wird das aktuelle Tagesdatum genutzt.</li>
+<li>Die <code>toString</code>-Methode passt die Repräsentation eines Objekts an die obige Notation an. Mit <code>super</code> bedient man sich der Standardrepräsentation der Oberklasse (stets <code>Object</code> bei Klassen, die keine Oberklasse mit <code>extends</code> angeben) und ergänzt mit <code>+</code> (String-Konkatenation, also String-Verkettung) die weiteren Angaben.</li>
+<li>Da die Klasse <code>Person</code> die Klasse <code>Object</code> erweitert, überschreiben wir mit einer eigenen <code>toString</code>-Methode die der Oberklasse. Unsere lokale <code>toString</code>-Methode darf die Zugriffsrechte nicht reduzieren und muss deshalb ein <code>public</code> voranstellen.</li>
+<li>Das <code>@Override</code> ist eine sogenannte Annotation, die den Java-Compiler dazu veranlasst zu überprüfen, ob es in der Oberklasse eine Methode dieses Namens gibt. Wenn nicht, wird der Übersetzungsvorgang mit einer Fehlermeldung abgebrochen. (Hinweis: Annotationen wie <code>@Override</code> werden in aller Regel nicht in die Methodenzeile geschrieben, sondern in einer separaten Codezeile vor dem Methodenkopf.)</li>
+<li>Es ist nicht notwendig, externe Klassen, die man mit <code>import</code> zur Nutzung bereitstellt, im Detail zu kennen und zu verstehen.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Eine <code>getAge</code>-Methode bedeutet nicht, dass es in der Klasse eine Variable namens <code>age</code> gibt – wie das Beispiel zeigt. Es handelt sich hier <em>nicht</em> um eine sogenannte “Getter-Methode”.</p>
+</blockquote>
+<p><strong>Interaktion</strong>:</p>
+<pre><code>jshell&gt; Person p1 = new Person(LocalDate.of(2000,6,1), "Jo")
+p1 ==&gt; Person@4a87761d{ birth -&gt; 2000-06-01, name -&gt; "Jo" }
+
+jshell&gt; p1
+p1 ==&gt; Person@4a87761d{ birth -&gt; 2000-06-01, name -&gt; "Jo" }
+
+jshell&gt; p1.name
+$39 ==&gt; "Jo"
+
+jshell&gt; p1.birth
+|  Fehler:
+|  birth hat private-Zugriff in Person
+|  p1.birth
+|  ^------^
+
+jshell&gt; p1.getAge()
+$40 ==&gt; P24Y6M15D
+
+jshell&gt; p1.getAge().getYears()
+$41 ==&gt; 24
+
+jshell&gt; p1.getAge(LocalDate.of(2010,7,1)).getYears()
+$42 ==&gt; 10
+
+jshell&gt; p1.getAge(LocalDate.of(2010,5,1)).getYears()
+$43 ==&gt; 9
+
+jshell&gt; p1.getAge(LocalDate.of(1995,5,1)).getYears()
+$44 ==&gt; -5
+
+jshell&gt; p1.getAge(LocalDate.of(1995,7,1)).getYears()
+$45 ==&gt; -4</code></pre>
+<p><strong>Ausprobieren:</strong></p>
+<p>Was passiert, wenn man den Rumpf der <code>toString</code>-Methode folgendermaßen verkürzt?</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span> <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">super</span><span class="op">.</span><span class="fu">toString</span><span class="op">();</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Was passiert, wenn man sich bei <code>toString</code> verschreibt (<code>ToString</code>)? Vergleichen Sie es mit <code>@Override</code> und ohne die Annotation.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span> <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">super</span><span class="op">.</span><span class="fu">toString</span><span class="op">()</span> <span class="op">+</span> <span class="st">"{ "</span> <span class="op">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">"birth -&gt; "</span> <span class="op">+</span> birth <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name -&gt; </span><span class="sc">\"</span><span class="st">"</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"</span><span class="sc">\"</span><span class="st"> }"</span><span class="op">;</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="beispiel-person-mit-statischer-of-methode" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="beispiel-person-mit-statischer-of-methode"><span class="header-section-number">1.4</span> Beispiel: <code>Person</code> mit statischer <code>of</code>-Methode</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDate</span><span class="op">;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">Period</span><span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person <span class="op">{</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDate birth<span class="op">;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> Person <span class="fu">of</span><span class="op">(</span>LocalDate birth<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span>birth<span class="op">);</span> </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="fu">Person</span><span class="op">(</span>LocalDate birth<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        LocalDate now <span class="op">=</span> LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">();</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> birth<span class="op">.</span><span class="fu">isBefore</span><span class="op">(</span>now<span class="op">)</span> <span class="op">||</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>               birth<span class="op">.</span><span class="fu">isEqual</span><span class="op">(</span>now<span class="op">)</span> <span class="op">:</span> <span class="st">"Birthdate must not be in the future"</span><span class="op">;</span> </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">birth</span> <span class="op">=</span> birth<span class="op">;</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    Period <span class="fu">getAge</span><span class="op">(</span>LocalDate date<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Period<span class="op">.</span><span class="fu">between</span><span class="op">(</span>birth<span class="op">,</span> date<span class="op">);</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    Period <span class="fu">getAge</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">getAge</span><span class="op">(</span>LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    Person <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> Objects<span class="op">.</span><span class="fu">nonNull</span><span class="op">(</span>name<span class="op">)</span> <span class="op">:</span> <span class="st">"Name must not be null"</span><span class="op">;</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>        name <span class="op">=</span> name<span class="op">.</span><span class="fu">trim</span><span class="op">();</span> <span class="co">// entfernt vor- und nachstehende Leerzeichen</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="op">!</span>name<span class="op">.</span><span class="fu">isEmpty</span><span class="op">()</span> <span class="op">:</span> <span class="st">"Name must not be empty"</span><span class="op">;</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span> <span class="op">{</span> </span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> name<span class="op">;</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span> <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">super</span><span class="op">.</span><span class="fu">toString</span><span class="op">()</span> <span class="op">+</span> <span class="st">"{ "</span> <span class="op">+</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"birth -&gt; "</span> <span class="op">+</span> birth <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name -&gt; </span><span class="sc">\"</span><span class="st">"</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"</span><span class="sc">\"</span><span class="st"> }"</span><span class="op">;</span> </span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Was man hier lernt:</strong></p>
+<ul>
+<li>Nun sind die Variablen <code>name</code> und <code>birth</code> außerhalb der Klasse nicht einsehbar. Für <code>name</code> sind zwei Methoden notwendig geworden: <code>setName</code> und <code>getName</code>. Allerdings, und das ist der Vorteil, wenn man Variablenwerte über den Umweg von Methoden verändert, geschieht nun eine Überprüfung, ob der Name gewissen Anforderungen genügt.</li>
+<li>Der Konstruktor ist aufgrund von <code>private</code> nicht mehr von außerhalb der Klasse aufrufbar. Man <em>muss</em> jetzt Instanzen über die Klassenmethode <code>of</code> erzeugen.</li>
+<li>Die Methode <code>setName</code> ist nicht <code>void</code> (was man auch hätte machen können), sondern sie gibt die eigene <code>Person</code>-Instanz mittels <code>return this;</code> zurück. Das erlaubt es, Aufrufe zu verketten, siehe unten bei der Initialisierung von <code>p2</code>.</li>
+<li>So kurz der Code auch ist, er implementiert eine eigene Logik des Umgangs mit der Idee einer “Person” und kapselt sich sauber von der “Umwelt” ab. Eine Person kann ohne Namen erzeugt werden, allerdings darf das Geburtsdatum nicht in der Zukunft liegen. Ein später nachgelieferter oder auch später geänderter Name kann niemals “leer” sein, er muss aus mindestens einem Buchstaben bestehen. (Selbstredend kann man auch andere Datenlogiken als sinnvoll erachten. Das hängt vom Einsatzzweck und dem Kontext ab.)</li>
+</ul>
+<p><strong>Interaktion:</strong></p>
+<pre><code>jshell&gt; Person p1 = Person.of(LocalDate.of(2000,12,6))
+p1 ==&gt; Person@3224f60b{ birth -&gt; 2000-12-06, name -&gt; "" }
+
+jshell&gt; p1.setName("Niki")
+$10 ==&gt; Person@3224f60b{ birth -&gt; 2000-12-06, name -&gt; "Niki" }
+
+jshell&gt; p1.getName()
+$11 ==&gt; "Niki"
+
+jshell&gt; p1.getAge(LocalDate.of(2024,12,12))
+$12 ==&gt; P24Y6D
+
+jshell&gt; Person p2 = Person.of(LocalDate.of(2000,12,6)).setName("Ty")
+p2 ==&gt; Person@614ddd49{ birth -&gt; 2000-12-06, name -&gt; "Ty" }</code></pre>
+<p><strong>Fragen:</strong></p>
+<details>
+<summary>
+Hätte man für die Zusicherung in <code>setName</code> auch <code>assert name != null</code> verwenden können?
+</summary>
+Ja, selbstverständlich. Gewöhnen Sie sich dennoch das sprechende <code>Objects.nonNull(...)</code> an. Die Klasse <code>Objects</code> bietet noch ein paar andere hilfreiche Methoden an.
+</details>
+<details>
+<summary>
+Warum beginnt der Konstruktor mit <code>LocalDate now = LocalDate.now();</code>? Man hätte die Zeile auch weglassen können und <code>birth.isBefore(LocalDate.now())</code> und <code>birth.isEqual(LocalDate.now())</code> schreiben können. Oder?
+</summary>
+Es ist ein äußerst seltener Sonderfall: Zwischen den beiden <code>LocalDate.now()</code> könnte die Tagesgrenze liegen. Das würde zwar in diesem Fall keinen Schaden anrichten, aber es ist besser, mit der Variable <code>now</code> einen definierten Tageszeitpunkt zu wählen, gegenüber dem die beiden Vergleiche vorgenommen werden.
+</details>
+<p><strong>Ausprobieren:</strong></p>
+<p>Verändern Sie die Methode <code>setName</code> auf den Rückgabetyp <code>void</code>. Was müssen Sie am Code ändern? Was ändert sich an der Interaktion?</p>
+</section>
+<section id="counter-beispiel-klassen--und-instanzmethoden-bzw.--variablen" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="counter-beispiel-klassen--und-instanzmethoden-bzw.--variablen"><span class="header-section-number">1.5</span> <code>Counter</code>-Beispiel: Klassen- und Instanzmethoden bzw. -Variablen</h2>
+<p>In einer Klassendeklaration sind Klassenvariablen von Instanzvariablen durch das Schlüsselwort <code>static</code> unterscheidbar; gleiches gilt für Klassenmethoden.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter <span class="op">{</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="dt">int</span> number  <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> tick <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="bu">String</span> <span class="fu">showClass</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Counter{ counter = "</span> <span class="op">+</span> number <span class="op">+</span> <span class="st">" }"</span><span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Counter</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        number<span class="op">++;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    Counter <span class="fu">click</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        tick<span class="op">++;</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span> <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">super</span><span class="op">.</span><span class="fu">toString</span><span class="op">()</span> <span class="op">+</span> <span class="st">"{ tick = "</span> <span class="op">+</span> tick <span class="op">+</span> <span class="st">" }"</span><span class="op">;</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Was man hier lernt:</strong></p>
+<ul>
+<li>Klassenvariablen und -methoden (<code>static</code>) gelten nur im Kontext der Klasse. Darum müssen Sie von außerhalb (z.B. von der JShell) über den Klassennamen adressiert werden. In dem Fall also <code>Counter.number</code> bzw. <code>Counter.show()</code>. Innerhalb der Klasse ist die Erwähnung der Klasse nicht nötig.</li>
+<li>Instanzvariablen und -methoden gelten nur für die Instanz. Um sich die Instanz zu erhalten, muss sie in einer Variablen gespeichert sein, z.B. in <code>Counter c1</code>. Dann erfolgt der Zugriff auf die Variable bzw. die Methode über <code>c1.tick</code> bzw. <code>c1.click()</code>.</li>
+<li>Innerhalb der Klasse kann eine Instanz auch über das Schlüsselwort <code>this</code> auf die eigene Variable bzw. die Methode zugreifen: <code>this.tick</code> bzw. <code>this.click()</code>. Allerdings verzichtet man in aller Regel auf <code>this</code>, der Compiler fügt das automatisch hinzu.</li>
+</ul>
+<p><strong>Interaktion:</strong></p>
+<pre><code>jshell&gt; Counter.number
+$3 ==&gt; 0
+
+jshell&gt; Counter c1 = new Counter()
+c1 ==&gt; Counter@2f686d1f{ tick = 0 }
+
+jshell&gt; Counter.number
+$5 ==&gt; 1
+
+jshell&gt; Counter c2 = new Counter()
+c2 ==&gt; Counter@6e06451e{ tick = 0 }
+
+jshell&gt; Counter.number
+$7 ==&gt; 2
+
+jshell&gt; c1.click().click().click()
+$8 ==&gt; Counter@2f686d1f{ tick = 3 }
+
+jshell&gt; c2.click()
+$9 ==&gt; Counter@6e06451e{ tick = 1 }
+
+jshell&gt; Counter.number
+$10 ==&gt; 2
+
+jshell&gt; c1.tick
+$11 ==&gt; 3
+
+jshell&gt; c2.tick
+$12 ==&gt; 1</code></pre>
+<blockquote class="blockquote">
+<p>Mit Klassenvariablen und Klassenmethoden sollte man nur arbeiten, wenn der Gebrauch gut begründet ist. In der Mehrzahl der Fälle möchte man den Kontext von Instanzen nutzen, damit man von den Vorteilen der Objektorientierung profitiert.</p>
+</blockquote>
+</section>
+<section id="ausblick-record-datenklasse" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="ausblick-record-datenklasse"><span class="header-section-number">1.6</span> Ausblick: <code>record</code> (Datenklasse)</h2>
+<p>In modernem Java würde man die Klasse <code>Person</code> eher als Datenklasse (<code>record</code>) umsetzen. Der Code fällt dann kürzer aus.</p>
+<blockquote class="blockquote">
+<p>Zu Datenklassen gibt es vieles mehr zu sagen. Dieser Abschnitt soll nur zeigen, wie eine Umsetzung als Datenklasse aussieht und einer ersten Berührung mit Datenklassen dienen.</p>
+</blockquote>
+<div class="sourceCode" id="cb19"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDate</span><span class="op">;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">Period</span><span class="op">;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">record</span> <span class="fu">Person</span><span class="op">(</span>LocalDate birth<span class="op">,</span> <span class="bu">String</span> name<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Person <span class="op">{</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> Objects<span class="op">.</span><span class="fu">nonNull</span><span class="op">(</span>name<span class="op">)</span> <span class="op">:</span> <span class="st">"Name must not be null"</span><span class="op">;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        name <span class="op">=</span> name<span class="op">.</span><span class="fu">trim</span><span class="op">();</span> <span class="co">// entfernt vor- und nachstehende Leerzeichen</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="op">!</span>name<span class="op">.</span><span class="fu">isEmpty</span><span class="op">()</span> <span class="op">:</span> <span class="st">"Name must not be empty"</span><span class="op">;</span>   </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Person</span><span class="op">(</span>LocalDate birth<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">(</span>birth<span class="op">,</span> <span class="st">""</span><span class="op">);</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    Person <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span>birth<span class="op">,</span> name<span class="op">);</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    Period <span class="fu">getAge</span><span class="op">(</span>LocalDate date<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Period<span class="op">.</span><span class="fu">between</span><span class="op">(</span>birth<span class="op">,</span> date<span class="op">);</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    Period <span class="fu">getAge</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">getAge</span><span class="op">(</span>LocalDate<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Die im Konstruktor angegebenen Variablen sind (1) <code>final</code>, d.h. unveränderlich (<em>immutable</em>) und es werden (2) für die Variablen automatisch Abrufmethoden angelegt, hier <code>birth()</code> und <code>name()</code>.</li>
+<li>Aufgrund der Immutabilität (nicht Überschreibbarkeit) von Variablen in Datenklassen, kann man auch keine Variablenwerte mehr nach dem Konstruktoraufruf ändern! Wenn man also den Namen mit <code>setName</code> anpassen möchte, <em>muss</em> man eine neue Instanz von <code>Person</code> zurückgeben, die das Geburtsdatum beibehält, aber mit einem neuen Namen versehen ist. Datenklassen verlangen nach einem anderen Programmierstil!</li>
+<li>Die Überprüfung für den Wert von <code>name</code> muss in den Konstruktor wandern. Grund ist wieder die Immutabilität.</li>
+<li>Datenklassen erzeugen automatisch eine <code>toString</code>-Methode, die die Variablenwerte aus dem Konstruktur enthält und anzeigt. Das ist in den meisten Fällen praktisch und hilfreich.</li>
+<li>Wenn man möchte, könnte man auch hier eine Klassenmethode namens <code>of</code> anlegen, was bei Datenklassen aber in der Regel weniger Sinn macht.</li>
+</ul>
+<p><strong>Interaktion:</strong></p>
+<pre><code>jshell&gt; new Person(LocalDate.of(2000,1,1), "Sy")
+$25 ==&gt; Person[birth=2000-01-01, name=Sy]
+
+jshell&gt; Person p = new Person(LocalDate.of(2000,1,1), "Sy")
+p ==&gt; Person[birth=2000-01-01, name=Sy]
+
+jshell&gt; p.name()
+$27 ==&gt; "Sy"
+
+jshell&gt; p.birth()
+$28 ==&gt; 2000-01-01
+
+jshell&gt; p = p.setName("Zu")
+p ==&gt; Person[birth=2000-01-01, name=Zu]
+
+jshell&gt; p.getAge()
+$30 ==&gt; P24Y11M15D</code></pre>
+<p><strong>Fragen:</strong></p>
+<details>
+<summary>
+Warum heißt es in der Interaktion <code>p = p.setName("Zu")</code>?
+</summary>
+Wenn <code>p</code> eine Variable ist, die ein und die selbe Person repräsentieren soll, dann muss die neue Instanz von <code>Person</code> dem <code>p</code> zugewiesen werden. Grundsätzlich sollte die neue Instanz einer Variablen zugewiesen werden, weil ein einfaches <code>p.setName("Zu")</code> ein nicht gespeichertes Objekt zur Folge hätte, was somit nicht mehr zugreifbar ist. In der JShell erfolgt die Zuweisung zu einer Variablen automatisch, damit man leichter experimentieren kann.
+</details>
+</section>
+<section id="beispiel-stringcomposer-methodenüberladung-method-overloading" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="beispiel-stringcomposer-methodenüberladung-method-overloading"><span class="header-section-number">1.7</span> Beispiel <code>StringComposer</code>: Methodenüberladung (<em>method overloading</em>)</h2>
+<p>Die Signatur einer Methode setzt sich zusammen aus dem Methodennamen und den Typen ihrer Parameter. Signaturen unterscheiden sich im Methodennamen und, bei gleichem Methodennamen, in der Anzahl und Reihenfolge der Typparameter. Ausdrücklich <em>nicht</em> zur Signatur zählen der Rückgabetyp einer Methode, Ausnahmen (die kann man im Methodenkopf angeben) und die Parameternamen.</p>
+<p>Gibt es zu einem Methodennamen mehrere unterschiedliche Signaturen, spricht man von Methodenüberladung. Das meint: Man kann die Methode unter ihrem Namen mit unterschiedlichen Argumenttypen und/oder einer unterschiedlichen Anzahl von Argumenten aufrufen.</p>
+<p>Das nachstehende Beispiel zeigt die Methodenüberladung für die Methode <code>append</code>. Die Signaturen unterscheiden sich eindeutig (sonst würde der Compiler einen Fehler melden), so dass beim Methodenaufruf stets die passende Methode ausgewählt wird.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> StringComposer <span class="op">{</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> s<span class="op">;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">StringComposer</span><span class="op">(</span><span class="bu">String</span> s<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">s</span> <span class="op">=</span> s<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">append</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> s <span class="op">+=</span> n<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">append</span><span class="op">(</span><span class="bu">String</span> text<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> s <span class="op">+=</span> text<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">append</span><span class="op">(</span><span class="bu">String</span> text<span class="op">,</span> <span class="dt">int</span> times<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> times<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> s <span class="op">+=</span> text<span class="op">;</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> s<span class="op">;</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">append</span><span class="op">(</span><span class="dt">int</span> n<span class="op">,</span> <span class="dt">int</span> times<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="fu">append</span><span class="op">(</span><span class="st">""</span> <span class="op">+</span> n<span class="op">,</span> times<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">append</span><span class="op">(</span><span class="bu">String</span><span class="kw">...</span> texts<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> text <span class="op">:</span> texts<span class="op">)</span> s <span class="op">+=</span> text<span class="op">;</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> s<span class="op">;</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">append</span><span class="op">(</span><span class="bu">String</span> a<span class="op">,</span> <span class="bu">String</span> b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> s <span class="op">+=</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span> <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">super</span><span class="op">.</span><span class="fu">toString</span><span class="op">()</span> <span class="op">+</span> <span class="st">"{ s -&gt; </span><span class="sc">\"</span><span class="st">"</span> <span class="op">+</span> s <span class="op">+</span> <span class="st">"</span><span class="sc">\"</span><span class="st"> }"</span><span class="op">;</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Was man hier lernt</strong></p>
+<ul>
+<li>Die Signaturen lauten <code>append(int)</code>, <code>append(String)</code>, <code>append(String, int)</code> usw. Sie müssen alle unterschiedlich sein. Man sagt: Die Methode <code>append</code> ist überladen. (Im Beispiel sind alle Rückgabetypen gleich. Das müsste nicht so sein.)</li>
+<li>Beim Aufruf wird die spezifischste Methode gewählt. Bei einer bzw. zwei Zeichenketten im Aufruf, werden die Methoden mit den Signaturen <code>append(String)</code> bzw. <code>append(String, String)</code> gewählt. Bei keiner, drei oder mehr Zeichenketten greift <code>append(String...)</code>.</li>
+<li>Eine Zuweisung wie z.B. <code>s += text</code> verändert nicht nur eine Variable, sie gibt zudem den Zuweisungswert zurück. Das erlaubt neben der Zuweisung eine Rückgabe des Werts mittels <code>return</code>.</li>
+</ul>
+<p><strong>Interaktion</strong></p>
+<pre><code>jshell&gt; StringComposer sc = new StringComposer("Hi")
+sc ==&gt; StringComposer@6500df86{ s -&gt; "Hi" }
+
+jshell&gt; sc.append(3)
+$3 ==&gt; "Hi3"
+
+jshell&gt; sc.append("You")
+$4 ==&gt; "Hi3You"
+
+jshell&gt; sc.append("c", 3)
+$5 ==&gt; "Hi3Youccc"
+
+jshell&gt; sc.append(5, 3)
+$6 ==&gt; "Hi3Youccc555"
+
+jshell&gt; sc.append("a", "b")
+$7 ==&gt; "Hi3Youccc555ab"
+
+jshell&gt; sc.append("a", "b", "c", "d")
+$8 ==&gt; "Hi3Youccc555ababcd"
+
+jshell&gt; sc.append()
+$9 ==&gt; "Hi3Youccc555ababcd"
+
+jshell&gt; sc
+sc ==&gt; StringComposer@6500df86{ s -&gt; "Hi3Youccc555ababcd" }</code></pre>
+<p><strong>Ausprobieren</strong></p>
+<p>Verändern Sie den Rückgabewert einer <code>append</code>-Methode in <code>void</code>. Ändert das etwas an der Methodenüberladung?</p>
+<p>Sind Sie sicher, dass <code>sc.append("a", "b")</code> nicht die Methoden mit der Signatur <code>append(String...)</code> aufruft? Verändern Sie den Code in den Methodenrümpfen so, dass unterscheidbar ist, welche Methode aufgerufen wird. (Im Zweifel dürfen Sie ausnahmsweise <code>System.out.println</code> verwenden.)</p>
+</section>
+<section id="counter-initiale-codeblöcke-static-...-und-..." class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="counter-initiale-codeblöcke-static-...-und-..."><span class="header-section-number">1.8</span> <code>Counter</code>: Initiale Codeblöcke <code>static { ... }</code> und <code>{ ... }</code></h2>
+<p>Das obige Schema für eine Klassendeklaration hat zwei initiale Codeblöcke unterschlagen, die in einer Klassendeklaration vorkommen können.</p>
+<pre><code>class &lt;Name&gt; {
+    static { /* Klasseninitialisierung */ }
+    { /* Instanzinitialisierung */ }
+    &lt;Deklaration von Klassenvariablen mit `static`&gt;
+    &lt;Deklaration von Instanzvariablen&gt;
+    &lt;Deklaration von Klassenmethoden mit `static`&gt;
+    &lt;Deklaration von Instanzmethoden&gt;
+}</code></pre>
+<p>Man kann in einer Klassendeklaration einen statischen Block <code>static { ... }</code> einfügen, der zur Ladezeit der Klasse ausgeführt wird, und einen Block <code>{ ... }</code>, der beim Instanziieren von Objekten zur Ausführung kommt.</p>
+<p>Nehmen wir die Klasse <code>Counter</code> und fügen in den Initialisierungblöcken <code>println</code>-Anweisungen ein zur Nachvollziehbarkeit des Zeitpunkts der Ausführung des Blocks.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter <span class="op">{</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="dt">int</span> number  <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> tick <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="op">{</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Executed at class loading time"</span><span class="op">);</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span> </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Executed prior to constructor call"</span><span class="op">);</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="bu">String</span> <span class="fu">showClass</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Counter{ counter = "</span> <span class="op">+</span> number <span class="op">+</span> <span class="st">" }"</span><span class="op">;</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Counter</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>        number<span class="op">++;</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    Counter <span class="fu">click</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>        tick<span class="op">++;</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span> <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">super</span><span class="op">.</span><span class="fu">toString</span><span class="op">()</span> <span class="op">+</span> <span class="st">"{ tick = "</span> <span class="op">+</span> tick <span class="op">+</span> <span class="st">" }"</span><span class="op">;</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Kopiert man den Code in die JShell und erzeugt eine erste Instanz, sieht man deutlich den Effekt der Blöcke. Der statische Init-Block (Klasseninitialisierung) wird nur ein einziges Mal aufgerufen, der andere Init-Block (Instanzinitialisierung) wird bei jeder Instanziierung aufgerufen und zwar vor der Abarbeitung des Codes im Konstuktor.</p>
+<p><strong>Interaktion</strong></p>
+<pre><code>jshell&gt; new Counter()
+Executed at class loading time
+Executed prior to constructor call
+$2 ==&gt; Counter@2f686d1f{ tick = 0 }
+
+jshell&gt; new Counter()
+Executed prior to constructor call
+$3 ==&gt; Counter@6e06451e{ tick = 0 }
+
+jshell&gt; new Counter()
+Executed prior to constructor call
+$4 ==&gt; Counter@6e1567f1{ tick = 0 }</code></pre>
+<blockquote class="blockquote">
+<p>Man sollte den Block für die Instanzinitialisierung nicht als Ersatz für einen Konstruktor nehmen und auf seinen Gebrauch verzichten. Gleiches gilt für den Block zur Klasseninitialisierung. Man sollte also wissen, dass es diese Blöcke gibt, sie aber nur dann einsetzen, wenn es sehr gute Gründe dafür gibt.</p>
+</blockquote>
+</section>
+<section id="gratis-methoden-von-object" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="gratis-methoden-von-object"><span class="header-section-number">1.9</span> “Gratis”-Methoden von <code>Object</code></h2>
+<p>Klassen, die ohne ein explizites <code>extends</code> im Kopf der Deklaration auskommen, haben ein implizites <code>extends Object</code> da stehen. Die Klassen dieses Kapitels kann man also gedanklich im Deklarationskopf lesen als:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person <span class="kw">extends</span> <span class="bu">Object</span> <span class="op">{</span> <span class="co">/* body */</span> <span class="op">}</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter <span class="kw">extends</span> <span class="bu">Object</span> <span class="op">{</span> <span class="co">/* body */</span> <span class="op">}</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> StringComposer <span class="kw">extends</span> <span class="bu">Object</span> <span class="op">{</span> <span class="co">/* body */</span> <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Jede “einfache” Klasse erweitert die Klasse <code>Object</code>. Das hat zur Folge, dass jede Klasse die folgenden Methoden von <code>Object</code> übernimmt oder ausdrücklich mit einer eigenen Implementierung überschreibt:</p>
+<dl>
+<dt><code>protected Object clone()</code></dt>
+<dd>
+Erzeugt eine Kopie des Objekts
+</dd>
+<dt><code>public boolean equals(Object other)</code></dt>
+<dd>
+Objekte vergleicht man in aller Regel nicht mit dem Gleichheitsoperator <code>==</code> (es sei denn, man möchte die Identität, d.h. die Referenzgleichheit der Objekte überprüfen), sondern mit Hilfe der <code>equals</code>-Methode, die es erlaubt, die inhaltliche Gleichheit von Objekten anhand ihrer Datenwerte zu überprüfen. Allerdings muss man diese Methode überschreiben und mit einer passenden Implementierung ersetzen. Mehr dazu in einem gesonderten Abschnitt. <!-- TODO: Verlinken --> Die Standard-Implementierung in <code>Object</code> sieht wie folgt aus:
+</dd>
+</dl>
+<div class="sourceCode" id="cb27"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">equals</span><span class="op">(</span><span class="bu">Object</span> other<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span> <span class="op">==</span> other<span class="op">;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl>
+<dt><code>public final Class&lt;?&gt; getClass()</code></dt>
+<dd>
+Liefert die Laufzeit-Repräsentation der Klasse des Objekts.
+</dd>
+<dt><code>public int hashCode()</code></dt>
+<dd>
+Gibt den HashCode eines Objekts zurück. Der HashCode für ein Objekt wird benötigt für Datenstrukturen wie z.B. die <code>HashMap</code>. Zwei Objekte die gleich sind, müssen den gleichen HashCode haben.
+</dd>
+<dt><code>public String toString()</code></dt>
+<dd>
+Liefert eine Repräsentation, d.h. eine textuelle Selbstdarstellung des Objekts zurück. Die Standards-Implementierung von <code>Object</code> sieht (geringfügig vereinfacht) wie folgt aus:
+</dd>
+</dl>
+<div class="sourceCode" id="cb28"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">getClass</span><span class="op">().</span><span class="fu">getName</span><span class="op">()</span> <span class="op">+</span> <span class="st">"@"</span> <span class="op">+</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>               <span class="bu">Integer</span><span class="op">.</span><span class="fu">toHexString</span><span class="op">(</span><span class="fu">hashCode</span><span class="op">());</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Die noch verbleibenden Methoden <code>notify()</code>, <code>notifyAll()</code> und die überladene Methode <code>wait(...)</code> sind relevant für die nebenläufige Programmierung mit Threads. Das wollen wir an dieser Stelle vorerst übergehen.</p>
+</section>
+<section id="was-genau-ist-ein-objekt" class="level2 page-columns page-full" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="was-genau-ist-ein-objekt"><span class="header-section-number">1.10</span> Was genau ist ein Objekt?</h2>
+<p>Technisch gesprochen belegt ein Objekt einen Speicherbereich in einem Speicher, der sich Heap (engl. für “Haufen”) nennt. Der Heap ist ein verwalteter Speicherbereich. Die Speicherverwaltung schafft Platz für neu dazukommende Objekte, reorganisiert gelegentlich den Speicher (z.B. wenn es zu viele Lücken gibt, so dass neue Objekte Platz finden) und kümmert sich darum, dass Objekte, die direkt oder indirekt durch die aktiven Referenzen nicht mehr erreicht werden, aus dem Heap entfernt werden; dies nennt sich Garbage Collection (GC, Speicherbereinigung).</p>
+<p>Wenn in Java der <code>new</code>-Operator zum Einsatz kommt, wird ein Objekt erzeugt. Nehmen wir den obigen Code zur Klasse <code>Person</code> zur Anschauung (die Variante mit der <code>of</code>-Methode):</p>
+<pre><code>jshell&gt; Person p = Person.of(LocalDate.of(2000,1,1)).setName("Jes")
+p ==&gt; Person@5ce81285{ birth -&gt; 2000-01-01, name -&gt; "Jes" }</code></pre>
+<p>Zum Anlegen des Objektes werden in der Klasse <code>Person</code> lediglich die Instanzvariablen (die “normalen” und nicht als <code>static</code> ausgewiesenen Variablendeklarationen) betrachtet. Entsprechend der dortigen Typangaben wird der benötigte Speicherplatz für die Variablen bereitgestellt. Auf dem Heap kommt das Objekt mit folgendem Speicheraufbau unter einer dynamisch vergebenen Speicheradresse zum Tragen:</p>
+<table class="caption-top table">
+<caption>Speicherorganisation eines Objekts, das eine Instanz von <code>Person</code> ist</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Offset</th>
+<th style="text-align: center;">Bytes</th>
+<th style="text-align: left;">Feld</th>
+<th style="text-align: left;">Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Mark Word</td>
+<td style="text-align: left;">Metadaten: HashCode, Synchronisation, GC</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Class Pointer</td>
+<td style="text-align: left;">Verweis auf die Klassenbeschreibung</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">birth</td>
+<td style="text-align: left;">Referenz auf <code>LocalDate</code>-Instanz</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Referenz auf <code>String</code>-Instanz</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Padding</td>
+<td style="text-align: left;">Auffüll-Bytes für Gesamtgröße von 32 Bytes</td>
+</tr>
+</tbody>
+</table>
+<p>Ohne hier auf alle Details einzugehen: Neben der Speicheradresse (dem entspricht die Referenz) für diesen Speicherblock, weist die Tabelle die entscheidenden und wichtigen Infos aus: Den HashCode (sofern er nicht über eine überschriebene <code>hashCode</code>-Methode berechnet wird), den Verweis auf die Klasse, von der das Objekt instanziiert wird (erhältlich über <code>getClass()</code>), und die Speicherbedarfe für die Instanzvariablen, hier Referenzen auf die Objekte von den Klassen <code>LocalDate</code> und <code>String</code>.</p>
+<p>Die Variable <code>p</code> im obigen Beispiel enthält also die Referenz auf ein Objekt, das eine Instanz der Klasse <code>Person</code> ist. Der Referenz entspricht die Speicheradresse, an der der Speicherblock für das Objekt beginnt. Die Speicheradresse ist nicht einsehbar, sie wird aber intern herangezogen, wenn zwei Objekte auf Gleichheit mit dem Operator <code>==</code> geprüft werden.</p>
+<p>Als Mensch helfen die technischen Einblicke für das Verständnis, aber Bilder sind besser, um einen Gesamtblick zu bekommen. Man kann Referenzen sehr gut als Pfeile (= Verweise) auf Objekte verstehen, wobei der Name am Pfeil den Variablennamen kennzeichnet. Objekte sind in dem nachstehenden Bild als Kästen mit abgerundeten Ecken dargestellt. In dem Objekt steht entweder der Name der Klasse, von der das Objekt instanziiert wurde, oder seine Repräsentation, wie sie durch die <code>toString</code>-Methode bestimmt ist.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="Klassen/Person-Instanz.svg" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption class="margin-caption">Eine Instanz von Person</figcaption>
+</figure>
+</div>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Ich unterschlage hier, dass in dem Schema zwei Arten von Initialisierungsblöcken vorkommen: der Block <code>static { ... }</code>, der zur Ladezeit der Klasse ausgeführt wird, und der Block <code>{ ... }</code>, der beim Instanziieren von Objekten ausgeführt wird.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Vorwort">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vorwort</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./legal/impressum.html">
+<p>Impressum</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./legal/datenschutz.html">
+<p>Datenschutzerklärung</p>
+</a>
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/denkspuren/plj/edit/main/Klassen.md" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/denkspuren/plj/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li><li><a href="https://github.com/denkspuren/plj/blob/main/Klassen.md" class="toc-action"><i class="bi empty"></i>Quellcode anzeigen</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
