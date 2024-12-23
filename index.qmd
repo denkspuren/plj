@@ -1,10 +1,18 @@
 # Vorwort {.unnumbered}
 
-Dieses Buchprojekt hat seinen Zündungsmoment im Wintersemester 2024/25 gefunden. Meine Studierenden aus der Veranstaltung "Programmieren 1" wünschten sich weitere Aufklärung zur Objektorientierung.
+Dieses Buchprojekt hat seinen Zündungsmoment im Wintersemester 2024/25, kurz vor Weihnachten, gefunden. Meine Studierenden aus der Veranstaltung "Programmieren 1" wünschten sich weitere Aufklärung zur Objektorientierung.
 
-Dieses Schreibprojekt ist derzeit nicht terminiert. In den Git-Repositories zu meinen Programmierveranstaltungen haben sich sehr viel Material und Codebeispiele angesammelt. Das will nun neu sortiert, zugeordnet und überarbeitet werden.
+"Programmieren 1" ist der Name des Moduls, das ich für Bachelor-Studierende des Studiengangs Informatik, Ingenieurinformatik und Bioinformatik an der THM (Technische Hochschule Mittelhessen) im 1. Semester unterrichte. "Programmieren 2" ist die Fortsetzung im 2. Semester. Dieses Buchprojekt möchte beide Kursinhalte abdecken.
 
-Ich bin über alle Korrekturen und entdeckte Fehler dankbar. Das Schreibprojekt ist unter die Lizenz CC BY-NC-ND 4.0 gestellt.
+Das Projekt ist derzeit nicht terminiert, d.h. ich habe mir kein Datum gesetzt, wann es fertig sein soll. In den Git-Repositories zu den beiden Programmierveranstaltungen hat sich sehr viel Material an Texten und Codebeispielen angesammelt. Das Material möchte ich nun neu sortieren, zugeordnen und überarbeiten. Schrittweise soll hier ein Kapitel nach dem anderen hinzukommen. Vielleicht muss ich gelegentlich Umstellungen vornehmen, damit es im Aufbau mehr Sinn macht. Das hier ist also _Work in Progress_!
+
+Das Schreibprojekt ist unter eine _Creative Commons_-Lizenz [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de) gestellt. Sie dürfen die Inhalte verbreiten, sie aber nicht kommerziell nutzen und nicht modifizieren. Ich empfehle ich Ihnen folgende Zitierweise:
+
+> Herzberg, D.: _Programmieren lernen mit Java: Eine Einführung auf Hochschulniveau_, https://denkspuren.github.io/plj/ (Zugriff: _<Datum>_), Lizenz: CC BY-NC-ND 4.0
+
+Ich bin über alle Korrekturen, Hinweise und Vorschläge dankbar. Wenn Sie mögen, schreiben Sie mir eine Email oder nutzen Sie die Möglichkeiten von GitHub, um sich einzubringen. Vielen Dank!
+
+Herzlichst,
 
 Dominikus Herzberg<br>
 [https://www.thm.de/mni/dominikus-herzberg](https://www.thm.de/mni/dominikus-herzberg)
