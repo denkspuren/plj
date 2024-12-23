@@ -1,3 +1,7 @@
+## Manually publish to gh-pages
+
+    quarto publish gh-pages
+
 ## Zeichenwerkzeuge
 
 https://textik.com/
