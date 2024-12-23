@@ -4,17 +4,32 @@ project:
 book:
   title: "Programmieren lernen mit Java"
   subtitle: "Eine Einführung auf Hochschulniveau"
-  author: "© [Dominikus Herzberg](https://www.thm.de/mni/dominikus-herzberg)"
+  author: "[Dominikus Herzberg](https://www.thm.de/mni/dominikus-herzberg)"
+  license: "CC BY-NC-ND"
+  # https://quarto.org/docs/reference/dates.html#using-a-date-style
   date: today
   date-format: long
   # affilliation: "Technische Hochschule Mittelhessen (THM)"
   chapters:
     - index.qmd
     - Klassen.md
-    - KodierungUndRepräsentation.md
+    # - KodierungUndRepräsentation.md
   navbar: 
     title: "Programmieren lernen mit Java: Eine Einführung auf Hochschulniveau"
-    
+    right:
+      - text: "CC BY-NC-ND 4.0"
+        href: https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de
+  # https://quarto.org/docs/websites/website-search.html#search-appearance
+  search:
+    location: sidebar
+    type: textbox
+  sidebar:
+   # logo: "legal/CC-BC-NC-ND_88x31.png"
+   #logo: "legal/by-nc-nd.png"
+   text: "Huhu"
+  # https://quarto.org/docs/books/book-output.html#sidebar-tools
+  repo-url: https://github.com/denkspuren/plj
+  repo-actions: [edit,issue,source]
   page-footer: 
     center:
       - text: "Impressum"
@@ -37,6 +52,7 @@ format:
     number-depth: 3
     fig-cap-location: margin
     lang: de
+    email-obfuscation: javascript
   pdf:
     documentclass: scrbook
 

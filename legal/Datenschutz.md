@@ -13,7 +13,7 @@ Wiesenstraße 14<br>
 35390 Gießen
 
 Telefon: +49 (0)641 309 2300<br>
-E-Mail: dominikus.herzberg@mni.thm.de
+E-Mail: [dominikus.herzberg@mni.thm.de](mailto:dominikus.herzberg@mni.thm.de)
 
 Sollten Sie per E-Mail mit uns Kontakt aufnehmen, werden die mitgeteilten Daten von uns gespeichert, um Ihr Anliegen zu bearbeiten.
 

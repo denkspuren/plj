@@ -4,7 +4,7 @@ Dieses Buchprojekt hat seinen Zündungsmoment im Wintersemester 2024/25 gefunden
 
 Dieses Schreibprojekt ist derzeit nicht terminiert. In den Git-Repositories zu meinen Programmierveranstaltungen haben sich sehr viel Material und Codebeispiele angesammelt. Das will nun neu sortiert, zugeordnet und überarbeitet werden.
 
-Ich bin über alle Korrekturen und entdeckte Fehler dankbar.  Allerdings sei angemerkt: Aktuell ist das Schreibprojekt nicht unter eine freie Lizenz gestellt. Das Copyright der Texte und sonstigen Materialien liegt bei mir. Dem widerspricht nicht, das Schreiben im Git-Repository und die aktuelle Ansichtsversion als GitHub-Page öffentlich zu machen.
+Ich bin über alle Korrekturen und entdeckte Fehler dankbar. Das Schreibprojekt ist unter die Lizenz CC BY-NC-ND 4.0 gestellt.
 
 Dominikus Herzberg<br>
 [https://www.thm.de/mni/dominikus-herzberg](https://www.thm.de/mni/dominikus-herzberg)
