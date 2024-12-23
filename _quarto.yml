@@ -53,8 +53,8 @@ format:
     fig-cap-location: margin
     lang: de
     email-obfuscation: javascript
-  pdf:
-    documentclass: scrbook
+  # pdf:
+  #   documentclass: scrbook
 
 #  typst:
 #    title: "Programmieren lernen mit Java"
