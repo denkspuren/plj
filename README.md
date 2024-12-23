@@ -1,4 +1,4 @@
-# Programmieren lernen mit Java: Eine Einführung auf Hochschulniveau
+# Programmieren lernen mit Java: <br>Eine Einführung auf Hochschulniveau
 
 Dieses Buchprojekt hat seinen Zündungsmoment im Wintersemester 2024/25 gefunden. Meine Studierenden aus der Veranstaltung "Programmieren 1" wünschten sich weitere Aufklärung zur Objektorientierung.
 
