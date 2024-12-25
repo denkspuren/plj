@@ -1,6 +1,6 @@
-# Kodierung und Repräsentation
+# Kodierung, Repräsentation und Notation
 
-## Einleitung
+## Was ist was?
 
 In der Informatik und insbesondere in der Programmierung macht man sprachlich einen Unterschied zwischen
 
@@ -12,7 +12,7 @@ Unter dem Begriff des Sachverhalts sei alles gefasst, was als Daten, Datenstrukt
 
 ##### Beispiel: Primitive Typen
 
-Sie kennen diese Unterscheidung bereits für primitive Typen. Ein kleines Beispiel: Zahlen vom Typ `int` und `long` werden _intern_ im Zweierkomplement _kodiert_. _Dargestellt_ werden sie jedoch _nach außen_ als Zahlen im Zehnerformat mit einem Vorzeichen bei negativen Zahlen. _Notiert_ werden Ganzzahlen als Zahlen-Literale in einer der folgenden Schreibweisen: im Zehnerformat (dezimal), im Sechzehnerformat (hexadezimal), im Achterformat (oktal) oder im Zweierformat (binär). In Java ist die Schreibweise vorzeichenlos, das Minuszeichen ist ein unärer Operator und nicht Teil des Literals (der Zahlenschreibweise).
+Sie kennen diese Unterscheidung bereits für primitive Typen. Zahlen vom Typ `int` und `long` werden _intern_ im Zweierkomplement _kodiert_. _Dargestellt_ werden sie jedoch _nach außen_ als Zahlen im Zehnerformat mit einem Vorzeichen bei negativen Zahlen. _Notiert_ werden Ganzzahlen als Zahlen-Literale in einer der folgenden Schreibweisen: im Zehnerformat (dezimal), im Sechzehnerformat (hexadezimal), im Achterformat (oktal) oder im Zweierformat (binär). In Java ist die Schreibweise vorzeichenlos, das Minuszeichen ist ein unärer Operator und nicht Teil des Literals (der Zahlenschreibweise).
 
 <!--
 ```java
