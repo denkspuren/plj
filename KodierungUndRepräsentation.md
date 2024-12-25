@@ -34,6 +34,17 @@ $62 ==> "11111111111111111111111010100111"
 Es wäre nicht besonders geschickt, sich von der Darstellung leiten zu lassen und Zahlen intern als Ziffernfolgen von 0 bis 9, also als `char`s zu kodieren. Darunter würde die Recheneffizienz erheblich leiden.
 -->
 
+#### Alles ist Kodierung, alles Repräsentation
+
+Die beiden Begriffe der Kodierung und der Repräsentation sind wie zwei Seiten einer Medaille. Ein Rechner kodiert letztlich alles als Einsen und Nullen.
+
+<!--
+Speicherkodierung, repräsentiert im Binarformat
+
+
+-->
+
+
 Bei Objekten entspricht die Repräsentation in einfachen Fällen der `toString`-Methode. Und die Kodierung entspricht der getroffenen Wahl und Zusammenstellung von Instanzvariablen mit ihren Typen. Dazu kommen Methoden, die zwischen Kodierung und Darstellung vermitteln. 
 
 
