@@ -13,7 +13,7 @@ book:
   chapters:
     - index.qmd
     - Klassen.md
-    # - KodierungUndRepräsentation.md
+    - KodierungUndRepräsentation.md
   navbar: 
     title: "Programmieren lernen mit Java: Eine Einführung auf Hochschulniveau"
     right:

@@ -1,19 +1,25 @@
 # Kodierung und Repräsentation
 
-#### Einleitung
+## Einleitung
 
-In der Informatik und insbesondere in der Programmierung muss man lernen einen Unterschied zu machen zwischen
+In der Informatik und insbesondere in der Programmierung macht man sprachlich einen Unterschied zwischen
 
-* der _Kodierung_; also wie man einen Sachverhalt *intern* und rechnerisch geeignet durch Strukturen abbildet,
+* der _Kodierung_; also wie man einen Sachverhalt *intern* und rechnerisch geeignet abbildet,
 * der _Repräsentation_ (auch _Darstellung_); also wie man einen Sachverhalt *extern* und meist zugänglich für Menschen textuell oder visuell aufbereitet.
+* der _Notation_ (auch _Schreibweise_); also wie man einen Sachverhalt (in der Regel) textuell beschreibt, um ihn maschinell zu rekonstruieren
 
-Ein kleines Beispiel: Zahlen vom Typ `int` und `long` werden _intern_ im Zweierkomplement _kodiert_. _Dargestellt_ werden sie jedoch _nach außen_ als Zahlen im Zehnerformat mit einem Vorzeichen bei negativen Zahlen.
+Unter dem Begriff des Sachverhalts sei alles gefasst, was als Daten, Datenstruktur oder Datenverlauf in einem Computerprogramm abgebildet sein kann. Der Begriff des Datums ist hier sehr umfassend gemeint, er schließt auch Programme, eine Programmstruktur oder einen Programmauflauf mit ein.
 
+##### Beispiel: Primitive Typen
+
+Sie kennen diese Unterscheidung bereits für primitive Typen. Ein kleines Beispiel: Zahlen vom Typ `int` und `long` werden _intern_ im Zweierkomplement _kodiert_. _Dargestellt_ werden sie jedoch _nach außen_ als Zahlen im Zehnerformat mit einem Vorzeichen bei negativen Zahlen. _Notiert_ werden Ganzzahlen als Zahlen-Literale in einer der folgenden Schreibweisen: im Zehnerformat (dezimal), im Sechzehnerformat (hexadezimal), im Achterformat (oktal) oder im Zweierformat (binär). In Java ist die Schreibweise vorzeichenlos, das Minuszeichen ist ein unärer Operator und nicht Teil des Literals (der Zahlenschreibweise).
+
+<!--
 ```java
-jshell> 345
+jshell> 345 // Außendarstellung
 $59 ==> 345
 
-jshell> String.format("%32s", Integer.toBinaryString(345)).replace(' ', '0')
+jshell> String.format("%32s", Integer.toBinaryString(345)).replace(' ', '0') // Kodierung
 $60 ==> "00000000000000000000000101011001"
 
 jshell> -345
@@ -26,14 +32,16 @@ $62 ==> "11111111111111111111111010100111"
 > Zum Hintergrund: Im Zweierkomplement wird ein Vorzeichenwechsel dadurch realisiert, dass die Bits invertiert werden (eine 1 wird zur 0, eine 0 zur 1) und anschließend ein 1 addiert wird. Das scheint umständlich. Der Vorteil ist jedoch, dass man im Zweierkomplement mit einer gewöhnlichen Binäraddition negative und positive Zahlen addieren kann und es auch keiner expliziten Operation der Subtraktion bedarf.
 
 Es wäre nicht besonders geschickt, sich von der Darstellung leiten zu lassen und Zahlen intern als Ziffernfolgen von 0 bis 9, also als `char`s zu kodieren. Darunter würde die Recheneffizienz erheblich leiden.
+-->
 
-Bei Objekten entspricht die Repräsentation in einfachen Fällen der `toString`-Methode. Und die Kodierung entspricht der getroffenen Wahl und Zusammenstellung von Instanzvariablen mit ihren Typen. Dazu kommen Methoden (wie `toString`), die zwischen Kodierung und Darstellung vermitteln.
+Bei Objekten entspricht die Repräsentation in einfachen Fällen der `toString`-Methode. Und die Kodierung entspricht der getroffenen Wahl und Zusammenstellung von Instanzvariablen mit ihren Typen. Dazu kommen Methoden, die zwischen Kodierung und Darstellung vermitteln. 
+
 
 #### Die Begriffe sind relativ
 
 Was dem einen eine Repräsentation ist, ist dem anderen eine Kodierung -- und umgekehrt. Es hängt von der Perspektive ab, ob man eine Kodierung als Repräsentation oder ob man eine Repräsentation als Kodierung deutet.
 
-Daraus ergibt sich möglicherweise eine Kette von Kodierungen, die in einer Repräsentation münden; oder es ergibt sich eine Folge von Repräsentation, die auf einer Kodierung basieren. Letztlich wird alles über Einsen und Nullen im Rechner kodiert. Man muss nur wissen, was die Einsen und Nullen bedeuten. Aber auch das ließe sich hinterfragen, wenn man versucht zu verstehen, wie Einsen und Nullen in der Hardware, in einem Schaltkreis, abgebildet sind: Kodieren da nicht letztlich Spannungswerte eine Null bzw. Eins? Und was genau ist eine Spannung?
+Daraus ergibt sich möglicherweise eine Kette von Kodierungen, die in einer Repräsentation münden. Oder es ergibt sich eine Folge von Repräsentation, die auf einer Kodierung basieren. Letztlich wird im Rechner alles über Einsen und Nullen kodiert. Man muss nur wissen, was die Einsen und Nullen bedeuten. Aber auch das ließe sich hinterfragen, wenn man versuchte zu verstehen, wie Einsen und Nullen in der Hardware, in einem Schaltkreis, abgebildet sind: Kodieren da nicht letztlich Spannungswerte eine Null bzw. Eins? Und was genau ist eine Spannung?
 
 <!--
 Ein Beispiel: Ein Spielfeld im Schach (8x8 Felder) wird kodiert durch die Angabe der Koordinaten aus einem Kleinbuchstaben (Spalte) und Zahl (Reihe) dargestellt (repräsentiert), etwa "e2". Der Buchstabe werde intern durch ein `char`, die Ziffern durch einen `int` repräsentiert bzw. kodiert. Intern wird ein Einzelzeichen als Zahl gemäß der UTF8-Kodierung (ein Kodierungsformat für internationale Zeichensätze) und eine Zahl binär im Zweierkomplement kodiert.
