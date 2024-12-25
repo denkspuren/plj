@@ -1,4 +1,4 @@
-# Kodierung, Repräsentation und Notation
+# Repräsentation und Kodierung
 
 ## Was ist was?
 
@@ -36,11 +36,23 @@ Es wäre nicht besonders geschickt, sich von der Darstellung leiten zu lassen un
 
 #### Alles ist Kodierung, alles Repräsentation
 
-Bei den Begriffen der Kodierung und der Repräsentation muss man sorgfältig trennen, was man da genau bezeichnet: Schaut man sich die eine Seite einer Medaille nur verschieden an, oder spricht man von den verschiedenen Seiten einer Medaille?
+Bei den Begriffen der Kodierung und der Repräsentation muss man sorgfältig trennen, was man da genau bezeichnet: Schaut man sich die eine Seite einer Medaille nur mit verschieden "Brillen" an, oder betrachtet man die zwei Seiten einer Medaille?
+
+*Verschiedene Brillen einer Seite*: Ein Rechner kodiert letztlich alles als Einsen und Nullen. Diese Kodierung kann man somit im Binärformat betrachten. Das Hexadezimalsystem und das Oktalsystem sind zwei weitere verbreitete Notationen bzw. Repräsentationen für Binärkodierungen. Das liegt daran, dass das Oktalsystem mit einer Oktalziffer exakt drei Binärstellen erfassst, das Hexadezimalsystem hingegen exakt vier Binärstellen. Mit diesen Zahlensystemen kann man sehr kompakt Binärziffern darstellen bzw. notieren.
+
+Das, was man unter eine Kodierung versteht, ist die Zuordnung einer Interpretation 
+
+
+<!-- 
+https://en.wikipedia.org/wiki/Multiple_representations_(mathematics_education)
 
 
 
-Die beiden Begriffe der Kodierung und der Repräsentation sind wie zwei Seiten einer Medaille. Ein Rechner kodiert letztlich alles als Einsen und Nullen. Diese Kodierung kann man im Binärformat darstellen oder, was 
+-->
+
+
+
+das Hexadezimalsystem in einer Ziffer 4 Binärziffern repräsentiert und das Oktalsystem  
 
 Wenn man sich eine Kodierung anschaulich macht, muss man eine Darstellungsform wählen. Es gibt keine Kodierung, die ohne Zeichen auskommt.
 
