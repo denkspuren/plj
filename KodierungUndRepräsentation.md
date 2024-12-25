@@ -36,7 +36,13 @@ Es wäre nicht besonders geschickt, sich von der Darstellung leiten zu lassen un
 
 #### Alles ist Kodierung, alles Repräsentation
 
-Die beiden Begriffe der Kodierung und der Repräsentation sind wie zwei Seiten einer Medaille. Ein Rechner kodiert letztlich alles als Einsen und Nullen.
+Bei den Begriffen der Kodierung und der Repräsentation muss man sorgfältig trennen, was man da genau bezeichnet: Schaut man sich die eine Seite einer Medaille nur verschieden an, oder spricht man von den verschiedenen Seiten einer Medaille?
+
+
+
+Die beiden Begriffe der Kodierung und der Repräsentation sind wie zwei Seiten einer Medaille. Ein Rechner kodiert letztlich alles als Einsen und Nullen. Diese Kodierung kann man im Binärformat darstellen oder, was 
+
+Wenn man sich eine Kodierung anschaulich macht, muss man eine Darstellungsform wählen. Es gibt keine Kodierung, die ohne Zeichen auskommt.
 
 <!--
 Speicherkodierung, repräsentiert im Binarformat
