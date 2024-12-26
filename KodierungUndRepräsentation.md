@@ -1,6 +1,31 @@
-# Repräsentation und Kodierung
+# Kodierung und Repräsentation
 
-## Was ist was?
+## Definition
+
+Daten sind Kodierungen (Abbilder) der Entitäten von Repräsentationen; ihre Organisation ist eine Kodierung (Abbild) der Strukturbeziehungen der Entitäten der Repräsentation.
+
+
+Daten kodieren Entitäten von Repräsentationen; ihre Organisation ist eine Kodierung der Strukturbeziehungen der Entitäten der Repräsentation. Kodierung meint hier ein zur rechnerischen Verarbeitung geeignetes Abbild der Entitäten und ihrer Verhältnisse zueinander samt des rechnerischen Umgangs mit diesem Abbild. 
+
+Repräsentationen stellen Entitäten und ihre Strukturbeziehungen textuell, visuell (generell medial) dar. Dabei entsprechen die Entitäten und ihre Strukturen entweder Daten und ihrer Organisation oder Darbietungen von ideelen (gedanklichen), rechnerisch-computationalen (virtuellen) oder realweltlichen Konstrukten.
+
+
+ die Wahl der Datenablage und Organisation
+
+Kodierung
+: Jede Datenorganisation ist eine Kodierung. Die Kodierung
+
+: Jede Datenorganisation ist eine Kodierung
+
+
+: Jede Datenorganisation ist eine Form der Kodierung, die einer Repräsentation unterliegt.
+
+Eine Kodierung ist eine Datenorganisation
+
+Die Kodierung definiert die Regeln oder Methoden, mit denen Daten organisiert und strukturiert werden. Sie definiert außerdem, die Interpretation der Datenorganisation
+
+Repräsentation
+: Jede Darstellung einer Kodierung ist eine Repräsentation. In aller Regel unterscheidet man eine interne Repräsentation 
 
 In der Informatik und insbesondere in der Programmierung macht man sprachlich einen Unterschied zwischen
 
@@ -81,7 +106,7 @@ Eine Repräsentation dient in der Informatik oft als Ersatz für z.B. ein Arrang
 
 ## Fallbeispiel: Tic-Tac-Toe
 
-Sie kennen sicher das Spiel Tic-Tac-Toe. Das Spiel besteht aus einem 3×3 Spielfeld und wird von zwei Parteien gespielt. Die eine Partei hat die mit `X`, die andere die mit `O` bezeichnete Spielsteine. Die beiden Spielparteien setzen abwechselnd ihre Spielsteine auf das Spielfeld, `X` beginnt. Das Spiel endet mit dem Sieg für die Spielpartei, die zuerst drei eigene Spielsteine "in Reihe" (waagerecht, senkrecht, diagonal) bringt. Kann keine Spielpartei gewinnen und ist das Spielbrett vollständig besetzt, so endet die Partie unentschieden.
+Sie kennen sicher das Spiel Tic-Tac-Toe. Das Spiel besteht aus einem 3×3 Spielfeld und wird von zwei Parteien gespielt. Die eine Partei hat die mit `X`, die andere die mit `O` bezeichneten Spielsteine. Die beiden Spielparteien setzen abwechselnd ihre Spielsteine auf ein freies Feld, `X` beginnt. Das Spiel endet mit dem Sieg für die Spielpartei, die zuerst drei ihrer Spielsteine "in Reihe" (waagerecht, senkrecht, diagonal) bringt. Kann keine Spielpartei gewinnen und ist das Spielbrett vollständig besetzt, so endet die Partie unentschieden.
 
 Wir betrachten die folgende Situation im Spiel:
 
