@@ -2,38 +2,13 @@
 
 ## Definition
 
-Daten sind Kodierungen (Abbilder) der Entitäten von Repräsentationen; ihre Organisation ist eine Kodierung (Abbild) der Strukturbeziehungen der Entitäten der Repräsentation.
-
-
-Daten kodieren Entitäten von Repräsentationen; ihre Organisation ist eine Kodierung der Strukturbeziehungen der Entitäten der Repräsentation. Kodierung meint hier ein zur rechnerischen Verarbeitung geeignetes Abbild der Entitäten und ihrer Verhältnisse zueinander samt des rechnerischen Umgangs mit diesem Abbild. 
-
-Repräsentationen stellen Entitäten und ihre Strukturbeziehungen textuell, visuell (generell medial) dar. Dabei entsprechen die Entitäten und ihre Strukturen entweder Daten und ihrer Organisation oder Darbietungen von ideelen (gedanklichen), rechnerisch-computationalen (virtuellen) oder realweltlichen Konstrukten.
-
-
- die Wahl der Datenablage und Organisation
-
-Kodierung
-: Jede Datenorganisation ist eine Kodierung. Die Kodierung
-
-: Jede Datenorganisation ist eine Kodierung
-
-
-: Jede Datenorganisation ist eine Form der Kodierung, die einer Repräsentation unterliegt.
-
-Eine Kodierung ist eine Datenorganisation
-
-Die Kodierung definiert die Regeln oder Methoden, mit denen Daten organisiert und strukturiert werden. Sie definiert außerdem, die Interpretation der Datenorganisation
+Man muss beim Begriff der Kodierung acht geben, da insbesondere die Nachrichtentechnik den Begriff geprägt hat, der u.a. durch die Kodierungstheorie fundiert ist. Bei der Programmierung geht es aber nicht um Kanal-, Quellen- oder Leitungskodierung, sondern neben der [Zeichenkodierung](https://de.wikipedia.org/wiki/Zeichenkodierung) und neben [Daten-](https://de.wikipedia.org/wiki/Datenformat) und [Dateiformaten](https://de.wikipedia.org/wiki/Dateiformat) im Wesentlichen um die Abbildung von Sachverhalten in Daten, Datenstrukturen und Datenverarbeitungsverfahren. Darauf zielen die folgenden Definitionen ab: 
 
 Repräsentation
-: Jede Darstellung einer Kodierung ist eine Repräsentation. In aller Regel unterscheidet man eine interne Repräsentation 
+: Eine Repräsentation stellt [Entitäten](https://de.wikipedia.org/wiki/Entit%C3%A4t) und ihre Beziehungen textuell, graphisch, bildlich oder in einer anderen medialen Form dar. Diese Darstellungen bilden ideelle (abstrakte), realweltliche (konkrete) oder rechnerisch-computationale (virtuelle) Konstruktionen ab. Die Darstellung kann die Absicht verfolgen, etwas Grundlegendes, Entscheidendes oder Bedeutsames durch die Art und Weise der Darstellung hervorzuheben oder ins Blickfeld zu stellen.
 
-In der Informatik und insbesondere in der Programmierung macht man sprachlich einen Unterschied zwischen
-
-* der _Kodierung_; also wie man einen Sachverhalt *intern* und rechnerisch geeignet abbildet,
-* der _Repräsentation_ (auch _Darstellung_); also wie man einen Sachverhalt *extern* und meist zugänglich für Menschen textuell oder visuell aufbereitet.
-* der _Notation_ (auch _Schreibweise_); also wie man einen Sachverhalt (in der Regel) textuell beschreibt, um ihn maschinell zu rekonstruieren
-
-Unter dem Begriff des Sachverhalts sei alles gefasst, was als Daten, Datenstruktur oder Datenverlauf in einem Computerprogramm abgebildet sein kann. Der Begriff des Datums ist hier sehr umfassend gemeint, er schließt auch Programme, eine Programmstruktur oder einen Programmauflauf mit ein.
+Kodierung
+: Eine Kodierung beschreibt die Abbildung einer Repräsentation in eine andere Repräsentation. In der Programmierung geht es wesentlich darum, Kodierungen für Datenrepräsentationen und Berechnungen zu finden bzw. zu verwenden, die computational vorteilhaft und/oder programmiersprachlich oder paradigmatisch geeignet und angemessen sind. Eine wichtige Rolle spielt zudem, diese Kodierungen kommunikabel (mitteilbar) und verständlich zu machen. 
 
 ##### Beispiel: Primitive Typen
 
