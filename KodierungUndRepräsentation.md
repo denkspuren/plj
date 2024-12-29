@@ -14,11 +14,13 @@ Kodierung
 [Zeichenkodierungen](https://de.wikipedia.org/wiki/Zeichenkodierung) wie [ASCII](https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange) oder [UTF-8](https://de.wikipedia.org/wiki/UTF-8) und [Daten-](https://de.wikipedia.org/wiki/Datenformat) und [Dateiformate](https://de.wikipedia.org/wiki/Dateiformat) wie [JPEG](https://de.wikipedia.org/wiki/JPEG) für Bilddaten, [MP3](https://de.wikipedia.org/wiki/MP3) für Hördaten oder [JSON](https://de.wikipedia.org/wiki/JavaScript_Object_Notation) für den Datenaustausch sind Beispiele für technische Standards, die Kodierungen von Zeichen, Medien und Daten definieren. Dass z.B. bei JPEG und MP3 verlustbehaftete Datenkompressionen eine Rolle spielen, interessiert Programmiererinnen und Programmierer nur begrenzt.
 -->
 
-##### Beispiel: Primitive Typen
+### Beispiel: Primitive Zahlentypen
 
 Sie kennen diese verschiedenen Repräsentationen bereits für primitive Typen. Zahlen vom Typ `byte`, `short`, `int` und `long` werden _intern_ im Zweierkomplement _kodiert_. Das Zweierkomplement bildet eine vorzeichenbehaftete Zahl in eine Binärzahl fester Stellenanzahl (8 Bits bei `byte`, 16 bei `short`, 32 bei `int` und 64 bei `long`) ab. Die Kodierung ist so beschaffen, dass man im Zweierkomplement mit einer gewöhnlichen Binäraddition negative und positive Zahlen addieren kann und es keiner expliziten Operation der Subtraktion bedarf. _Repräsentiert_ werden Ganzzahlen jedoch im Zehnerformat mit einem Vorzeichen bei negativen Zahlen.
 
 Bei Gleitkommazahlen wie `float` und `double` ist die Kodierung und der Bezug zwischen der binären und dezimalen Zahlenrepräsentation komplizierter. Der technische Standard [IEEE 754](https://de.wikipedia.org/wiki/IEEE_754) definiert die Darstellung von Binär- und Dezimalzahlen für Gleitkommazahlen und für die Durchführungen von Berechnungen.
+
+Datenwerte vom Typ `char` folgen der Zeichenkodierung UTF-8. [UTF-8](https://de.wikipedia.org/wiki/UTF-8) legt fest welches Zeichen bzw. Symbol wie durch welche binäre Zahlenkodierung abgebildet wird.
 
 <!--
 ```java
@@ -38,6 +40,7 @@ $62 ==> "11111111111111111111111010100111"
 Es wäre nicht besonders geschickt, sich von der Darstellung leiten zu lassen und Zahlen intern als Ziffernfolgen von 0 bis 9, also als `char`s zu kodieren. Darunter würde die Recheneffizienz erheblich leiden.
 -->
 
+<!--
 #### Alles ist Kodierung, alles Repräsentation
 
 Bei den Begriffen der Kodierung und der Repräsentation muss man sorgfältig trennen, was man da genau bezeichnet: Schaut man sich die eine Seite einer Medaille nur mit verschieden "Brillen" an, oder betrachtet man die zwei Seiten einer Medaille?
@@ -45,30 +48,21 @@ Bei den Begriffen der Kodierung und der Repräsentation muss man sorgfältig tre
 *Verschiedene Brillen einer Seite*: Ein Rechner kodiert letztlich alles als Einsen und Nullen. Diese Kodierung kann man somit im Binärformat betrachten. Das Hexadezimalsystem und das Oktalsystem sind zwei weitere verbreitete Notationen bzw. Repräsentationen für Binärkodierungen. Das liegt daran, dass das Oktalsystem mit einer Oktalziffer exakt drei Binärstellen erfassst, das Hexadezimalsystem hingegen exakt vier Binärstellen. Mit diesen Zahlensystemen kann man sehr kompakt Binärziffern darstellen bzw. notieren.
 
 Das, was man unter eine Kodierung versteht, ist die Zuordnung einer Interpretation 
-
+-->
 
 <!-- 
 https://en.wikipedia.org/wiki/Multiple_representations_(mathematics_education)
-
-
-
 -->
 
+### Beispiel: `toString`-Methode
 
+Bei Referenztypen kann die textuelle Repräsentation des Objekts mit Hilfe der `toString`-Methode individuell angepasst werden. In einfachen Fällen nutzt man die `toString`-Methode, um die Werte der Instanzvariablen darzustellen.
 
-das Hexadezimalsystem in einer Ziffer 4 Binärziffern repräsentiert und das Oktalsystem  
+Mithilfe einer Beschreibungssprache wie z.B. [DOT](https://de.wikipedia.org/wiki/DOT_(Graphviz)) kann man mit `toString` auch eine graphische Beschreibung zurückgeben lassen.
 
-Wenn man sich eine Kodierung anschaulich macht, muss man eine Darstellungsform wählen. Es gibt keine Kodierung, die ohne Zeichen auskommt.
-
-<!--
-Speicherkodierung, repräsentiert im Binarformat
-
-
--->
-
-
-Bei Objekten entspricht die Repräsentation in einfachen Fällen der `toString`-Methode. Und die Kodierung entspricht der getroffenen Wahl und Zusammenstellung von Instanzvariablen mit ihren Typen. Dazu kommen Methoden, die zwischen Kodierung und Darstellung vermitteln. 
-
+::: {.callout-tip title="Nutzen Sie `toString`"}
+Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um eine geeignete Repräsentation zu erzeugen. Das hilft sehr, um eine korrekte Arbeitsweise nachvollziehen zu können und Probleme zu sehen (im wahrsten Sinne des Wortes). Die Repräsentation kann auch helfen, Testfälle zu formulieren, die mit der Repräsentation der `toString`-Methode arbeiten.
+:::
 
 #### Die Begriffe sind relativ
 
