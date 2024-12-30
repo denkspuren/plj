@@ -170,31 +170,56 @@ Es ist selten eine gute Idee, die äußere Darstellung eines Sachverhalts eins z
 
 ### Eine Kodierung für Tic-Tac-Toe
 
-char[][] board = new char[3][3]
+Mit den Instanzvariablen der Klasse `TicTacToe` fallen drei Entscheidungen für die interne Datenrepräsentation, siehe @fig-t3kodierung.
 
-                       
-    ABC, what's this   
-+---------------------+
-|                     |
-|                     |
-|                     |
-|                     |
-|                     |
-+---------------------+
+1. Das Spielfeld wird eindimensional durch ein Array `int[] board` abgebildet.
+2. Die Belegung eines Spielfelds ist wie folgt kodiert: Die Spielsteine der beginnenden Spielpartei (in der Darstellung das Symbol `X`) werden durch +1, die Spielsteine der nachziehenden Spielpartei (`O`) werden durch -1, leere Felder durch 0 abgebildet. Der Vorteil dieser Kodierung liegt darin, dass sich sehr effizient feststellen lässt, ob drei Spielsteine einer Partei eine Reihe ergeben: Man addiere die Feldwerte für eine Reihe auf. Ergibt sich eine +3 oder eine -3, sind drei Spielsteine einer Sorte in Reihe.
+3. Strikt von der internen Kodierung getrennt wird die Wahl der verwendeten Symbole für die Spielsteine durch das Array `symbols` vorgehalten.
+
+![D](/KodierungUndRepräsentation/T3Kodierung.png){#fig-t3kodierung width=30%}
+
+Zusätzlich zu diesen Entscheidungen gibt es die folgenden Variablen:
+
+* `int turn` merkt sich, wer am Zug ist, +1 oder -1. Entsprechend wechselt der Wert zwischen +1 und -1 hin und her.
+* Der Spielverlauf wird in `int[] history` vorgehalten. Die Spielhistorie erlaubt die Rücknahme von Spielzügen.
+* Der `counter` markiert den Füllstand an Zügen in `history`.
+
+```java
+class TicTacToe {
+    private int[] board = {0,0,0,0,0,0,0,0,0};
+    private int turn = +1;
+    private char[] symbols = {'O','.','X'};
+    private int[] history = new int[board.length];
+    private int counter = 0;
+```
 
 
-XXXXXXXX
 
 
+### Aufgaben für Fortgeschrittene
 
-Schreiben Sie eine Methode `threeInARow`, die ein eindimensionales Array aus neun Felder übergeben bekommt (siehe nachstehendes Bild) und ermittelt, ob in der Stellung drei Spielsteine in Reihe sind und wer gewonnen hat. Die Felder sind mit den Zahlenwerten -1 (für "`O`"), 0 (leeres Feld) und +1 (für "`X`") kodiert.
+Ergänzen Sie folgende Methoden:
 
-***************
-*  0 | 1 | 2
-* ---+---+---
-*  3 | 4 | 5
-* ---+---+---
-*  6 | 7 | 8
-***************
+* Verwenden Sie für `history` eine `ArrayList` statt des `int`-Arrays und verzichten Sie auf damit überflüssig gewordene Variablen und Methoden.
+
+<details>
+    <summary>Lösen Sie die Aufgabe, schauen Sie erst dann hier nach, welche Variablen bzw. Methoden infrage kommen.</summary>
+* Die `ArrayList` kann dynamisch wachsen und schrumpfen, der `counter` als Füllstandsanzeiger wird hinfällig, die `size()` gibt den Füllstand der `ArrayList` an.
+* Die Hilfsmethode `contains` ist überflüssig, `ArrayList` liefert diese Methode mit.
+* Wenn die Methode `history` ihren Rückgabetyp `int[]` beibehalten soll, muss sie neu implementiert werden. Aber selbst in der Gestalt von `ArrayList<Integer> history()` hat sie ihre Berechtigung: Es darf nicht einfach `history` zurückgegeben werden, weil damit die durch `private` geschützte Referenz nach außen durchgestochen wird und von außen veränderbar wird. Es muss also eine Kopie der `ArrayList` zurückgegeben werden.
+</details>
+
+* Mit der Methode `void save(String fileName)` kann der Spielstand in einer Textdatei (Dateiextension `.txt`) gespeichert werden. Die Methode `void save()` wählt als Name `"t3"`. Die Datei enthält die Historie, wobei die Zahlen durch Kommata getrennt sind. Wurde noch kein Spielzug gemacht, wird eine leere Datei angelegt. 
+
+* Mit der Methode `TicTacToe load(String fileName)` wird ein Spielstand aus der abgespeicherten Historie rekonstruiert. Mit `TicTacToe load()` wird `t3.txt` geladen.
+
+<details>
+    <summary>Warum ist es sinnvoller, die Historie für den Spielstand zu speichern, statt eines Abbilds des tatsächlichen Spielstands?</summary>
+Es ist gar nicht so einfach, einen gegebenen Spielstand daraufhin zu überprüfen, ob er eine gültige Spielsituation wiedergibt. Denn die zu ladende Textdatei kann ja auch händisch angelegt worden sein. Zum Beispiel darf die Summe aller Spielsteine auf dem Brett nur 0 oder +1 sein. Ansonsten hat eine Partei Spielsteine ohne Gegenzug auf dem Spielbrett positioniert. Wesentlich einfacher ist die Rekonstruktion eines Spielstands aus der Historie des Spielverlaufs. Die Spielzüge sind bei Verwendung der `move`-Methode (zusammen mit `generateMoves` und `contains`) sehr leicht auf Gültigkeit zu überprüfen. Wenn die Spielzüge gültig sind, muss es die ergebende Spielsitation ebenso sein.
+
+::: {.callout-tip title=""}
+Wenn Sie bei Spielen wie Tic-Tac-Toe oder Brettspielen wie Schach, Mühle oder Dame den Spielstand speichern wollen, sollten Sie das immer über die Speicherung der bis dahin erfolgten Spielzüge tun. Die Rekonstruktion einer Spielsituation aus dem Spielverlauf ist leichter validierbar (überprüfbar) und sie kann korrumpierte Daten erkennen.
+:::
+</details>
 
 
