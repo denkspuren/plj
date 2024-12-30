@@ -211,7 +211,7 @@ XO.
 X.O
 ```
 
-::: {.callout-tip title="Nutzen Sie `toString` ausgiebig!"}
+::: {.callout-tip title="Erstellen Sie mit `toString` nützliche Repräsentationen!"}
 Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um eine geeignete Repräsentation zu erzeugen. Das hilft sehr, um eine korrekte Arbeitsweise nachvollziehen zu können und Probleme zu sehen (im wahrsten Sinne des Wortes).
 
 Die Repräsentation kann auch helfen, Testfälle zu formulieren, die mit der Repräsentation der `toString`-Methode arbeiten.
