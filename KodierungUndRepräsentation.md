@@ -20,7 +20,7 @@ Sie kennen diese verschiedenen Repräsentationen bereits für primitive Typen. Z
 
 Bei Gleitkommazahlen wie `float` und `double` ist die Kodierung und der Bezug zwischen der binären und dezimalen Zahlenrepräsentation komplizierter. Der technische Standard [IEEE 754](https://de.wikipedia.org/wiki/IEEE_754) definiert die Darstellung von Binär- und Dezimalzahlen für Gleitkommazahlen und für die Durchführungen von Berechnungen.
 
-Datenwerte vom Typ `char` folgen der Zeichenkodierung UTF-8. [UTF-8](https://de.wikipedia.org/wiki/UTF-8) legt fest welches Zeichen bzw. Symbol wie durch welche binäre Zahlenkodierung abgebildet wird.
+Datenwerte vom Typ `char` folgen der Zeichenkodierung UTF-8. [UTF-8](https://de.wikipedia.org/wiki/UTF-8) legt fest, welches Zeichen bzw. Symbol wie durch welche binäre Zahlenkodierung abgebildet wird.
 
 <!--
 ```java
@@ -146,27 +146,27 @@ Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um e
 
 Sie kennen sicher das Spiel Tic-Tac-Toe. Das Spiel besteht aus einem 3×3 Spielfeld und wird von zwei Parteien gespielt. Die eine Partei hat die mit `X`, die andere die mit `O` bezeichneten Spielsteine. Die beiden Spielparteien setzen abwechselnd ihre Spielsteine auf ein freies Feld, `X` beginnt. Das Spiel endet mit dem Sieg für die Spielpartei, die zuerst drei ihrer Spielsteine "in Reihe" (waagerecht, senkrecht, diagonal) bringt. Kann keine Spielpartei gewinnen und ist das Spielbrett vollständig besetzt, so endet die Partie unentschieden.
 
+### Ein Einstieg
+
 Wir betrachten die folgende Situation im Spiel:
 
-```
- X | O |    
----+---+--- 
-   | X |
----+---+--- 
- X |   | O
-```
+![Eine Spielsituation in Tic-Tac-Toe. Die Spielpartei mit `X` hat begonnen.](/KodierungUndRepräsentation/T3Spielsituation.png){#fig-t3spielsituation width=30%}
 
-Wenn man danach fragt, mit welcher Datenstruktur das Spielfeld abgebildet (kodiert) werden könnte, geben die meisten Programmierer*innen folgende Antwort:
+Wenn man danach fragt, mit welcher Datenstruktur das Spielfeld abgebildet (kodiert) werden könnte, bekommt man von Programmier-Neulingen oft eine Überlegung wie diese zu hören:
 
 * Das Spielfeld ist zweidimensional. Also kodiere ich das Spielfeld durch ein zweidimensionales Array.
 * Die Spielsteine `X` und `O` (und ein Leerzeichen für ein leeres Feld) können durch ein `char` erfasst werden.
 * Folglich wähle ich für das Spielfeld ein zweidimensionales `char`-Array: `char[][] board = new char[3][3];`
 
-Vielleicht erahnen Sie es: Mit dieser Entscheidung wird die Darstellung als maßgeblich für die interne Kodierung des Spiels gewählt.
+Vielleicht erahnen Sie es: Mit dieser Entscheidung wird die Darstellung des Spiels leitgebend für die interne Repräsentation des Spiels. Das wirft einige Probleme auf:
 
-* Damit ist die interne Kodierung abhängig davon, wie die Spielsteine symbolisch als Zeichen dargestellt werden. Was, wenn jemand lieber mit `#` und `*` spielt? Katastrophal wäre, wenn man deshalb den Programmiercode anpassen müsste.
-* Mit Einzelzeichen kann man nicht wirklich gut rechnen, auch wenn sie in Java zu den Zahlentypen gehören.
-* Die Zweidimensionalität erfordert, die Felder auf dem Spiel über zwei Indizes zu adressieren. Rechnerisch ist das überflüssig. Wenn ein Programm Spielzüge durchrechnet, wie z.B. beim Schach- oder Damespiel, dann macht sich die Ineffizienz einer zweidimensionalen Adressierung deutlich bemerkbar.
+* Die interne Kodierung macht sich abhängig davon, wie die Spielsteine symbolisch als Zeichen dargestellt werden. Was, wenn jemand lieber mit anderen Darstellungen für die Spielsteine spielt? Katastrophal wäre, wenn man deshalb den Programmiercode anpassen müsste.
+* Mit Einzelzeichen vom Typ `char` kann man zwar rechnen (`char` gehört in Java zu den Zahlentypen), doch daraus kann man keinerlei Nutzen ziehen. Denn: Wie will man mit diesen im Grunde willkürlich gewählten Symbolen `X` und `O` sinnvoll Berechnungen durchführen?
+* Die Zweidimensionalität erfordert, die Felder auf dem Spiel über zwei Indizes zu adressieren. Wenn ein Programm Spielzüge durchrechnet, wie z.B. beim Schach- oder Damespiel, dann macht sich die Ineffizienz einer zweidimensionalen Adressierung deutlich bemerkbar.
+
+::: {.callout-tip title=""}
+Es ist selten eine gute Idee, die äußere Darstellung eines Sachverhalts eins zu eins auf die interne Datenrepräsentation zu übertragen. Es ist die Aufgabe einer Programmiererin bzw. eines Programmierers eine Kodierung zu finden oder anzuwenden, die computational vorteilhaft und/oder programmiersprachlich oder paradigmatisch geeignet und angemessen ist (siehe die obige Definition!).
+:::
 
 ### Eine Kodierung für Tic-Tac-Toe
 
