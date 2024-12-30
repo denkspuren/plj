@@ -132,16 +132,6 @@ Steht der Springer in einer Ecke, siehe @fig-springerzugabsolut, muss der Rand s
 
 Diese eindimensionale Kodierung mit einem Rand, der in einer visuellen Repräsentation des Spielfelds natürlich unsichtbar ist, ist das Ergebnis einer Abwägung: Mit ein wenig mehr an Speicherbedarf für den Rand gewinnt man eine schnellere Berechnung von Spielzügen.    
 
-### Objekt-Repräsentation mit `toString`-Methode
-
-Bei Referenztypen kann die textuelle Repräsentation des Objekts mit Hilfe der `toString`-Methode individuell angepasst werden. In einfachen Fällen nutzt man die `toString`-Methode, um die Werte relevanter Instanzvariablen darzustellen.
-
-Mithilfe einer Beschreibungssprache wie z.B. [DOT](https://de.wikipedia.org/wiki/DOT_(Graphviz)) kann man mit `toString` auch eine graphische Beschreibung zurückgeben lassen.
-
-::: {.callout-tip title="Nutzen Sie `toString` ausgiebig!"}
-Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um eine geeignete Repräsentation zu erzeugen. Das hilft sehr, um eine korrekte Arbeitsweise nachvollziehen zu können und Probleme zu sehen (im wahrsten Sinne des Wortes). Die Repräsentation kann auch helfen, Testfälle zu formulieren, die mit der Repräsentation der `toString`-Methode arbeiten.
-:::
-
 ## Fallbeispiel: Tic-Tac-Toe
 
 Sie kennen sicher das Spiel Tic-Tac-Toe. Das Spiel besteht aus einem 3×3 Spielfeld und wird von zwei Parteien gespielt. Die eine Partei hat die mit `X`, die andere die mit `O` bezeichneten Spielsteine. Die beiden Spielparteien setzen abwechselnd ihre Spielsteine auf ein freies Feld, `X` beginnt. Das Spiel endet mit dem Sieg für die Spielpartei, die zuerst drei ihrer Spielsteine "in Reihe" (waagerecht, senkrecht, diagonal) bringt. Kann keine Spielpartei gewinnen und ist das Spielbrett vollständig besetzt, so endet die Partie unentschieden.
@@ -193,8 +183,41 @@ class TicTacToe {
     private int counter = 0;
 ```
 
+### Objekt-Repräsentation mit `toString`-Methode
 
+Bei Referenztypen kann die textuelle Repräsentation eines Objekts mit Hilfe der `toString`-Methode individuell angepasst werden. Es ist eine Entscheidung der Programmierin bzw. des Programmierers, ob man dies nutzt, um Interna der internen Datenkodierung einsichtig zu machen oder um aus den Interna eine Abbildung für eine Außen-Darstellung zu konstruieren.
 
+In diesem Beispiel wird die interne Kodierung übersetzt in das anzuzeigendes Symbol. Das Spielfeld wird nur angedeutet, ich verzichte auf die horizontalen und vertikalen Linien.
+
+```java
+    public String toString() {
+        String repr = "";
+        for(int i = 0; i < board.length; i++) {
+            if (i % 3 == 0) repr += "\n";
+            repr += symbols[board[i] + 1];
+        }
+        return repr;
+    }
+}
+```
+
+In der JShell sieht das dann so aus:
+
+```
+jshell> TicTacToe t3 = new TicTacToe(0,1,4,8,6)
+t3 ==>
+XO.
+.X.
+X.O
+```
+
+::: {.callout-tip title="Nutzen Sie `toString` ausgiebig!"}
+Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um eine geeignete Repräsentation zu erzeugen. Das hilft sehr, um eine korrekte Arbeitsweise nachvollziehen zu können und Probleme zu sehen (im wahrsten Sinne des Wortes).
+
+Die Repräsentation kann auch helfen, Testfälle zu formulieren, die mit der Repräsentation der `toString`-Methode arbeiten.
+
+Es ist auch möglich, mit einer Beschreibungssprache wie z.B. [DOT](https://de.wikipedia.org/wiki/DOT_(Graphviz)) graphische Beschreibung mit `toString` zurückzugeben.
+:::
 
 ### Aufgaben für Fortgeschrittene
 
