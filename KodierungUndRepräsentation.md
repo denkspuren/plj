@@ -326,7 +326,7 @@ Ergänzen Sie folgende Methoden:
 * Wenn die Methode `history` ihren Rückgabetyp `int[]` beibehalten soll, muss sie neu implementiert werden. Aber selbst in der Gestalt von `ArrayList<Integer> history()` hat sie ihre Berechtigung: Es darf nicht einfach `history` zurückgegeben werden, weil damit die durch `private` geschützte Referenz nach außen durchgestochen wird und von außen veränderbar wird. Es muss also eine Kopie der `ArrayList` zurückgegeben werden.
 </details>
 
-* Mit der Methode `void save(String fileName)` kann der Spielstand in einer Textdatei (Dateiextension `.txt`) gespeichert werden. Die Methode `void save()` wählt als Name `"t3"`. Die Datei enthält die Historie, wobei die Zahlen durch Kommata getrennt sind. Wurde noch kein Spielzug gemacht, wird eine leere Datei angelegt. 
+* Mit der Methode `void save(String fileName)` kann der Spielstand in einer Textdatei gespeichert werden. Die Dateiextension `.txt` wird automatisch zu `fileName` ergänzt. Die Methode `void save()` wählt als Dateinamen `"t3"`. Die Datei enthält die Historie, wobei die Zahlen durch Kommata getrennt sind. Wurde noch kein Spielzug gemacht, wird eine leere Datei angelegt. 
 
 * Mit der Methode `TicTacToe load(String fileName)` wird ein Spielstand aus der abgespeicherten Historie rekonstruiert. Mit `TicTacToe load()` wird `t3.txt` geladen.
 
