@@ -31,13 +31,13 @@ class TicTacToe {
 
     public void move(int m) {
         assert contains(generateMoves(), m): "move must address a valid, empty field";
-        assert !wonTheGame(): "nobody has won the game so far";
+        assert !wonTheGame(): "no party should have won the game";
         board[m] = turn;
         turn = -turn;
         history[counter++] = m;
     }
 
-    private boolean contains(int[] numbers, int number) {
+    private static boolean contains(int[] numbers, int number) {
         for (int n : numbers)
             if (n == number) return true;
         return false;

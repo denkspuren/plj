@@ -136,6 +136,8 @@ Diese eindimensionale Kodierung mit einem Rand, der in einer visuellen Repräsen
 
 Sie kennen sicher das Spiel Tic-Tac-Toe. Das Spiel besteht aus einem 3×3 Spielfeld und wird von zwei Parteien gespielt. Die eine Partei hat die mit `X`, die andere die mit `O` bezeichneten Spielsteine. Die beiden Spielparteien setzen abwechselnd ihre Spielsteine auf ein freies Feld, `X` beginnt. Das Spiel endet mit dem Sieg für die Spielpartei, die zuerst drei ihrer Spielsteine "in Reihe" (waagerecht, senkrecht, diagonal) bringt. Kann keine Spielpartei gewinnen und ist das Spielbrett vollständig besetzt, so endet die Partie unentschieden.
 
+Die folgenden Unterkapitel demonstrieren anhand einer Umsetzung des Spiels, wie mittels einer geeigneten Kodierung die Außendarstellung des Spiels auf eine interne Datenrepräsentation abgebildet wird.
+
 ### Ein Einstieg
 
 Wir betrachten die folgende Situation im Spiel:
@@ -183,6 +185,8 @@ class TicTacToe {
     private int counter = 0;
 ```
 
+Die Variablen sind allesamt per `private` auf "unsichtbar" geschaltet und von außerhalb nicht zugreifbar. Damit kapselt das Spiel alle Interna von außen ab. Für Nutzende einer `TicTacToe`-Instanz ist es vollkommen intransparent und damit unwichtig, _wie_ die Instanz intern das Spiel kodiert hat und arbeitet. 
+
 ### Objekt-Repräsentation mit `toString`-Methode
 
 Bei Referenztypen kann die textuelle Repräsentation eines Objekts mit Hilfe der `toString`-Methode individuell angepasst werden. Es ist eine Entscheidung der Programmierin bzw. des Programmierers, ob man dies nutzt, um Interna der internen Datenkodierung einsichtig zu machen oder um aus den Interna eine Abbildung für eine Außen-Darstellung zu konstruieren.
@@ -212,12 +216,102 @@ X.O
 ```
 
 ::: {.callout-tip title="Erstellen Sie mit `toString` nützliche Repräsentationen!"}
-Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um eine geeignete Repräsentation zu erzeugen. Das hilft sehr, um eine korrekte Arbeitsweise nachvollziehen zu können und Probleme zu sehen (im wahrsten Sinne des Wortes).
+Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um eine geeignete Repräsentation zu erzeugen. Das hilft sehr, um eine korrekte Arbeitsweise nachvollziehen zu können und Probleme zu sehen -- im wahrsten Sinne des Wortes.
 
 Die Repräsentation kann auch helfen, Testfälle zu formulieren, die mit der Repräsentation der `toString`-Methode arbeiten.
 
 Es ist auch möglich, mit einer Beschreibungssprache wie z.B. [DOT](https://de.wikipedia.org/wiki/DOT_(Graphviz)) graphische Beschreibung mit `toString` zurückzugeben.
 :::
+
+### Konstruktoren, Spielzug ausführen (`move`) und rückgängig machen (`undoMove`)
+
+Mit `new TicTacToe()` kann ein Spiel instanziiert werden. Bei Bedarf sind Spielzüge übergebbar, die per `move` ausgeführt werden.
+
+```java
+    TicTacToe() { }
+    
+    TicTacToe(int ...moves) {
+        for(int move : moves) move(move);
+    }
+
+    public void move(int m) {
+        assert contains(generateMoves(), m): "move must address a valid, empty field";
+        assert !wonTheGame(): "no party should have won the game";
+        board[m] = turn;
+        turn = -turn;
+        history[counter++] = m;
+    }
+```
+
+Wenn man von den verwendeten Methoden in den `assert`-Anweisungen absieht, ist die Umsetzung für einen Spielzug einfach nachzuvollziehen:
+
+* Der Spielzug `m`, ein Wert von 0 bis 8, entspricht der Angabe des Indexes eines freien Feldes auf dem eindimensionalen Spielbrett.
+* Das Feld wird mit dem Wert der am Zug befindlichen Spielpartei belegt. Anschließend wechselt die Spielpartei.
+* Der Spielzug wird im Gedächtnis für den Spielverlauf eingetragen.
+
+```
+jshell> t3.move(3)
+
+jshell> t3
+t3 ==>
+XO.
+OX.
+X.O
+```
+
+Die Methode, um einen Spielzug rückgängig zu machen, liest sich fast wie das Inverse (Umgekehrte) der `move`-Methode. Faktisch entpsricht dies auch der Intention: ein ausgeführter Zug wird rückabgewickelt.
+
+```java
+    public void undoMove() {
+        if (counter == 0) return;
+        board[history[--counter]] = 0;
+        turn = -turn;
+    }
+```
+
+```
+jshell> t3.undoMove()
+
+jshell> t3
+t3 ==>
+XO.
+.X.
+X.O
+```
+
+### Der Spielzuggenerator `generateMoves` und die Hilfsmethode `contains`
+
+Der Zuggenerator bei Tic-Tac-Toe ist äußerst simpel: Die freien Felder werden in einem Array eingetragen. Die Größe des Arrays ist vorab bestimmbar. (Ich habe mich hier für die Rückgabe eines `int`-Arrays entschieden, damit man keine Kenntnis von Datentypen wie `ArrayList` haben muss.)
+
+```java
+    public int[] generateMoves() {
+        int[] moves = new int[board.length - counter];
+        for(int i = 0, j = 0; i < board.length; i++)
+            if (board[i] == 0) moves[j++] = i;
+        return moves;
+    }
+```
+
+In der aktuellen Spielsituation sind folgende Spielzüge möglich:
+
+```
+jshell> t3.generateMoves()
+$22 ==> int[4] { 2, 3, 5, 7 }
+```
+
+Die Hilfsmethode `contains` dient generell zur Feststellung, ob sich ein Zahlenwert vom Typ `int` in einem `int`-Array befindet. Da diese Methode nicht auf den Kontext des aktuellen Objekts und/oder seiner Instanzvariablen basiert und eine generelle Dienstleistung erbringt, ist diese Methode als Klassenmethode (`static`) deklariert. Da diese Dienstleistung aber eine interne Angelegenheit ist und für das Tic-Tac-Toe ansonsten keine Bedeutung hat, ist die Methode außerdem als `private` deklariert.
+
+```java
+    private static boolean contains(int[] numbers, int number) {
+        for (int n : numbers)
+            if (n == number) return true;
+        return false;
+    }
+```
+
+### Sind drei in Reihe? (`wonTheGame`)
+
+
 
 ### Aufgaben für Fortgeschrittene
 
