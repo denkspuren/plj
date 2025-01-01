@@ -150,7 +150,7 @@ Die folgenden Unterkapitel demonstrieren anhand einer Umsetzung des Spiels Tic-T
 wie mittels einer geeigneten Kodierung die Außendarstellung des Spiels auf eine interne Datenrepräsentation abgebildet wird.
 -->
 
-### Ein Einstieg
+### Einstieg: Wie würden Sie das Spiel kodieren?
 
 Wir betrachten die folgende Situation im Spiel:
 
@@ -434,13 +434,66 @@ OX.
 O.X
 ```
 
-## Aufgaben für Fortgeschrittene
+### Zurück zum Anfang: Koordinaten für die Feldangabe
+
+Kommen wir noch einmal zum Anfang zurück: Verständlicherweise könnte der Bedarf vorliegen, einen Spielzug nicht über einen eindimensionalen Feldindex anzugeben, der zudem mit Null beginnt, sondern über eine zweidimensionale Koordinatenangabe, ähnlich wie beim Schach, siehe @fig-t3koordinatensysteme.
+
+::: {#fig-t3koordinatensysteme layout-ncol=2}
+
+![Zahlenkoordinate: Zuerst wird eine untere Zahl für die Spalte, dann eine der Seitenzahlen für die Zeile angegeben](/KodierungUndRepräsentation/T3KoordinatenV1.png){#fig-t3koordinatenv1 width=80%}
+
+![Buchstabe/Zahl-Koordinate: Zuerst wird der Buchstabe, dann die Zahl angegeben. Auch umgekehrt wäre die Kodierung eindeutig.](/KodierungUndRepräsentation/T3KoordinatenV2.png){#fig-t3koordinatenv2 width=80%}
+
+Zwei mögliche Koordinatensysteme für Tic-Tac-Toe
+:::
+
+Diese Koordinatensysteme stellen mögliche Kodierungen dar, die mit der Außendarstellung des Spiels verbunden sind. Statt den Code der Klasse `TicTacToe` dafür "anzufassen", stelle ich eine Klasse `Pos` mit der Klassenmethode `of` bereit, die die Umrechnung vornimmt.
+
+```java
+class Pos {
+    static int of(int x, int y) {
+        assert x >= 1 && x <= 3;
+        assert y >= 1 && y <= 3;
+        return (3 - y) * 3 + (x - 1);
+    }
+    static int of(char x, int y) {
+        return of(x < 'a' ? x - 'A' + 1 : x - 'a' + 1, y);
+    }
+}
+```
+
+### Testing
+
+An den Tests, die ich mit der `assert`-Anweisung umsetze, möchte ich Ihnen zeigen, dass die `toString`-Methode mit der Ausgabe der Spielsituation bei der Formulierung von Testfällen helfen kann. Hier ein paar Beispiele:
+
+```java
+assert new TicTacToe().toString().equals("\n...\n...\n...");
+assert new TicTacToe().toggle().toString().equals("\n...\n...\n...");
+assert new TicTacToe(0,2).toString().equals("\nX.O\n...\n...");
+assert new TicTacToe(7,3,0,2).toString().equals("\nX.O\nO..\n.X.");
+assert new TicTacToe(0,3,7,2).toggle().toString().equals("\nO.X\nX..\n.O.");
+assert new TicTacToe(0,6,1,7,2).threeInARow();
+assert new TicTacToe(0,6,1,7,3,8).threeInARow();
+```
+
+Die Testfälle für die Klasse `Pos` arbeiten nicht mit Instanzen und müssen die Klassenmethode `of` unmittelbar testen.
+
+```java
+assert Pos.of(1,3) == 0 && Pos.of(2,3) == 1 && Pos.of(3,3) == 2;
+assert Pos.of(1,2) == 3 && Pos.of(2,2) == 4 && Pos.of(3,2) == 5;
+assert Pos.of(1,1) == 6 && Pos.of(2,1) == 7 && Pos.of(3,1) == 8;
+assert Pos.of('a',2) == Pos.of('A',2) && Pos.of('a',2) == Pos.of(1,2);
+assert Pos.of('b',1) == Pos.of('B',1) && Pos.of('b',1) == Pos.of(2,1);
+assert Pos.of('c',2) == Pos.of('C',2) && Pos.of('c',2) == Pos.of(3,2);
+```
+
+## Aufgaben
 
 Ergänzen Sie folgende Methoden zu der Klasse `TicTacToe`:
 
-### Verwende `ArrayList` für `history`
+### Verwende eine `ArrayList` für `history`
 
-Verwenden Sie für `history` eine `ArrayList` statt des `int`-Arrays und verzichten Sie auf damit überflüssig gewordene Variablen und Methoden.
+Verwenden Sie für `history` eine `ArrayList` statt des `int`-Arrays und verzichten Sie damit auf überflüssig gewordene Variablen und Methoden.
 
 <details>
     <summary>Lösen Sie die Aufgabe, schauen Sie erst dann hier nach, welche Variablen bzw. Methoden infrage kommen.</summary>
