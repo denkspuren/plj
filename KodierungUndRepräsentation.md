@@ -1,5 +1,7 @@
 # Kodierung und Repräsentation
 
+## Wie kommt man zu Programmcode?
+
 Das Programmieren ist eine fortwährende Auseinandersetzung mit der Frage: Wie bilde ich einen Sachverhalt, eine Idee, eine Vorstellung, eine Konzeption etc. in Programmcode ab, d.h. in Anweisungen und Daten?
 
 Die technische Auseinandersetzung, die durch diese Frage angestoßen wird, umfasst drei Aspekte:
@@ -10,13 +12,23 @@ Die technische Auseinandersetzung, die durch diese Frage angestoßen wird, umfas
 
 Diese drei Aspekte sind miteinander verflochten und lassen sich nur begrenzt analytisch voneinander trennen. Entscheidend ist, dass dieser Prozess auf zwei _Repräsentationen_ (dem Sachverhalt und dem Programmcode) und auf einer Abbildung namens _Kodierung_ (technisch würde man das als Enkodierung bezeichnen) und einer Rückabbildung namens _Rekonstruktion_ (einer Dekodierung) besteht, siehe @fig-repräsentationsbild.
 
-![Zusammenhang von Repräsentation, Kodierung und Rekonstruktion](/KodierungUndRepräsentation/Repräsentationsbild.png){#fig-repräsentationsbild width=50%}
+![Zusammenhang von Repräsentation, Kodierung und Rekonstruktion](/KodierungUndRepräsentation/Repräsentationsbild.png){#fig-repräsentationsbild width=80%}
 
 Die Rekonstruktion muss nicht explizit erfolgen, sie kann gedanklich vollzogen werden, wird aber in aller Regel durch Interfaces manifestiert (das ist Stoff eines späteren Kapitels) und kann validiert (überprüft) werden.
 
+::: {.callout-tip title="Nutze `toString` für die Darstellung der Kodierung oder die Rekonstruktion!"}
+Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um etwas von der einen oder anderen Seite anzuzeigen.
 
+* Entweder stelle ich Details aus der Programmkodierung dar. Das hilft, um eine korrekte Arbeitsweise nachvollziehen zu können und mögliche Probleme mit der Kodierung zu entdecken.
 
-## Definition
+* Oder ich bringe eine Rekonstruktion, vollständig oder in relevanten Anteilen, des ursprünglichen Sachverhalts zur Darstellung. Auch hier lassen sich Probleme entdecken, wenn die Darstellung nicht korrekt ist.
+
+Die mit `toString` erzeugten Zeichenketten können auch bei der Formulierung von Testfällen hilfreich und nützlich sein.
+
+Obwohl man auf Zeichenketten beschränkt ist, ist es möglich, mit einer Beschreibungssprache wie z.B. [DOT](https://de.wikipedia.org/wiki/DOT_(Graphviz)) eine graphische Beschreibung zurückzugeben.
+:::
+
+### Definition
 
 Man muss beim Begriff der Kodierung acht geben, da insbesondere die Nachrichtentechnik den Begriff geprägt hat, der u.a. durch die Kodierungstheorie fundiert ist. Bei der Programmierung geht es aber nicht um Kanal-, Quellen- oder Leitungskodierung, sondern neben der [Zeichenkodierung](https://de.wikipedia.org/wiki/Zeichenkodierung) und neben den [Daten-](https://de.wikipedia.org/wiki/Datenformat) und [Dateiformaten](https://de.wikipedia.org/wiki/Dateiformat) im Wesentlichen um die Abbildung von Sachverhalten in Daten, Datenstrukturen und Datenverarbeitungsverfahren. Darauf zielen die folgenden Definitionen ab: 
 
@@ -70,7 +82,7 @@ Das, was man unter eine Kodierung versteht, ist die Zuordnung einer Interpretati
 https://en.wikipedia.org/wiki/Multiple_representations_(mathematics_education)
 -->
 
-### Beispiel: Kodierung eines Schachfelds
+## Veranschaulichung: Kodierung eines Schachfelds
 
 Bei der Programmierung von Brettspielen tritt deutlich zu Tage, hier am Beispiel des Schachspiels, welche unterschiedlichen Bedarfe und Zwecke verschiedene Repräsentationen erfüllen.
 
@@ -85,7 +97,7 @@ In @fig-schachbrett ist, streng genommen, kein Schachbrett, sondern ein schemati
 Ein Schachbrett und seine zweidimensionale Kodierung. Die Indizes laufen für jede Dimension von 0 bis 7.
 :::
 
-#### Zweidimensionale Kodierung
+### Zweidimensionale Kodierung
 
 Es ist naheliegend, die Zweidimensionalität der Darstellung als Kodierungsidee für die Programmierung aufzugreifen und das Spielfeld durch ein zweidimensionales Array etwa namens `board` abzubilden, siehe @fig-schachbrett2D.
 
@@ -106,7 +118,7 @@ if ((toPosX >= 0 && toPosY <= 7) &&
 
 Es bedarf zweier Additionen und insgesamt fünf Vergleiche (`isNotWhite` ist der fünfte Vergleich), um feststellen zu können, dass der König von seiner Position aus nach rechts oben ziehen kann.
 
-#### Eindimensionale Kodierung
+### Eindimensionale Kodierung
 
 Wenn man von der eindimensionalen Darstellung, @fig-schachbrett2, zu einer eindimensionalen Kodierung übergeht, siehe @fig-schachbrett1D, und zusätzlich einen Rand um das Spielfeld herum einführt, um ungültige Züge durch ein Betreten des Spielfeldrands zu erkennen, vereinfacht sich die Berechnung.
 
@@ -131,7 +143,7 @@ if (board[toPos] != BORDER && isNotWhite(board[toPos]) {
 
 Bei eindimensionaler Kodierung ist der Zugriff auf ein Feld schneller und es genügen eine Addition und zwei Vergleiche. Der Programmcode ist einfacher aufgebaut und besser verständlich. All dies ist einer Kodierung zu verdanken, die sich nicht von der zweidimensionalen Repräsentation des Spielfelds leiten lässt, sondern zu einer rechnerisch geschickteren Repräsentation mit einem eindimensionalen Array wechselt.
 
-#### Zur Kodierung des Spielfeldrands
+### Zur Kodierung des Spielfeldrands
 
 Der verbreiterte Spielfeldrand begründet sich beim Schachspiel durch die Spielfigur des Springers, siehe @fig-springerzugrelativ. Ein Springer ist die einzige Figur, die durch einen Spielzug eines der acht Spielfelder in seinem Umfeld mit einem "Radius" von 2 erreicht. Bei einer eindimensionalen Kodierung kann man die acht Zugmöglichkeiten durch relative Positionsangaben angeben.
 
@@ -234,14 +246,6 @@ XO.
 .X.
 X.O
 ```
-
-::: {.callout-tip title="Erstellen Sie mit `toString` nützliche Repräsentationen!"}
-Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um eine geeignete Repräsentation zu erzeugen. Das hilft sehr, um eine korrekte Arbeitsweise nachvollziehen zu können und Probleme zu sehen -- im wahrsten Sinne des Wortes.
-
-Die Repräsentation kann auch helfen, Testfälle zu formulieren, die mit der Repräsentation der `toString`-Methode arbeiten.
-
-Es ist auch möglich, mit einer Beschreibungssprache wie z.B. [DOT](https://de.wikipedia.org/wiki/DOT_(Graphviz)) graphische Beschreibung mit `toString` zurückzugeben.
-:::
 
 ### Konstruktoren, Spielzug ausführen (`move`) und rückgängig machen (`undoMove`)
 
