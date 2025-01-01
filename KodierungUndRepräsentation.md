@@ -1,5 +1,15 @@
 # Kodierung und Repräsentation
 
+Das Programmieren ist eine fortwährende Auseinandersetzung mit der Frage: Wie bilde ich einen Sachverhalt, eine Idee, eine Vorstellung, eine Konzeption etc. in Programmcode ab, d.h. in Anweisungen und Daten?
+
+Die technische Auseinandersetzung, die durch diese Frage angestoßen wird, umfasst drei Aspekte:
+
+1. Erschließe Dir den Sachverhalt, die Idee, die Vorstellung, die Konzeption etc. in einer Form, der sie prinzipiell übertragbar (abbildbar) in Programmcode macht. 
+2. Finde eine Übertragung (Kodierung) mit den Möglichkeiten der Programmiersprache, die rechnerisch vorteilhaft ist und zur Programmiersprache oder zu einer Programmbibliothek mit ihren Ausdrucksmitteln passt.
+3. Rekonstruiere aus den gewählten Ausdrucksmitteln der Programmiersprache oder der Programmbibliothek eine Darbietung, die den Sachverhalt, die Idee, die Vorstellung oder Konzeption vollständig oder in ihren wesentlichen Elementen wieder erkennbar macht. 
+
+Diese drei Aspekte sind miteinander verflochten und lassen sich nur begrenzt analytisch voneinander trennen. Entscheidend ist, dass dieser Prozess auf zwei Repräsentationen (den Sachverhalt und den Programmcode) und auf einer Abbildung namens Kodierung (technisch würde man das als <u>En</u>kodierung bezeichnen) und einer Rückabbildung (einer <u>De</u>kodierung) besteht. 
+
 ## Definition
 
 Man muss beim Begriff der Kodierung acht geben, da insbesondere die Nachrichtentechnik den Begriff geprägt hat, der u.a. durch die Kodierungstheorie fundiert ist. Bei der Programmierung geht es aber nicht um Kanal-, Quellen- oder Leitungskodierung, sondern neben der [Zeichenkodierung](https://de.wikipedia.org/wiki/Zeichenkodierung) und neben den [Daten-](https://de.wikipedia.org/wiki/Datenformat) und [Dateiformaten](https://de.wikipedia.org/wiki/Dateiformat) im Wesentlichen um die Abbildung von Sachverhalten in Daten, Datenstrukturen und Datenverarbeitungsverfahren. Darauf zielen die folgenden Definitionen ab: 
@@ -436,7 +446,7 @@ O.X
 
 ## Aufgaben für Fortgeschrittene
 
-Ergänzen Sie folgende Methoden:
+Ergänzen Sie folgende Methoden zu der Klasse `TicTacToe`:
 
 ### Verwende `ArrayList` für `history`
 
