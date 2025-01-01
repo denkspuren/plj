@@ -4,39 +4,51 @@
 
 Das Programmieren ist eine fortwährende Auseinandersetzung mit der Frage: Wie bilde ich einen Sachverhalt, eine Idee, eine Vorstellung, eine Konzeption etc. in Programmcode ab, d.h. in Anweisungen und Daten?
 
-Die technische Auseinandersetzung, die durch diese Frage angestoßen wird, umfasst drei Aspekte:
+### Worum es geht: Sachverhalt, Kodierung, Programmcode, Rekonstruktion
+
+Die technische Auseinandersetzung, die durch diese Frage angestoßen wird, umfasst vier Aspekte:
 
 1. Erschließe Dir den Sachverhalt, die Idee, die Vorstellung, die Konzeption etc. in einer Form, die sie prinzipiell übertragbar (abbildbar) in Programmcode macht. 
 2. Finde eine Übertragung (Kodierung) mit den Möglichkeiten der Programmiersprache, die rechnerisch vorteilhaft ist und zur Programmiersprache und/oder zu einer Programmbibliothek mit ihren Ausdrucksmitteln passt.
-3. Rekonstruiere aus der Umsetzung mit den gewählten Ausdrucksmitteln der Programmiersprache oder der Programmbibliothek eine Darbietung, die den Sachverhalt, die Idee, die Vorstellung oder Konzeption vollständig oder in ihren wesentlichen Elementen wieder erkennbar macht. 
+3. Setze die Kodierung mit Programmcode um.
+4. Rekonstruiere aus der Umsetzung mit den gewählten Ausdrucksmitteln der Programmiersprache oder der Programmbibliothek eine Darbietung, die den Sachverhalt, die Idee, die Vorstellung oder Konzeption vollständig oder in ihren wesentlichen Elementen wieder erkennbar macht. 
 
-Diese drei Aspekte sind miteinander verflochten und lassen sich nur begrenzt analytisch voneinander trennen. Entscheidend ist, dass dieser Prozess auf zwei _Repräsentationen_ (dem Sachverhalt und dem Programmcode) und auf einer Abbildung namens _Kodierung_ (technisch würde man das als Enkodierung bezeichnen) und einer Rückabbildung namens _Rekonstruktion_ (einer Dekodierung) besteht, siehe @fig-repräsentationsbild.
+Diese vier Aspekte sind miteinander verflochten und lassen sich nur begrenzt analytisch voneinander trennen. Entscheidend ist, dass dieser Prozess auf zwei _Repräsentationen_ (dem Sachverhalt und dem Programmcode) und auf einer Abbildung namens _Kodierung_ (technisch würde man das als Enkodierung bezeichnen) und einer Rückabbildung namens _Rekonstruktion_ (einer Dekodierung) besteht, siehe @fig-repräsentationsbild.
 
 ![Zusammenhang von Repräsentation, Kodierung und Rekonstruktion](/KodierungUndRepräsentation/Repräsentationsbild.png){#fig-repräsentationsbild width=80%}
 
 Die Rekonstruktion muss nicht explizit erfolgen, sie kann gedanklich vollzogen werden, wird aber in aller Regel durch Interfaces manifestiert (das ist Stoff eines späteren Kapitels) und kann validiert (überprüft) werden.
 
-::: {.callout-tip title="Nutze `toString` für die Darstellung der Kodierung oder die Rekonstruktion!"}
+<!--::: {.callout-tip title="Nutze `toString` für die Darstellung der Kodierung oder die Rekonstruktion!"}-->
+
+### Nutze `toString` für die Darstellung der Kodierung oder der Rekonstruktion!
+
 Sie werden feststellen, dass ich fast immer die `toString`-Methode anpasse, um etwas von der einen oder anderen Seite anzuzeigen.
 
 * Entweder stelle ich Details aus der Programmkodierung dar. Das hilft, um eine korrekte Arbeitsweise nachvollziehen zu können und mögliche Probleme mit der Kodierung zu entdecken.
 
 * Oder ich bringe eine Rekonstruktion, vollständig oder in relevanten Anteilen, des ursprünglichen Sachverhalts zur Darstellung. Auch hier lassen sich Probleme entdecken, wenn die Darstellung nicht korrekt ist.
 
-Die mit `toString` erzeugten Zeichenketten können auch bei der Formulierung von Testfällen hilfreich und nützlich sein.
-
 Obwohl man auf Zeichenketten beschränkt ist, ist es möglich, mit einer Beschreibungssprache wie z.B. [DOT](https://de.wikipedia.org/wiki/DOT_(Graphviz)) eine graphische Beschreibung zurückzugeben.
-:::
 
-### Definition
+Die mit `toString` erzeugten Zeichenketten können auch bei der Formulierung von Testfällen hilfreich und nützlich sein.
+<!--:::-->
 
-Man muss beim Begriff der Kodierung acht geben, da insbesondere die Nachrichtentechnik den Begriff geprägt hat, der u.a. durch die Kodierungstheorie fundiert ist. Bei der Programmierung geht es aber nicht um Kanal-, Quellen- oder Leitungskodierung, sondern neben der [Zeichenkodierung](https://de.wikipedia.org/wiki/Zeichenkodierung) und neben den [Daten-](https://de.wikipedia.org/wiki/Datenformat) und [Dateiformaten](https://de.wikipedia.org/wiki/Dateiformat) im Wesentlichen um die Abbildung von Sachverhalten in Daten, Datenstrukturen und Datenverarbeitungsverfahren. Darauf zielen die folgenden Definitionen ab: 
+### Definitionen: Repräsentation, Kodierung, Rekonstruktion
+
+Man muss beim Begriff der Kodierung acht geben, da insbesondere die Nachrichtentechnik den Begriff geprägt hat, der u.a. durch die Kodierungstheorie fundiert ist. Bei der Programmierung geht es aber nicht um Kanal-, Quellen- oder Leitungskodierung, sondern neben der [Zeichenkodierung](https://de.wikipedia.org/wiki/Zeichenkodierung) und neben den [Daten-](https://de.wikipedia.org/wiki/Datenformat) und [Dateiformaten](https://de.wikipedia.org/wiki/Dateiformat) im Wesentlichen um die Abbildung von Sachverhalten in Daten, Datenstrukturen und Datenverarbeitungsverfahren und daraus die Rekonstruktion der Sachverhalte. Darauf zielen die folgenden Definitionen ab: 
 
 Repräsentation
-: Eine Repräsentation stellt eine Konfiguration (Zusammenstellung) von  [Entitäten](https://de.wikipedia.org/wiki/Entit%C3%A4t) samt ihrer Beziehungen textuell, graphisch, bildlich oder in einer anderen medialen Form dar. Diese Darstellungen bilden ideelle (abstrakte), realweltliche (konkrete) oder rechnerisch-computationale (virtuelle) Konstruktionen ab. Die Darstellung kann die Absicht verfolgen, etwas Grundlegendes, Entscheidendes oder Bedeutsames durch die Art und Weise der Darstellung hervorzuheben oder ins Blickfeld zu stellen.
+: Eine Repräsentation stellt eine Konfiguration (Zusammenstellung) von  [Entitäten](https://de.wikipedia.org/wiki/Entit%C3%A4t) samt ihrer Beziehungen textuell, graphisch, bildlich oder in einer anderen medialen Form dar. Diese Darstellungen bilden ideelle (abstrakte), realweltliche (konkrete), simulierte (virtuelle) oder rechnerische (computationale) Konstruktionen ab.
+
+<!-- Die Darstellung kann die Absicht verfolgen, etwas Grundlegendes, Entscheidendes oder Bedeutsames durch die Art und Weise der Darstellung hervorzuheben oder ins Blickfeld zu stellen.-->
 
 Kodierung
-: Eine Kodierung beschreibt die Abbildung einer Repräsentation in eine andere Repräsentation. In der Programmierung geht es wesentlich darum, Kodierungen für Datenrepräsentationen und Berechnungen zu finden bzw. zu verwenden, die computational vorteilhaft und/oder programmiersprachlich oder paradigmatisch geeignet und angemessen sind. Eine wichtige Rolle spielt zudem, diese Kodierungen kommunikabel (mitteilbar) und verständlich zu machen. 
+: Eine Kodierung beschreibt allgemein die Abbildung einer Repräsentation in eine andere Repräsentation. In der Programmierung geht es wesentlich darum, Kodierungen für Datenrepräsentationen und Berechnungen zu finden bzw. zu verwenden, die computational vorteilhaft und/oder programmiersprachlich oder paradigmatisch geeignet und angemessen sind.
+<!-- Eine wichtige Rolle spielt zudem, diese Kodierungen kommunikabel (mitteilbar) und verständlich zu machen.-->
+
+Rekonstruktion
+: Die Rekonstruktion ist die Umkehrung der Kodierung. In der Programmierung ist die Rekonstruktion die Abbildung, die aus dem Programmcode die ursprüngliche Repräsentation wieder hervorbringt.
 
 <!--
 [Zeichenkodierungen](https://de.wikipedia.org/wiki/Zeichenkodierung) wie [ASCII](https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange) oder [UTF-8](https://de.wikipedia.org/wiki/UTF-8) und [Daten-](https://de.wikipedia.org/wiki/Datenformat) und [Dateiformate](https://de.wikipedia.org/wiki/Dateiformat) wie [JPEG](https://de.wikipedia.org/wiki/JPEG) für Bilddaten, [MP3](https://de.wikipedia.org/wiki/MP3) für Hördaten oder [JSON](https://de.wikipedia.org/wiki/JavaScript_Object_Notation) für den Datenaustausch sind Beispiele für technische Standards, die Kodierungen von Zeichen, Medien und Daten definieren. Dass z.B. bei JPEG und MP3 verlustbehaftete Datenkompressionen eine Rolle spielen, interessiert Programmiererinnen und Programmierer nur begrenzt.
@@ -44,43 +56,11 @@ Kodierung
 
 ### Beispiel: Primitive Zahlentypen
 
-Sie kennen diese verschiedenen Repräsentationen bereits für primitive Typen. Zahlen vom Typ `byte`, `short`, `int` und `long` werden _intern_ im Zweierkomplement _kodiert_. Das Zweierkomplement bildet eine vorzeichenbehaftete Zahl in eine Binärzahl fester Stellenanzahl (8 Bits bei `byte`, 16 bei `short`, 32 bei `int` und 64 bei `long`) ab. Die Kodierung ist so beschaffen, dass man im Zweierkomplement mit einer gewöhnlichen Binäraddition negative und positive Zahlen addieren kann und es keiner expliziten Operation der Subtraktion bedarf. _Repräsentiert_ werden Ganzzahlen jedoch im Zehnerformat mit einem Vorzeichen bei negativen Zahlen.
+Sie kennen diese verschiedenen Repräsentationen bereits für primitive Typen. Zahlen vom Typ `byte`, `short`, `int` und `long` werden _intern_ im Zweierkomplement _kodiert_. Das Zweierkomplement bildet eine vorzeichenbehaftete Zahl in eine Binärzahl fester Stellenanzahl (8 Bits bei `byte`, 16 bei `short`, 32 bei `int` und 64 bei `long`) ab. Die Kodierung ist so beschaffen, dass man im Zweierkomplement mit einer gewöhnlichen Binäraddition negative und positive Zahlen addieren kann und es keiner expliziten Operation der Subtraktion bedarf. Dekodiert bzw. rekonstruiert werden die Zahlen des Zweierkomplements jedoch im Zehnerformat mit einem Vorzeichen bei negativen Zahlen.
 
 Bei Gleitkommazahlen wie `float` und `double` ist die Kodierung und der Bezug zwischen der binären und dezimalen Zahlenrepräsentation komplizierter. Der technische Standard [IEEE 754](https://de.wikipedia.org/wiki/IEEE_754) definiert die Darstellung von Binär- und Dezimalzahlen für Gleitkommazahlen und für die Durchführungen von Berechnungen.
 
 Datenwerte vom Typ `char` folgen der Zeichenkodierung UTF-8. [UTF-8](https://de.wikipedia.org/wiki/UTF-8) legt fest, welches Zeichen bzw. Symbol wie durch welche binäre Zahlenkodierung abgebildet wird.
-
-<!--
-```java
-jshell> 345 // Außendarstellung
-$59 ==> 345
-
-jshell> String.format("%32s", Integer.toBinaryString(345)).replace(' ', '0') // Kodierung
-$60 ==> "00000000000000000000000101011001"
-
-jshell> -345
-$61 ==> -345
-
-jshell> String.format("%32s", Integer.toBinaryString(-345)).replace(' ', '0')
-$62 ==> "11111111111111111111111010100111"
-```
-
-Es wäre nicht besonders geschickt, sich von der Darstellung leiten zu lassen und Zahlen intern als Ziffernfolgen von 0 bis 9, also als `char`s zu kodieren. Darunter würde die Recheneffizienz erheblich leiden.
--->
-
-<!--
-#### Alles ist Kodierung, alles Repräsentation
-
-Bei den Begriffen der Kodierung und der Repräsentation muss man sorgfältig trennen, was man da genau bezeichnet: Schaut man sich die eine Seite einer Medaille nur mit verschieden "Brillen" an, oder betrachtet man die zwei Seiten einer Medaille?
-
-*Verschiedene Brillen einer Seite*: Ein Rechner kodiert letztlich alles als Einsen und Nullen. Diese Kodierung kann man somit im Binärformat betrachten. Das Hexadezimalsystem und das Oktalsystem sind zwei weitere verbreitete Notationen bzw. Repräsentationen für Binärkodierungen. Das liegt daran, dass das Oktalsystem mit einer Oktalziffer exakt drei Binärstellen erfassst, das Hexadezimalsystem hingegen exakt vier Binärstellen. Mit diesen Zahlensystemen kann man sehr kompakt Binärziffern darstellen bzw. notieren.
-
-Das, was man unter eine Kodierung versteht, ist die Zuordnung einer Interpretation 
--->
-
-<!-- 
-https://en.wikipedia.org/wiki/Multiple_representations_(mathematics_education)
--->
 
 ## Veranschaulichung: Kodierung eines Schachfelds
 
@@ -188,7 +168,7 @@ Vielleicht erahnen Sie es: Mit dieser Entscheidung wird die Darstellung des Spie
 * Mit Einzelzeichen vom Typ `char` kann man zwar rechnen (`char` gehört in Java zu den Zahlentypen), doch daraus kann man keinerlei Nutzen ziehen. Denn: Wie will man mit diesen im Grunde willkürlich gewählten Symbolen `X` und `O` sinnvoll Berechnungen durchführen?
 * Die Zweidimensionalität erfordert, die Felder auf dem Spiel über zwei Indizes zu adressieren. Wenn ein Programm Spielzüge durchrechnet, wie z.B. beim Schach- oder Damespiel, dann macht sich die Ineffizienz einer zweidimensionalen Adressierung deutlich bemerkbar.
 
-::: {.callout-tip title=""}
+::: {.callout-tip title="Nimm das Kodieren ernst"}
 Es ist selten eine gute Idee, die äußere Darstellung eines Sachverhalts eins zu eins auf die interne Datenrepräsentation zu übertragen. Es ist die Aufgabe einer Programmiererin bzw. eines Programmierers eine Kodierung zu finden oder anzuwenden, die computational vorteilhaft und/oder programmiersprachlich oder paradigmatisch geeignet und angemessen ist (siehe die obige Definition!).
 :::
 
@@ -200,7 +180,7 @@ Mit den Instanzvariablen der Klasse `TicTacToe` fallen drei Entscheidungen für 
 2. Die Belegung eines Spielfelds ist wie folgt kodiert: Die Spielsteine der beginnenden Spielpartei (in der Darstellung das Symbol `X`) werden durch +1, die Spielsteine der nachziehenden Spielpartei (`O`) werden durch -1, leere Felder durch 0 abgebildet. Der Vorteil dieser Kodierung liegt darin, dass sich sehr effizient feststellen lässt, ob drei Spielsteine einer Partei eine Reihe ergeben: Man addiere die Feldwerte für eine Reihe auf. Ergibt sich eine +3 oder eine -3, sind drei Spielsteine einer Sorte in Reihe.
 3. Strikt von der internen Kodierung getrennt wird die Wahl der verwendeten Symbole für die Spielsteine durch das Array `symbols` vorgehalten.
 
-![D](/KodierungUndRepräsentation/T3Kodierung.png){#fig-t3kodierung width=30%}
+![Die Kodierung des Spiels Tic-Tac-Toe: Ein eindimensionales Spielfeld, das die Spielparteien mit +1 und -1 und leere Felder mit 0 unterscheidet](/KodierungUndRepräsentation/T3Kodierung.png){#fig-t3kodierung width=30%}
 
 Zusätzlich zu diesen Entscheidungen gibt es die folgenden Variablen:
 
@@ -484,4 +464,11 @@ Wenn Sie bei Spielen wie Tic-Tac-Toe oder Brettspielen wie Schach, Mühle oder D
 :::
 </details>
 
+### Hocheffiziente Kodierungen: Bitboards
+
+Wenn es darum geht, bei Spielen möglichst effizient Spielzüge durchzurechnen (etwa bei der Suche nach einem besten Spielzug, wenn der Computer gegen den Menschen antritt), braucht es sehr ausgeklügelte Kodierungen. In dem Text "[Bitboards and Connect Four](https://github.com/denkspuren/BitboardC4/blob/master/BitboardDesign.md)" erkläre ich ausführlich am Beispiel des Spiels "Vier gewinnt", was Bitboards sind und wie sie funktionieren. In dem Video "[Bitboards für Tic-Tac-Toe](https://www.youtube.com/watch?v=5t5jzkO0t7w)" zeige ich Ihnen die Umsetzung für das Spiel Tic-Tac-Toe. 
+
+::: {.callout-tip title=""}
+Es gibt im Bereich der Algorithmen und Datenstrukturen für viele Sachverhalte und Problemstellungen sehr raffinierte, effiziente und gründlich analysierte Kodierungen  -- das ist ein Teil dessen, was die Informatik so reizvoll und interessant macht. Machen Sie es sich zur Angewohnheit, zu dem Thema, das Sie beschäftigt, nach solchen Kodierungen zu recherchieren. Es ist unmöglich, selber auf all das zu kommen, was andere schon erfunden und ergründet haben. Vieles wird Ihnen auch durch Programmbibliotheken bereitgestellt.
+:::
 
