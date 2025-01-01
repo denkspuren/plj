@@ -4,11 +4,17 @@ Das Programmieren ist eine fortwährende Auseinandersetzung mit der Frage: Wie b
 
 Die technische Auseinandersetzung, die durch diese Frage angestoßen wird, umfasst drei Aspekte:
 
-1. Erschließe Dir den Sachverhalt, die Idee, die Vorstellung, die Konzeption etc. in einer Form, der sie prinzipiell übertragbar (abbildbar) in Programmcode macht. 
-2. Finde eine Übertragung (Kodierung) mit den Möglichkeiten der Programmiersprache, die rechnerisch vorteilhaft ist und zur Programmiersprache oder zu einer Programmbibliothek mit ihren Ausdrucksmitteln passt.
-3. Rekonstruiere aus den gewählten Ausdrucksmitteln der Programmiersprache oder der Programmbibliothek eine Darbietung, die den Sachverhalt, die Idee, die Vorstellung oder Konzeption vollständig oder in ihren wesentlichen Elementen wieder erkennbar macht. 
+1. Erschließe Dir den Sachverhalt, die Idee, die Vorstellung, die Konzeption etc. in einer Form, die sie prinzipiell übertragbar (abbildbar) in Programmcode macht. 
+2. Finde eine Übertragung (Kodierung) mit den Möglichkeiten der Programmiersprache, die rechnerisch vorteilhaft ist und zur Programmiersprache und/oder zu einer Programmbibliothek mit ihren Ausdrucksmitteln passt.
+3. Rekonstruiere aus der Umsetzung mit den gewählten Ausdrucksmitteln der Programmiersprache oder der Programmbibliothek eine Darbietung, die den Sachverhalt, die Idee, die Vorstellung oder Konzeption vollständig oder in ihren wesentlichen Elementen wieder erkennbar macht. 
 
-Diese drei Aspekte sind miteinander verflochten und lassen sich nur begrenzt analytisch voneinander trennen. Entscheidend ist, dass dieser Prozess auf zwei Repräsentationen (den Sachverhalt und den Programmcode) und auf einer Abbildung namens Kodierung (technisch würde man das als <u>En</u>kodierung bezeichnen) und einer Rückabbildung (einer <u>De</u>kodierung) besteht. 
+Diese drei Aspekte sind miteinander verflochten und lassen sich nur begrenzt analytisch voneinander trennen. Entscheidend ist, dass dieser Prozess auf zwei _Repräsentationen_ (dem Sachverhalt und dem Programmcode) und auf einer Abbildung namens _Kodierung_ (technisch würde man das als Enkodierung bezeichnen) und einer Rückabbildung namens _Rekonstruktion_ (einer Dekodierung) besteht, siehe @fig-repräsentationsbild.
+
+![Zusammenhang von Repräsentation, Kodierung und Rekonstruktion](/KodierungUndRepräsentation/Repräsentationsbild.png){#fig-repräsentationsbild width=50%}
+
+Die Rekonstruktion muss nicht explizit erfolgen, sie kann gedanklich vollzogen werden, wird aber in aller Regel durch Interfaces manifestiert (das ist Stoff eines späteren Kapitels) und kann validiert (überprüft) werden.
+
+
 
 ## Definition
 
