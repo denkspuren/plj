@@ -330,6 +330,11 @@ Es gibt insgesamt acht Möglichkeiten für "Drei in Reihe": es gibt drei Spalten
     }
 ```
 
+```
+jshell> t3.threeInARow()
+$23 ==> false
+```
+
 ::: {.callout-tip title="Abbildung von Abläufen in Datenstrukturen"}
 Sie sehen in der Methode `threeInARow`, wie umfangreiche Anweisungsstrukturen in Datenstrukturen kodiert werden können. Die Repräsentationsebene der Anweisungsstruktur wird zu Teilen in eine Repräsentationsebene von Datenstrukturen abgebildet. Davon sollten Sie Gebrauch machen, wann immer das möglich ist. Der mit der Datenstrukture einhergehende "Restcode" an Anweisungen ist meist deutlich weniger umfangreich, besser verständlich und weniger anfällig gegen "Tippfehler".
 :::
@@ -380,6 +385,11 @@ Um die Referenz nicht nach außen zu geben, erzeugen wir eine Kopie des Arrays. 
     }
 ```
 
+```
+jshell> t3.history()
+$24 ==> int[5] { 0, 1, 4, 8, 6 }
+```
+
 <details>
     <summary>Die Klasse `java.util.Arrays` (kurz `Arrays` in der JShell) bietet ein paar interessante Methoden im Umgang mit Arrays an, darunter die `copy`-Methode. Setzen Sie die obige Methode mit `copy` um.</summary>
 Sie können den obigen Code damit verkürzen zu:
@@ -395,11 +405,42 @@ Sie können den obigen Code damit verkürzen zu:
 Eine grundsätzlich andere Lösung zu der Herausforderung, die Datenintegrität durch herausgegebene Referenzen nicht zu verletzen, ist die Verwendung von _immutablen_ (unveränderlichen) Datenstrukturen. Wenn sich nichts an einem Objekt ändern lässt, ist es egal, wenn seine Referenz Dritten zugänglich ist. Daher spricht man bei Immutabilität auch von _referentieller Intransparenz_. Auf die Immutabilität kommen wir in anderen Kontexten wieder zurück.
 :::
 
+### Veränderte Außendarstellung `!=` interne Datenrepräsentation (`toggle`)
+
+An der Methode `toggle` möchte ich Ihnen demonstrieren, dass die Außendarstellung (Außenrepräsentation) von Tic-Tac-Toe eine Angelegenheit ist, die unabhängig von der internen Datenrepräsentation des Spiels gepflegt und behandelt werden kann.
+
+Wenn Sie die Spielparteien entschließen, die Symbole der Spielsteine zu tauschen, so dass beispielsweise auch `O` ein Spiel beginnen kann, so hat das überhaupt keinen Einfluss auf die interne Kodierung: dort wird stets der Anfang mit +1 gemacht.
+
+```java
+    TicTacToe toggle() {
+        char c = symbols[0];
+        symbols[0] = symbols[2];
+        symbols[2] = c;
+        return this;
+    }
+```
+
+```
+jshell> t3
+t3 ==>
+XO.
+.X.
+X.O
+
+jshell> t3.toggle()
+$26 ==>
+OX.
+.O.
+O.X
+```
+
 ## Aufgaben für Fortgeschrittene
 
 Ergänzen Sie folgende Methoden:
 
-* Verwenden Sie für `history` eine `ArrayList` statt des `int`-Arrays und verzichten Sie auf damit überflüssig gewordene Variablen und Methoden.
+### Verwende `ArrayList` für `history`
+
+Verwenden Sie für `history` eine `ArrayList` statt des `int`-Arrays und verzichten Sie auf damit überflüssig gewordene Variablen und Methoden.
 
 <details>
     <summary>Lösen Sie die Aufgabe, schauen Sie erst dann hier nach, welche Variablen bzw. Methoden infrage kommen.</summary>
@@ -408,9 +449,11 @@ Ergänzen Sie folgende Methoden:
 * Wenn die Methode `history` ihren Rückgabetyp `int[]` beibehalten soll, muss sie neu implementiert werden. Aber selbst in der Gestalt von `ArrayList<Integer> history()` hat sie ihre Berechtigung: Es darf nicht einfach `history` zurückgegeben werden, weil damit die durch `private` geschützte Referenz nach außen durchgestochen wird und von außen veränderbar wird. Es muss also eine Kopie der `ArrayList` zurückgegeben werden.
 </details>
 
-* Mit der Methode `void save(String fileName)` kann der Spielstand in einer Textdatei gespeichert werden. Die Dateiextension `.txt` wird automatisch zu `fileName` ergänzt. Die Methode `void save()` wählt als Dateinamen `"t3"`. Die Datei enthält die Historie, wobei die Zahlen durch Kommata getrennt sind. Wurde noch kein Spielzug gemacht, wird eine leere Datei angelegt. 
+### Speichern und Laden von Spielständen
 
-* Mit der Methode `TicTacToe load(String fileName)` wird ein Spielstand aus der abgespeicherten Historie rekonstruiert. Mit `TicTacToe load()` wird `t3.txt` geladen.
+Mit der Methode `void save(String fileName)` kann der Spielstand in einer Textdatei gespeichert werden. Die Dateiextension `.txt` wird automatisch zu `fileName` ergänzt. Die Methode `void save()` wählt als Dateinamen `"t3"`. Die Datei enthält die Historie, wobei die Zahlen durch Kommata getrennt sind. Wurde noch kein Spielzug gemacht, wird eine leere Datei angelegt. 
+
+Mit der Methode `TicTacToe load(String fileName)` wird ein Spielstand aus der abgespeicherten Historie rekonstruiert. Mit `TicTacToe load()` wird `t3.txt` geladen.
 
 <details>
     <summary>Warum ist es sinnvoller, die Historie für die Rekonstruktion des Spielstands zu speichern, statt eines Abbilds des tatsächlichen Spielstands?</summary>
