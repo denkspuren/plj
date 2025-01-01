@@ -31,7 +31,7 @@ class TicTacToe {
 
     public void move(int m) {
         assert contains(generateMoves(), m): "move must address a valid, empty field";
-        assert !wonTheGame(): "no party should have won the game";
+        assert !threeInARow(): "no party should have won the game";
         board[m] = turn;
         turn = -turn;
         history[counter++] = m;
@@ -56,7 +56,7 @@ class TicTacToe {
         return moves;
     }
 
-    public boolean wonTheGame() {
+    public boolean threeInARow() {
         int[][] rows = {{0,1,2},{3,4,5},{6,7,8},
                         {0,3,6},{1,4,7},{2,5,8},
                         {0,4,8},{2,4,6}};
@@ -96,6 +96,6 @@ assert new TicTacToe().toggle().toString().equals("\n...\n...\n...");
 assert new TicTacToe(0,2).toString().equals("\nX.O\n...\n...");
 assert new TicTacToe(7,3,0,2).toString().equals("\nX.O\nO..\n.X.");
 assert new TicTacToe(0,3,7,2).toggle().toString().equals("\nO.X\nX..\n.O.");
-assert new TicTacToe(0,6,1,7,2).wonTheGame();
-assert new TicTacToe(0,6,1,7,3,8).wonTheGame();
+assert new TicTacToe(0,6,1,7,2).threeInARow();
+assert new TicTacToe(0,6,1,7,3,8).threeInARow();
 

@@ -136,7 +136,11 @@ Diese eindimensionale Kodierung mit einem Rand, der in einer visuellen Repräsen
 
 Sie kennen sicher das Spiel Tic-Tac-Toe. Das Spiel besteht aus einem 3×3 Spielfeld und wird von zwei Parteien gespielt. Die eine Partei hat die mit `X`, die andere die mit `O` bezeichneten Spielsteine. Die beiden Spielparteien setzen abwechselnd ihre Spielsteine auf ein freies Feld, `X` beginnt. Das Spiel endet mit dem Sieg für die Spielpartei, die zuerst drei ihrer Spielsteine "in Reihe" (waagerecht, senkrecht, diagonal) bringt. Kann keine Spielpartei gewinnen und ist das Spielbrett vollständig besetzt, so endet die Partie unentschieden.
 
-Die folgenden Unterkapitel demonstrieren anhand einer Umsetzung des Spiels, wie mittels einer geeigneten Kodierung die Außendarstellung des Spiels auf eine interne Datenrepräsentation abgebildet wird.
+Die folgenden Unterkapitel demonstrieren anhand einer Umsetzung des Spiels Tic-Tac-Toe, die vielfältigen Aspekte von Kodierungen.
+
+<!--
+wie mittels einer geeigneten Kodierung die Außendarstellung des Spiels auf eine interne Datenrepräsentation abgebildet wird.
+-->
 
 ### Ein Einstieg
 
@@ -174,7 +178,7 @@ Zusätzlich zu diesen Entscheidungen gibt es die folgenden Variablen:
 
 * `int turn` merkt sich, wer am Zug ist, +1 oder -1. Entsprechend wechselt der Wert zwischen +1 und -1 hin und her.
 * Der Spielverlauf wird in `int[] history` vorgehalten. Die Spielhistorie erlaubt die Rücknahme von Spielzügen.
-* Der `counter` markiert den Füllstand an Zügen in `history`.
+* Der `counter` zählt die in `history` hinterlegten Züge mit und kann somit zudem als Füllstandsanzeiger verstanden werden.
 
 ```java
 class TicTacToe {
@@ -236,7 +240,7 @@ Mit `new TicTacToe()` kann ein Spiel instanziiert werden. Bei Bedarf sind Spielz
 
     public void move(int m) {
         assert contains(generateMoves(), m): "move must address a valid, empty field";
-        assert !wonTheGame(): "no party should have won the game";
+        assert !threeInARow(): "no party should have won the game";
         board[m] = turn;
         turn = -turn;
         history[counter++] = m;
@@ -309,11 +313,89 @@ Die Hilfsmethode `contains` dient generell zur Feststellung, ob sich ein Zahlenw
     }
 ```
 
-### Sind drei in Reihe? (`wonTheGame`)
+### Sind drei in Reihe? (`threeInARow`)
 
+Es gibt insgesamt acht Möglichkeiten für "Drei in Reihe": es gibt drei Spalten, drei Zeilen und zwei Diagonalen. Statt diese acht Möglichkeiten durch zahlreiche `if`-Anweisungen zu kodieren, kann man auch eine datenorientierte Lösung realisieren. In dem zweidimensionalen Array `rows` werden die acht Möglichkeiten schlicht notiert. Die sich daraus ergebende Ablauflogik zur Feststellung, ob in der aktuellen Spielsituation drei Spielsteine einer Spielpartei in Reihe sind, ist übersichtlich und einfach nachvollziehbar.
 
+```java
+    public boolean threeInARow() {
+        int[][] rows = {{0,1,2},{3,4,5},{6,7,8},
+                        {0,3,6},{1,4,7},{2,5,8},
+                        {0,4,8},{2,4,6}};
+        for(int[] row : rows) {
+            int sum = board[row[0]] + board[row[1]] + board[row[2]];
+            if (Math.abs(sum) == 3) return true;
+        }
+        return false;
+    }
+```
 
-### Aufgaben für Fortgeschrittene
+::: {.callout-tip title="Abbildung von Abläufen in Datenstrukturen"}
+Sie sehen in der Methode `threeInARow`, wie umfangreiche Anweisungsstrukturen in Datenstrukturen kodiert werden können. Die Repräsentationsebene der Anweisungsstruktur wird zu Teilen in eine Repräsentationsebene von Datenstrukturen abgebildet. Davon sollten Sie Gebrauch machen, wann immer das möglich ist. Der mit der Datenstrukture einhergehende "Restcode" an Anweisungen ist meist deutlich weniger umfangreich, besser verständlich und weniger anfällig gegen "Tippfehler".
+:::
+
+<details>
+    <summary>Wenn Sie die Umsetzung der Kodierung von Reihen in einem Array sehen, könnte man auf eine effizientere Variante kommen: Je nachdem wo der letzte Spielstein gesetzt wurde, sind nur zwei, drei oder vier Reihen zu überprüfen. Wie müsste der Programmcode angepasst werden, um das umzusetzen?</summary>
+Ich möchte hier nur die Idee skizzieren:
+
+* Für das Feld mit dem Index 0 kommen nur die folgenden Reihen infrage: `{{0,1,2}, {0,4,8}, {0,3,6}}`. Entsprechendes gilt für die anderen Eckfelder.
+* Für das Feld mit dem Index 1 sind es die Reihen `{{0,1,2}, {1,4,7}}`. Entsprechendes gilt für die Indizes 3, 5 und 7.
+* Für das Feld in der Mitte mit dem Index 4 sind es die Reihen `{{0,4,8}, {2,4,6}, {1,4,7}, {3,4,5}}`
+
+Mit jedem Index ist ein zweidimensionales Feld mit den Reihen zu verbinden. Entsprechend ist ein dreidimensionales Array zu konzipieren:
+
+```java
+int[][][] idx2rows = {
+    {{0,1,2}, {0,4,8}, {0,3,6}}, // Index 0
+    {{0,1,2}, {1,4,7}},          // Index 1
+    // usw.
+    {{0,4,8}, {2,4,6}, {1,4,7}, {3,4,5}} // Index 4
+    // usw.
+}
+```
+
+Abhängig vom letzten Zug können nun die zu begutachtenden Reihen abgerufen werden:
+
+```java
+int[][] rows = idx2rows[history[counter - 1]];
+```
+
+Der Rest des Codes, d.h. die `for`-Schleife und das abschließende `return`, bleibt unverändert.
+</details>
+
+### Rückgabe des Spielverlaufs (`history`)
+
+Die Variable `history`, die den Spielverlauf erinnert, ist `private` gesetzt und von außen nicht einsehbar. Man könnte eine Methode wie `int[] getHistory()` (oder kürzer `int[] history()`) anlegen, die per `return history` das `int`-Array zurückgibt.
+
+Das wäre ein schwerwiegender Fehler: Sie hätten damit die Referenz auf das Array ausgeliefert, was Außenstehenden beliebige Manipulationen an dem Array erlauben würde. Damit hätten Sie Ihren Programmcode unterwandert und könnten dessen [Integrität](https://de.wikipedia.org/wiki/Integrit%C3%A4tsbedingung) nicht mehr garantieren.
+
+Um die Referenz nicht nach außen zu geben, erzeugen wir eine Kopie des Arrays. Und zwar nicht des ganzen Arrays sondern nur von der benötigten Größe.
+
+```java
+    public int[] history() {
+        int[] moves = new int[counter];
+        for(int i = 0; i < moves.length; i++)
+            moves[i] = history[i];
+        return moves;
+    }
+```
+
+<details>
+    <summary>Die Klasse `java.util.Arrays` (kurz `Arrays` in der JShell) bietet ein paar interessante Methoden im Umgang mit Arrays an, darunter die `copy`-Methode. Setzen Sie die obige Methode mit `copy` um.</summary>
+Sie können den obigen Code damit verkürzen zu:
+
+```java
+    public int[] history() {
+        return Arrays.copy(history, counter);
+    }
+```
+</details>
+
+::: {.callout-note title="Mit immutablen Datenstrukturen gibt es kein Referenzproblem"}
+Eine grundsätzlich andere Lösung zu der Herausforderung, die Datenintegrität durch herausgegebene Referenzen nicht zu verletzen, ist die Verwendung von _immutablen_ (unveränderlichen) Datenstrukturen. Wenn sich nichts an einem Objekt ändern lässt, ist es egal, wenn seine Referenz Dritten zugänglich ist. Daher spricht man bei Immutabilität auch von _referentieller Intransparenz_. Auf die Immutabilität kommen wir in anderen Kontexten wieder zurück.
+:::
+
+## Aufgaben für Fortgeschrittene
 
 Ergänzen Sie folgende Methoden:
 
@@ -331,8 +413,8 @@ Ergänzen Sie folgende Methoden:
 * Mit der Methode `TicTacToe load(String fileName)` wird ein Spielstand aus der abgespeicherten Historie rekonstruiert. Mit `TicTacToe load()` wird `t3.txt` geladen.
 
 <details>
-    <summary>Warum ist es sinnvoller, die Historie für den Spielstand zu speichern, statt eines Abbilds des tatsächlichen Spielstands?</summary>
-Es ist gar nicht so einfach, einen gegebenen Spielstand daraufhin zu überprüfen, ob er eine gültige Spielsituation wiedergibt. Denn die zu ladende Textdatei kann ja auch händisch angelegt worden sein. Zum Beispiel darf die Summe aller Spielsteine auf dem Brett nur 0 oder +1 sein. Ansonsten hat eine Partei Spielsteine ohne Gegenzug auf dem Spielbrett positioniert. Wesentlich einfacher ist die Rekonstruktion eines Spielstands aus der Historie des Spielverlaufs. Die Spielzüge sind bei Verwendung der `move`-Methode (zusammen mit `generateMoves` und `contains`) sehr leicht auf Gültigkeit zu überprüfen. Wenn die Spielzüge gültig sind, muss es die ergebende Spielsitation ebenso sein.
+    <summary>Warum ist es sinnvoller, die Historie für die Rekonstruktion des Spielstands zu speichern, statt eines Abbilds des tatsächlichen Spielstands?</summary>
+Es ist gar nicht so einfach, einen gegebenen Spielstand daraufhin zu überprüfen, ob er eine gültige Spielsituation wiedergibt. Denn die zu ladende Textdatei kann ja auch händisch angelegt worden oder schlicht fehlerhaft sein. Zum Beispiel darf die Summe aller Spielsteine auf dem Brett nur 0 oder +1 sein. Ansonsten hat eine Partei Spielsteine ohne Gegenzug auf dem Spielbrett positioniert. Wesentlich einfacher ist die Rekonstruktion eines Spielstands aus der Historie des Spielverlaufs. Die Spielzüge sind bei Verwendung der `move`-Methode (zusammen mit `generateMoves` und `contains`) sehr leicht auf Gültigkeit zu überprüfen. Wenn die Spielzüge gültig sind, muss es die ergebende Spielsitation ebenso sein. Sie setzen also auf der bereits implementierten Spielmechanik (auch der Gültigkeitsprüfung) auf, statt neue Überlegungen umsetzen zu müssen, ob eine gegebene Spielstellung (a) grundsätzlich gültig ist oder nicht und (b) ob sie überhaupt durch einen realen Spielverlauf so entstanden sein könnte.
 
 ::: {.callout-tip title=""}
 Wenn Sie bei Spielen wie Tic-Tac-Toe oder Brettspielen wie Schach, Mühle oder Dame den Spielstand speichern wollen, sollten Sie das immer über die Speicherung der bis dahin erfolgten Spielzüge tun. Die Rekonstruktion einer Spielsituation aus dem Spielverlauf ist leichter validierbar (überprüfbar) und sie kann korrumpierte Daten erkennen.
