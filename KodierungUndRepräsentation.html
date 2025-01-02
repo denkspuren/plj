@@ -64,7 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Anhang.html" rel="next">
 <link href="./Klassen.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -105,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -116,7 +115,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">Programmieren lernen mit Java: Eine Einführung auf Hochschulniveau</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools tools-end">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de"> 
+<span class="menu-text">CC BY-NC-ND 4.0</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
     <a href="https://github.com/denkspuren/plj" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -139,11 +149,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./legal/CC-BC-NC-ND_88x31.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Suchen"></div>
@@ -169,12 +174,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Kodierung und Repräsentation</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Anhang.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Anhang</span></span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -185,15 +184,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhalte</h2>
    
   <ul>
-  <li><a href="#fallbeispiel-tic-tac-toe" id="toc-fallbeispiel-tic-tac-toe" class="nav-link active" data-scroll-target="#fallbeispiel-tic-tac-toe"><span class="header-section-number">2.1</span> Fallbeispiel: Tic-Tac-Toe</a>
+  <li><a href="#wie-kommt-man-zu-programmcode" id="toc-wie-kommt-man-zu-programmcode" class="nav-link active" data-scroll-target="#wie-kommt-man-zu-programmcode"><span class="header-section-number">2.1</span> Wie kommt man zu Programmcode?</a>
   <ul class="collapse">
-  <li><a href="#eine-kodierung-für-tic-tac-toe" id="toc-eine-kodierung-für-tic-tac-toe" class="nav-link" data-scroll-target="#eine-kodierung-für-tic-tac-toe"><span class="header-section-number">2.1.1</span> Eine Kodierung für Tic-Tac-Toe</a></li>
+  <li><a href="#worum-es-geht-sachverhalt-kodierung-programmcode-rekonstruktion" id="toc-worum-es-geht-sachverhalt-kodierung-programmcode-rekonstruktion" class="nav-link" data-scroll-target="#worum-es-geht-sachverhalt-kodierung-programmcode-rekonstruktion"><span class="header-section-number">2.1.1</span> Worum es geht: Sachverhalt, Kodierung, Programmcode, Rekonstruktion</a></li>
+  <li><a href="#nutze-tostring-für-die-darstellung-der-kodierung-oder-der-rekonstruktion" id="toc-nutze-tostring-für-die-darstellung-der-kodierung-oder-der-rekonstruktion" class="nav-link" data-scroll-target="#nutze-tostring-für-die-darstellung-der-kodierung-oder-der-rekonstruktion"><span class="header-section-number">2.1.2</span> Nutze <code>toString</code> für die Darstellung der Kodierung oder der Rekonstruktion!</a></li>
+  <li><a href="#definitionen-repräsentation-kodierung-rekonstruktion" id="toc-definitionen-repräsentation-kodierung-rekonstruktion" class="nav-link" data-scroll-target="#definitionen-repräsentation-kodierung-rekonstruktion"><span class="header-section-number">2.1.3</span> Definitionen: Repräsentation, Kodierung, Rekonstruktion</a></li>
+  <li><a href="#beispiel-primitive-zahlentypen" id="toc-beispiel-primitive-zahlentypen" class="nav-link" data-scroll-target="#beispiel-primitive-zahlentypen"><span class="header-section-number">2.1.4</span> Beispiel: Primitive Zahlentypen</a></li>
+  </ul></li>
+  <li><a href="#veranschaulichung-kodierung-eines-schachfelds" id="toc-veranschaulichung-kodierung-eines-schachfelds" class="nav-link" data-scroll-target="#veranschaulichung-kodierung-eines-schachfelds"><span class="header-section-number">2.2</span> Veranschaulichung: Kodierung eines Schachfelds</a>
+  <ul class="collapse">
+  <li><a href="#zweidimensionale-kodierung" id="toc-zweidimensionale-kodierung" class="nav-link" data-scroll-target="#zweidimensionale-kodierung"><span class="header-section-number">2.2.1</span> Zweidimensionale Kodierung</a></li>
+  <li><a href="#eindimensionale-kodierung" id="toc-eindimensionale-kodierung" class="nav-link" data-scroll-target="#eindimensionale-kodierung"><span class="header-section-number">2.2.2</span> Eindimensionale Kodierung</a></li>
+  <li><a href="#zur-kodierung-des-spielfeldrands" id="toc-zur-kodierung-des-spielfeldrands" class="nav-link" data-scroll-target="#zur-kodierung-des-spielfeldrands"><span class="header-section-number">2.2.3</span> Zur Kodierung des Spielfeldrands</a></li>
+  </ul></li>
+  <li><a href="#fallbeispiel-tic-tac-toe" id="toc-fallbeispiel-tic-tac-toe" class="nav-link" data-scroll-target="#fallbeispiel-tic-tac-toe"><span class="header-section-number">2.3</span> Fallbeispiel: Tic-Tac-Toe</a>
+  <ul class="collapse">
+  <li><a href="#einstieg-wie-würden-sie-das-spiel-kodieren" id="toc-einstieg-wie-würden-sie-das-spiel-kodieren" class="nav-link" data-scroll-target="#einstieg-wie-würden-sie-das-spiel-kodieren"><span class="header-section-number">2.3.1</span> Einstieg: Wie würden Sie das Spiel kodieren?</a></li>
+  <li><a href="#eine-kodierung-für-tic-tac-toe" id="toc-eine-kodierung-für-tic-tac-toe" class="nav-link" data-scroll-target="#eine-kodierung-für-tic-tac-toe"><span class="header-section-number">2.3.2</span> Eine Kodierung für Tic-Tac-Toe</a></li>
+  <li><a href="#objekt-repräsentation-mit-tostring-methode" id="toc-objekt-repräsentation-mit-tostring-methode" class="nav-link" data-scroll-target="#objekt-repräsentation-mit-tostring-methode"><span class="header-section-number">2.3.3</span> Objekt-Repräsentation mit <code>toString</code>-Methode</a></li>
+  <li><a href="#konstruktoren-spielzug-ausführen-move-und-rückgängig-machen-undomove" id="toc-konstruktoren-spielzug-ausführen-move-und-rückgängig-machen-undomove" class="nav-link" data-scroll-target="#konstruktoren-spielzug-ausführen-move-und-rückgängig-machen-undomove"><span class="header-section-number">2.3.4</span> Konstruktoren, Spielzug ausführen (<code>move</code>) und rückgängig machen (<code>undoMove</code>)</a></li>
+  <li><a href="#der-spielzuggenerator-generatemoves-und-die-hilfsmethode-contains" id="toc-der-spielzuggenerator-generatemoves-und-die-hilfsmethode-contains" class="nav-link" data-scroll-target="#der-spielzuggenerator-generatemoves-und-die-hilfsmethode-contains"><span class="header-section-number">2.3.5</span> Der Spielzuggenerator <code>generateMoves</code> und die Hilfsmethode <code>contains</code></a></li>
+  <li><a href="#sind-drei-in-reihe-threeinarow" id="toc-sind-drei-in-reihe-threeinarow" class="nav-link" data-scroll-target="#sind-drei-in-reihe-threeinarow"><span class="header-section-number">2.3.6</span> Sind drei in Reihe? (<code>threeInARow</code>)</a></li>
+  <li><a href="#rückgabe-des-spielverlaufs-history" id="toc-rückgabe-des-spielverlaufs-history" class="nav-link" data-scroll-target="#rückgabe-des-spielverlaufs-history"><span class="header-section-number">2.3.7</span> Rückgabe des Spielverlaufs (<code>history</code>)</a></li>
+  <li><a href="#veränderte-außendarstellung-interne-datenrepräsentation-toggle" id="toc-veränderte-außendarstellung-interne-datenrepräsentation-toggle" class="nav-link" data-scroll-target="#veränderte-außendarstellung-interne-datenrepräsentation-toggle"><span class="header-section-number">2.3.8</span> Veränderte Außendarstellung <code>!=</code> interne Datenrepräsentation (<code>toggle</code>)</a></li>
+  <li><a href="#zurück-zum-anfang-koordinaten-für-die-feldangabe" id="toc-zurück-zum-anfang-koordinaten-für-die-feldangabe" class="nav-link" data-scroll-target="#zurück-zum-anfang-koordinaten-für-die-feldangabe"><span class="header-section-number">2.3.9</span> Zurück zum Anfang: Koordinaten für die Feldangabe</a></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing"><span class="header-section-number">2.3.10</span> Testing</a></li>
+  </ul></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="header-section-number">2.4</span> Aufgaben</a>
+  <ul class="collapse">
+  <li><a href="#verwende-eine-arraylist-für-history" id="toc-verwende-eine-arraylist-für-history" class="nav-link" data-scroll-target="#verwende-eine-arraylist-für-history"><span class="header-section-number">2.4.1</span> Verwende eine <code>ArrayList</code> für <code>history</code></a></li>
+  <li><a href="#speichern-und-laden-von-spielständen" id="toc-speichern-und-laden-von-spielständen" class="nav-link" data-scroll-target="#speichern-und-laden-von-spielständen"><span class="header-section-number">2.4.2</span> Speichern und Laden von Spielständen</a></li>
+  <li><a href="#hocheffiziente-kodierungen-bitboards" id="toc-hocheffiziente-kodierungen-bitboards" class="nav-link" data-scroll-target="#hocheffiziente-kodierungen-bitboards"><span class="header-section-number">2.4.3</span> Hocheffiziente Kodierungen: Bitboards</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/denkspuren/plj/edit/main/KodierungUndRepräsentation.md" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/denkspuren/plj/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li><li><a href="https://github.com/denkspuren/plj/blob/main/KodierungUndRepräsentation.md" class="toc-action"><i class="bi empty"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -214,85 +241,611 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="einleitung" class="level4">
-<h4 class="anchored" data-anchor-id="einleitung">Einleitung</h4>
-<p>In der Informatik und insbesondere in der Programmierung muss man lernen einen Unterschied zu machen zwischen</p>
+<section id="wie-kommt-man-zu-programmcode" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="wie-kommt-man-zu-programmcode"><span class="header-section-number">2.1</span> Wie kommt man zu Programmcode?</h2>
+<p>Das Programmieren ist eine fortwährende Auseinandersetzung mit der Frage: Wie bilde ich einen Sachverhalt, eine Idee, eine Vorstellung, eine Konzeption etc. in Programmcode ab, d.h. in Anweisungen und Daten?</p>
+<section id="worum-es-geht-sachverhalt-kodierung-programmcode-rekonstruktion" class="level3 page-columns page-full" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="worum-es-geht-sachverhalt-kodierung-programmcode-rekonstruktion"><span class="header-section-number">2.1.1</span> Worum es geht: Sachverhalt, Kodierung, Programmcode, Rekonstruktion</h3>
+<p>Die technische Auseinandersetzung, die durch diese Frage angestoßen wird, umfasst vier Aspekte:</p>
+<ol type="1">
+<li>Erschließe Dir den Sachverhalt, die Idee, die Vorstellung, die Konzeption etc. in einer Form, die sie prinzipiell übertragbar (abbildbar) in Programmcode macht.</li>
+<li>Finde eine Übertragung (Kodierung) mit den Möglichkeiten der Programmiersprache, die rechnerisch vorteilhaft ist und zur Programmiersprache und/oder zu einer Programmbibliothek mit ihren Ausdrucksmitteln passt.</li>
+<li>Setze die Kodierung mit Programmcode um.</li>
+<li>Rekonstruiere aus der Umsetzung mit den gewählten Ausdrucksmitteln der Programmiersprache oder der Programmbibliothek eine Darbietung, die den Sachverhalt, die Idee, die Vorstellung oder Konzeption vollständig oder in ihren wesentlichen Elementen wieder erkennbar macht.</li>
+</ol>
+<p>Diese vier Aspekte sind miteinander verflochten und lassen sich nur begrenzt analytisch voneinander trennen. Entscheidend ist, dass dieser Prozess auf zwei <em>Repräsentationen</em> (dem Sachverhalt und dem Programmcode) und auf einer Abbildung namens <em>Kodierung</em> (technisch würde man das als Enkodierung bezeichnen) und einer Rückabbildung namens <em>Rekonstruktion</em> (einer Dekodierung) besteht, siehe <a href="#fig-repräsentationsbild" class="quarto-xref">Abbildung&nbsp;<span>2.1</span></a>.</p>
+<div id="fig-repräsentationsbild" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-repräsentationsbild-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./KodierungUndRepräsentation/Repräsentationsbild.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-repräsentationsbild-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2.1: Zusammenhang von Repräsentation, Kodierung und Rekonstruktion
+</figcaption>
+</figure>
+</div>
+<p>Die Rekonstruktion muss nicht explizit erfolgen, sie kann gedanklich vollzogen werden, wird aber in aller Regel durch Interfaces manifestiert (das ist Stoff eines späteren Kapitels) und kann validiert (überprüft) werden.</p>
+<!--::: {.callout-tip title="Nutze `toString` für die Darstellung der Kodierung oder die Rekonstruktion!"}-->
+</section>
+<section id="nutze-tostring-für-die-darstellung-der-kodierung-oder-der-rekonstruktion" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="nutze-tostring-für-die-darstellung-der-kodierung-oder-der-rekonstruktion"><span class="header-section-number">2.1.2</span> Nutze <code>toString</code> für die Darstellung der Kodierung oder der Rekonstruktion!</h3>
+<p>Sie werden feststellen, dass ich fast immer die <code>toString</code>-Methode anpasse, um etwas von der einen oder anderen Seite anzuzeigen.</p>
 <ul>
-<li>der <em>Kodierung</em>; also wie man einen Sachverhalt <em>intern</em> und rechnerisch geeignet durch Strukturen abbildet,</li>
-<li>der <em>Repräsentation</em> (auch <em>Darstellung</em>); also wie man einen Sachverhalt <em>extern</em> und meist zugänglich für Menschen textuell oder visuell aufbereitet.</li>
+<li><p>Entweder stelle ich Details aus der Programmkodierung dar. Das hilft, um eine korrekte Arbeitsweise nachvollziehen zu können und mögliche Probleme mit der Kodierung zu entdecken.</p></li>
+<li><p>Oder ich bringe eine Rekonstruktion, vollständig oder in relevanten Anteilen, des ursprünglichen Sachverhalts zur Darstellung. Auch hier lassen sich Probleme entdecken, wenn die Darstellung nicht korrekt ist.</p></li>
 </ul>
-<p>Ein kleines Beispiel: Zahlen vom Typ <code>int</code> und <code>long</code> werden <em>intern</em> im Zweierkomplement <em>kodiert</em>. <em>Dargestellt</em> werden sie jedoch <em>nach außen</em> als Zahlen im Zehnerformat mit einem Vorzeichen bei negativen Zahlen.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>jshell<span class="op">&gt;</span> <span class="dv">345</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>$<span class="dv">59</span> <span class="op">==&gt;</span> <span class="dv">345</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>jshell<span class="op">&gt;</span> <span class="bu">String</span><span class="op">.</span><span class="fu">format</span><span class="op">(</span><span class="st">"</span><span class="sc">%32s</span><span class="st">"</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">toBinaryString</span><span class="op">(</span><span class="dv">345</span><span class="op">)).</span><span class="fu">replace</span><span class="op">(</span><span class="ch">' '</span><span class="op">,</span> <span class="ch">'0'</span><span class="op">)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>$<span class="dv">60</span> <span class="op">==&gt;</span> <span class="st">"00000000000000000000000101011001"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>jshell<span class="op">&gt;</span> <span class="op">-</span><span class="dv">345</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>$<span class="dv">61</span> <span class="op">==&gt;</span> <span class="op">-</span><span class="dv">345</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>jshell<span class="op">&gt;</span> <span class="bu">String</span><span class="op">.</span><span class="fu">format</span><span class="op">(</span><span class="st">"</span><span class="sc">%32s</span><span class="st">"</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">toBinaryString</span><span class="op">(-</span><span class="dv">345</span><span class="op">)).</span><span class="fu">replace</span><span class="op">(</span><span class="ch">' '</span><span class="op">,</span> <span class="ch">'0'</span><span class="op">)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>$<span class="dv">62</span> <span class="op">==&gt;</span> <span class="st">"11111111111111111111111010100111"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<blockquote class="blockquote">
-<p>Zum Hintergrund: Im Zweierkomplement wird ein Vorzeichenwechsel dadurch realisiert, dass die Bits invertiert werden (eine 1 wird zur 0, eine 0 zur 1) und anschließend ein 1 addiert wird. Das scheint umständlich. Der Vorteil ist jedoch, dass man im Zweierkomplement mit einer gewöhnlichen Binäraddition negative und positive Zahlen addieren kann und es auch keiner expliziten Operation der Subtraktion bedarf.</p>
-</blockquote>
-<p>Es wäre nicht besonders geschickt, sich von der Darstellung leiten zu lassen und Zahlen intern als Ziffernfolgen von 0 bis 9, also als <code>char</code>s zu kodieren. Darunter würde die Recheneffizienz erheblich leiden.</p>
-<p>Bei Objekten entspricht die Repräsentation in einfachen Fällen der <code>toString</code>-Methode. Und die Kodierung entspricht der getroffenen Wahl und Zusammenstellung von Instanzvariablen mit ihren Typen. Dazu kommen Methoden (wie <code>toString</code>), die zwischen Kodierung und Darstellung vermitteln.</p>
+<p>Obwohl man auf Zeichenketten beschränkt ist, ist es möglich, mit einer Beschreibungssprache wie z.B. <a href="https://de.wikipedia.org/wiki/DOT_(Graphviz)">DOT</a> eine graphische Beschreibung zurückzugeben.</p>
+<p>Die mit <code>toString</code> erzeugten Zeichenketten können auch bei der Formulierung von Testfällen hilfreich und nützlich sein. <!--:::--></p>
 </section>
-<section id="die-begriffe-sind-relativ" class="level4">
-<h4 class="anchored" data-anchor-id="die-begriffe-sind-relativ">Die Begriffe sind relativ</h4>
-<p>Was dem einen eine Repräsentation ist, ist dem anderen eine Kodierung – und umgekehrt. Es hängt von der Perspektive ab, ob man eine Kodierung als Repräsentation oder ob man eine Repräsentation als Kodierung deutet.</p>
-<p>Daraus ergibt sich möglicherweise eine Kette von Kodierungen, die in einer Repräsentation münden; oder es ergibt sich eine Folge von Repräsentation, die auf einer Kodierung basieren. Letztlich wird alles über Einsen und Nullen im Rechner kodiert. Man muss nur wissen, was die Einsen und Nullen bedeuten. Aber auch das ließe sich hinterfragen, wenn man versucht zu verstehen, wie Einsen und Nullen in der Hardware, in einem Schaltkreis, abgebildet sind: Kodieren da nicht letztlich Spannungswerte eine Null bzw. Eins? Und was genau ist eine Spannung?</p>
+<section id="definitionen-repräsentation-kodierung-rekonstruktion" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="definitionen-repräsentation-kodierung-rekonstruktion"><span class="header-section-number">2.1.3</span> Definitionen: Repräsentation, Kodierung, Rekonstruktion</h3>
+<p>Man muss beim Begriff der Kodierung acht geben, da insbesondere die Nachrichtentechnik den Begriff geprägt hat, der u.a. durch die Kodierungstheorie fundiert ist. Bei der Programmierung geht es aber nicht um Kanal-, Quellen- oder Leitungskodierung, sondern neben der <a href="https://de.wikipedia.org/wiki/Zeichenkodierung">Zeichenkodierung</a> und neben den <a href="https://de.wikipedia.org/wiki/Datenformat">Daten-</a> und <a href="https://de.wikipedia.org/wiki/Dateiformat">Dateiformaten</a> im Wesentlichen um die Abbildung von Sachverhalten in Daten, Datenstrukturen und Datenverarbeitungsverfahren und daraus die Rekonstruktion der Sachverhalte. Darauf zielen die folgenden Definitionen ab:</p>
+<dl>
+<dt>Repräsentation</dt>
+<dd>
+Eine Repräsentation stellt eine Konfiguration (Zusammenstellung) von <a href="https://de.wikipedia.org/wiki/Entit%C3%A4t">Entitäten</a> samt ihrer Beziehungen textuell, graphisch, bildlich oder in einer anderen medialen Form dar. Diese Darstellungen bilden ideelle (abstrakte), realweltliche (konkrete), simulierte (virtuelle) oder rechnerische (computationale) Konstruktionen ab.
+</dd>
+</dl>
+<!-- Die Darstellung kann die Absicht verfolgen, etwas Grundlegendes, Entscheidendes oder Bedeutsames durch die Art und Weise der Darstellung hervorzuheben oder ins Blickfeld zu stellen.-->
+<dl>
+<dt>Kodierung</dt>
+<dd>
+Eine Kodierung beschreibt allgemein die Abbildung einer Repräsentation in eine andere Repräsentation. In der Programmierung geht es wesentlich darum, Kodierungen für Datenrepräsentationen und Berechnungen zu finden bzw. zu verwenden, die computational vorteilhaft und/oder programmiersprachlich oder paradigmatisch geeignet und angemessen sind. <!-- Eine wichtige Rolle spielt zudem, diese Kodierungen kommunikabel (mitteilbar) und verständlich zu machen.-->
+</dd>
+<dt>Rekonstruktion</dt>
+<dd>
+Die Rekonstruktion ist die Umkehrung der Kodierung. In der Programmierung ist die Rekonstruktion die Abbildung, die aus dem Programmcode die ursprüngliche Repräsentation wieder hervorbringt.
+</dd>
+</dl>
 <!--
-Ein Beispiel: Ein Spielfeld im Schach (8x8 Felder) wird kodiert durch die Angabe der Koordinaten aus einem Kleinbuchstaben (Spalte) und Zahl (Reihe) dargestellt (repräsentiert), etwa "e2". Der Buchstabe werde intern durch ein `char`, die Ziffern durch einen `int` repräsentiert bzw. kodiert. Intern wird ein Einzelzeichen als Zahl gemäß der UTF8-Kodierung (ein Kodierungsformat für internationale Zeichensätze) und eine Zahl binär im Zweierkomplement kodiert.
+[Zeichenkodierungen](https://de.wikipedia.org/wiki/Zeichenkodierung) wie [ASCII](https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange) oder [UTF-8](https://de.wikipedia.org/wiki/UTF-8) und [Daten-](https://de.wikipedia.org/wiki/Datenformat) und [Dateiformate](https://de.wikipedia.org/wiki/Dateiformat) wie [JPEG](https://de.wikipedia.org/wiki/JPEG) für Bilddaten, [MP3](https://de.wikipedia.org/wiki/MP3) für Hördaten oder [JSON](https://de.wikipedia.org/wiki/JavaScript_Object_Notation) für den Datenaustausch sind Beispiele für technische Standards, die Kodierungen von Zeichen, Medien und Daten definieren. Dass z.B. bei JPEG und MP3 verlustbehaftete Datenkompressionen eine Rolle spielen, interessiert Programmiererinnen und Programmierer nur begrenzt.
 -->
-<p>Bevor wir uns in einer Welt außerhalb der Software verlieren: Eine Repräsentation dient in der Informatik oft als Ersatz für z.B. ein Arrangement in der realen Welt. Die Darstellung einer Schachposition auf dem Bildschirm ist nicht gleichzusetzen mit einer Spielsituation auf einem realen Spielfeld. Die Darstellung soll an das reale Spielfeld erinnern und es gleichzeitig als realen Gegenstand überflüssig machen.</p>
 </section>
-<section id="fallbeispiel-tic-tac-toe" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="fallbeispiel-tic-tac-toe"><span class="header-section-number">2.1</span> Fallbeispiel: Tic-Tac-Toe</h2>
-<p>Sie kennen sicher das Spiel Tic-Tac-Toe. Das Spiel besteht aus einem 3×3 Spielfeld und wird von zwei Parteien gespielt. Die eine Partei hat die mit <code>X</code>, die andere die mit <code>O</code> bezeichnete Spielsteine. Die beiden Spielparteien setzen abwechselnd ihre Spielsteine auf das Spielfeld, <code>X</code> beginnt. Das Spiel endet mit dem Sieg für die Spielpartei, die zuerst drei eigene Spielsteine “in Reihe” (waagerecht, senkrecht, diagonal) bringt. Kann keine Spielpartei gewinnen und ist das Spielbrett vollständig besetzt, so endet die Partie unentschieden.</p>
+<section id="beispiel-primitive-zahlentypen" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="beispiel-primitive-zahlentypen"><span class="header-section-number">2.1.4</span> Beispiel: Primitive Zahlentypen</h3>
+<p>Sie kennen diese verschiedenen Repräsentationen bereits für primitive Typen. Zahlen vom Typ <code>byte</code>, <code>short</code>, <code>int</code> und <code>long</code> werden <em>intern</em> im Zweierkomplement <em>kodiert</em>. Das Zweierkomplement bildet eine vorzeichenbehaftete Zahl in eine Binärzahl fester Stellenanzahl (8 Bits bei <code>byte</code>, 16 bei <code>short</code>, 32 bei <code>int</code> und 64 bei <code>long</code>) ab. Die Kodierung ist so beschaffen, dass man im Zweierkomplement mit einer gewöhnlichen Binäraddition negative und positive Zahlen addieren kann und es keiner expliziten Operation der Subtraktion bedarf. Dekodiert bzw. rekonstruiert werden die Zahlen des Zweierkomplements jedoch im Zehnerformat mit einem Vorzeichen bei negativen Zahlen.</p>
+<p>Bei Gleitkommazahlen wie <code>float</code> und <code>double</code> ist die Kodierung und der Bezug zwischen der binären und dezimalen Zahlenrepräsentation komplizierter. Der technische Standard <a href="https://de.wikipedia.org/wiki/IEEE_754">IEEE 754</a> definiert die Darstellung von Binär- und Dezimalzahlen für Gleitkommazahlen und für die Durchführungen von Berechnungen.</p>
+<p>Datenwerte vom Typ <code>char</code> folgen der Zeichenkodierung UTF-8. <a href="https://de.wikipedia.org/wiki/UTF-8">UTF-8</a> legt fest, welches Zeichen bzw. Symbol wie durch welche binäre Zahlenkodierung abgebildet wird.</p>
+</section>
+</section>
+<section id="veranschaulichung-kodierung-eines-schachfelds" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="veranschaulichung-kodierung-eines-schachfelds"><span class="header-section-number">2.2</span> Veranschaulichung: Kodierung eines Schachfelds</h2>
+<p>Bei der Programmierung von Brettspielen tritt deutlich zu Tage, hier am Beispiel des Schachspiels, welche unterschiedlichen Bedarfe und Zwecke verschiedene Repräsentationen erfüllen.</p>
+<p>In <a href="#fig-schachbrett" class="quarto-xref">Abbildung&nbsp;<span>2.2 (a)</span></a> ist, streng genommen, kein Schachbrett, sondern ein schematisches Abbild eines Schachbretts zu sehen. Es befindet sich einzig der weiße König auf dem Spielbrett; der König wird durch ein Symbol repräsentiert. Die Spalten werden im Schach durch Buchstaben, die Reihen durch Zahlen kodiert. Damit kann das Spielfeld einer Spielfigur eindeutig angegeben werden.</p>
+<div id="fig-schachbrett-kodierung2D" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-schachbrett-kodierung2D-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-schachbrett-kodierung2D" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-schachbrett" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-schachbrett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="KodierungUndRepräsentation/Schachbrett.png" class="img-fluid figure-img" style="width:80.0%" data-ref-parent="fig-schachbrett-kodierung2D">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-schachbrett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Schachbrett-Darstellung mit dem weißen König auf dem Feld mit der Koordinate f7
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-schachbrett-kodierung2D" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-schachbrett2D" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-schachbrett2D-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="KodierungUndRepräsentation/Schachbrett2D.png" class="img-fluid figure-img" style="width:80.0%" data-ref-parent="fig-schachbrett-kodierung2D">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-schachbrett2D-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Schachfeld-Kodierung übernimmt die Zweidimensionalität der Darstellung. Der König befindet sich auf dem Feld mit dem Index [5][6].
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-schachbrett-kodierung2D-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2.2: Ein Schachbrett und seine zweidimensionale Kodierung. Die Indizes laufen für jede Dimension von 0 bis 7.
+</figcaption>
+</figure>
+</div>
+<section id="zweidimensionale-kodierung" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="zweidimensionale-kodierung"><span class="header-section-number">2.2.1</span> Zweidimensionale Kodierung</h3>
+<p>Es ist naheliegend, die Zweidimensionalität der Darstellung als Kodierungsidee für die Programmierung aufzugreifen und das Spielfeld durch ein zweidimensionales Array etwa namens <code>board</code> abzubilden, siehe <a href="#fig-schachbrett2D" class="quarto-xref">Abbildung&nbsp;<span>2.2 (b)</span></a>.</p>
+<p>Wollte man den Spielzug des Königs von f7 nach g8 berechnen, so müsste man zunächst überprüfen, ob der König damit nicht über den Rand hinausläuft. Situationen, in denen der König am Spielfeldrand steht, müssen als solche erkannt werden. Zudem muss sichergestellt sein, dass das Zielfeld nicht durch eine Figur der eigenen Farbe belegt ist. Der Programmcode dazu sähe etwa folgendermaßen aus:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">final</span> <span class="dt">int</span> MOVE_UP_RIGHT_X <span class="op">=</span> <span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">final</span> <span class="dt">int</span> MOVE_UP_RIGHT_Y <span class="op">=</span> <span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>toPosX <span class="op">=</span> fromPosX <span class="op">+</span> MOVE_UP_RIGHT_X</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>toPosY <span class="op">=</span> fromPosY <span class="op">+</span> MOVE_UP_RIGHT_Y</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">((</span>toPosX <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> toPosY <span class="op">&lt;=</span> <span class="dv">7</span><span class="op">)</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">(</span>toPosY <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> toPosY <span class="op">&lt;=</span> <span class="dv">7</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="fu">isNotWhite</span><span class="op">(</span>board<span class="op">[</span>toPosX<span class="op">][</span>toPosY<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// found valid move</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Es bedarf zweier Additionen und insgesamt fünf Vergleiche (<code>isNotWhite</code> ist der fünfte Vergleich), um feststellen zu können, dass der König von seiner Position aus nach rechts oben ziehen kann.</p>
+</section>
+<section id="eindimensionale-kodierung" class="level3 page-columns page-full" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="eindimensionale-kodierung"><span class="header-section-number">2.2.2</span> Eindimensionale Kodierung</h3>
+<p>Wenn man von der eindimensionalen Darstellung, <a href="#fig-schachbrett2" class="quarto-xref">Abbildung&nbsp;<span>2.3 (a)</span></a>, zu einer eindimensionalen Kodierung übergeht, siehe <a href="#fig-schachbrett1D" class="quarto-xref">Abbildung&nbsp;<span>2.3 (b)</span></a>, und zusätzlich einen Rand um das Spielfeld herum einführt, um ungültige Züge durch ein Betreten des Spielfeldrands zu erkennen, vereinfacht sich die Berechnung.</p>
+<div id="fig-schachbrett-kodierung" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-schachbrett-kodierung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-schachbrett-kodierung" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-schachbrett2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-schachbrett2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="KodierungUndRepräsentation/Schachbrett.png" class="img-fluid figure-img" style="width:80.0%" data-ref-parent="fig-schachbrett-kodierung">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-schachbrett2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Schachbrett-Darstellung mit dem weißen König auf dem Feld mit der Koordinate f7
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-schachbrett-kodierung" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-schachbrett1D" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-schachbrett1D-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="KodierungUndRepräsentation/Schachbrett1D.png" class="img-fluid figure-img" style="width:80.0%" data-ref-parent="fig-schachbrett-kodierung">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-schachbrett1D-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Eindimensionale Kodierung des Spielfelds. Die Indizierung der 120 Felder beginnt links oben mit 0 und endet rechts unten mit 119. Der König steht auf dem Feld mit dem Index 36.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-schachbrett-kodierung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2.3: Ein Schachbrett und seine eindimensionale Kodierung. Der rote Rand markiert Felder, die ungültig sind. Das vereinfacht die Berechnung von Spielzügen.
+</figcaption>
+</figure>
+</div>
+<p>Die Position des Königs wird nun durch eine einzige Zahl kodiert, der Spielzug durch eine relative Positionsangabe, hier -9.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">final</span> <span class="dt">int</span> MOVE_UP_RIGHT <span class="op">=</span> <span class="op">-</span><span class="dv">9</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>toPos <span class="op">=</span> fromPos <span class="op">+</span> MOVE_UP_RIGHT</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>board<span class="op">[</span>toPos<span class="op">]</span> <span class="op">!=</span> BORDER <span class="op">&amp;&amp;</span> <span class="fu">isNotWhite</span><span class="op">(</span>board<span class="op">[</span>toPos<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// found valid move</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bei eindimensionaler Kodierung ist der Zugriff auf ein Feld schneller und es genügen eine Addition und zwei Vergleiche. Der Programmcode ist einfacher aufgebaut und besser verständlich. All dies ist einer Kodierung zu verdanken, die sich nicht von der zweidimensionalen Repräsentation des Spielfelds leiten lässt, sondern zu einer rechnerisch geschickteren Repräsentation mit einem eindimensionalen Array wechselt.</p>
+</section>
+<section id="zur-kodierung-des-spielfeldrands" class="level3 page-columns page-full" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="zur-kodierung-des-spielfeldrands"><span class="header-section-number">2.2.3</span> Zur Kodierung des Spielfeldrands</h3>
+<p>Der verbreiterte Spielfeldrand begründet sich beim Schachspiel durch die Spielfigur des Springers, siehe <a href="#fig-springerzugrelativ" class="quarto-xref">Abbildung&nbsp;<span>2.4 (a)</span></a>. Ein Springer ist die einzige Figur, die durch einen Spielzug eines der acht Spielfelder in seinem Umfeld mit einem “Radius” von 2 erreicht. Bei einer eindimensionalen Kodierung kann man die acht Zugmöglichkeiten durch relative Positionsangaben angeben.</p>
+<div id="fig-spielfeldrand" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-spielfeldrand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-spielfeldrand" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-springerzugrelativ" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-springerzugrelativ-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="KodierungUndRepräsentation/SchachbrettSpringerzugRelativ.png" class="img-fluid figure-img" style="width:80.0%" data-ref-parent="fig-spielfeldrand">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-springerzugrelativ-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Ein Springer kann mit einem Spielzug eines von acht Spielfeldern erreichen, die auf einem Quadrat vom “Radius” 2 liegen. Ist das Ausgangsfeld weiß, sind die schwarzen Felder die Ziele; ist es schwarz, sind die Zielfelder weiß. Im Bild sind die relativen Sprungziele eingetragen, die Farbe der Felder ist damit unwichtig.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-spielfeldrand" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-springerzugabsolut" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-springerzugabsolut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="KodierungUndRepräsentation/SchachbrettSpringerzugAbsolut.png" class="img-fluid figure-img" style="width:80.0%" data-ref-parent="fig-spielfeldrand">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-springerzugabsolut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Der Springer befindet sind auf dem Feld mit dem Index 28. Mit Hilfe der relativen Springziele lassen sich die möglichen Zielfelder berechnen. Nur zwei davon liegen im gültigen Spielfeldbereich.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-spielfeldrand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2.4: Zur Erklärung der Gestaltung des angefügten Spielfeldrands.
+</figcaption>
+</figure>
+</div>
+<p>Steht der Springer in einer Ecke, siehe <a href="#fig-springerzugabsolut" class="quarto-xref">Abbildung&nbsp;<span>2.4 (b)</span></a>, muss der Rand so gestaltet sein, dass alle ungültigen Züge auf einem Feld im Rand landen. Die Verbreiterung ist so ausgelegt, dass der “Radius” von 2 berücksichtigt wird.</p>
+<p>Diese eindimensionale Kodierung mit einem Rand, der in einer visuellen Repräsentation des Spielfelds natürlich unsichtbar ist, ist das Ergebnis einer Abwägung: Mit ein wenig mehr an Speicherbedarf für den Rand gewinnt man eine schnellere Berechnung von Spielzügen.</p>
+</section>
+</section>
+<section id="fallbeispiel-tic-tac-toe" class="level2 page-columns page-full" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="fallbeispiel-tic-tac-toe"><span class="header-section-number">2.3</span> Fallbeispiel: Tic-Tac-Toe</h2>
+<p>Sie kennen sicher das Spiel Tic-Tac-Toe. Das Spiel besteht aus einem 3×3 Spielfeld und wird von zwei Parteien gespielt. Die eine Partei hat die mit <code>X</code>, die andere die mit <code>O</code> bezeichneten Spielsteine. Die beiden Spielparteien setzen abwechselnd ihre Spielsteine auf ein freies Feld, <code>X</code> beginnt. Das Spiel endet mit dem Sieg für die Spielpartei, die zuerst drei ihrer Spielsteine “in Reihe” (waagerecht, senkrecht, diagonal) bringt. Kann keine Spielpartei gewinnen und ist das Spielbrett vollständig besetzt, so endet die Partie unentschieden.</p>
+<p>Die folgenden Unterkapitel demonstrieren anhand einer Umsetzung des Spiels Tic-Tac-Toe, die vielfältigen Aspekte von Kodierungen.</p>
+<!--
+wie mittels einer geeigneten Kodierung die Außendarstellung des Spiels auf eine interne Datenrepräsentation abgebildet wird.
+-->
+<section id="einstieg-wie-würden-sie-das-spiel-kodieren" class="level3 page-columns page-full" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="einstieg-wie-würden-sie-das-spiel-kodieren"><span class="header-section-number">2.3.1</span> Einstieg: Wie würden Sie das Spiel kodieren?</h3>
 <p>Wir betrachten die folgende Situation im Spiel:</p>
-<pre><code> X | O |    
----+---+--- 
-   | X |
----+---+--- 
- X |   | O</code></pre>
-<p>Wenn man danach fragt, mit welcher Datenstruktur das Spielfeld abgebildet (kodiert) werden könnte, geben die meisten Programmierer*innen folgende Antwort:</p>
+<div id="fig-t3spielsituation" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-t3spielsituation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./KodierungUndRepräsentation/T3Spielsituation.png" class="img-fluid figure-img" style="width:30.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-t3spielsituation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2.5: Eine Spielsituation in Tic-Tac-Toe. Die Spielpartei mit <code>X</code> hat begonnen.
+</figcaption>
+</figure>
+</div>
+<p>Wenn man danach fragt, mit welcher Datenstruktur das Spielfeld abgebildet (kodiert) werden könnte, bekommt man von Programmier-Neulingen oft eine Überlegung wie diese zu hören:</p>
 <ul>
 <li>Das Spielfeld ist zweidimensional. Also kodiere ich das Spielfeld durch ein zweidimensionales Array.</li>
 <li>Die Spielsteine <code>X</code> und <code>O</code> (und ein Leerzeichen für ein leeres Feld) können durch ein <code>char</code> erfasst werden.</li>
 <li>Folglich wähle ich für das Spielfeld ein zweidimensionales <code>char</code>-Array: <code>char[][] board = new char[3][3];</code></li>
 </ul>
-<p>Vielleicht erahnen Sie es: Mit dieser Entscheidung wird die Darstellung als maßgeblich für die interne Kodierung des Spiels gewählt.</p>
+<p>Vielleicht erahnen Sie es: Mit dieser Entscheidung wird die Darstellung des Spiels leitgebend für die interne Repräsentation des Spiels. Das wirft einige Probleme auf:</p>
 <ul>
-<li>Damit ist die interne Kodierung abhängig davon, wie die Spielsteine symbolisch als Zeichen dargestellt werden. Was, wenn jemand lieber mit <code>#</code> und <code>*</code> spielt? Katastrophal wäre, wenn man deshalb den Programmiercode anpassen müsste.</li>
-<li>Mit Einzelzeichen kann man nicht wirklich gut rechnen, auch wenn sie in Java zu den Zahlentypen gehören.</li>
-<li>Die Zweidimensionalität erfordert, die Felder auf dem Spiel über zwei Indizes zu adressieren. Rechnerisch ist das überflüssig. Wenn ein Programm Spielzüge durchrechnet, wie z.B. beim Schach- oder Damespiel, dann macht sich die Ineffizienz einer zweidimensionalen Adressierung deutlich bemerkbar.</li>
+<li>Die interne Kodierung macht sich abhängig davon, wie die Spielsteine symbolisch als Zeichen dargestellt werden. Was, wenn jemand lieber mit anderen Darstellungen für die Spielsteine spielt? Katastrophal wäre, wenn man deshalb den Programmiercode anpassen müsste.</li>
+<li>Mit Einzelzeichen vom Typ <code>char</code> kann man zwar rechnen (<code>char</code> gehört in Java zu den Zahlentypen), doch daraus kann man keinerlei Nutzen ziehen. Denn: Wie will man mit diesen im Grunde willkürlich gewählten Symbolen <code>X</code> und <code>O</code> sinnvoll Berechnungen durchführen?</li>
+<li>Die Zweidimensionalität erfordert, die Felder auf dem Spiel über zwei Indizes zu adressieren. Wenn ein Programm Spielzüge durchrechnet, wie z.B. beim Schach- oder Damespiel, dann macht sich die Ineffizienz einer zweidimensionalen Adressierung deutlich bemerkbar.</li>
 </ul>
-<section id="eine-kodierung-für-tic-tac-toe" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="eine-kodierung-für-tic-tac-toe"><span class="header-section-number">2.1.1</span> Eine Kodierung für Tic-Tac-Toe</h3>
-<p>char[][] board = new char[3][3]</p>
-<pre><code>ABC, what's this   </code></pre>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 30%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>XXXXXXXX</p>
-<p>Schreiben Sie eine Methode <code>threeInARow</code>, die ein eindimensionales Array aus neun Felder übergeben bekommt (siehe nachstehendes Bild) und ermittelt, ob in der Stellung drei Spielsteine in Reihe sind und wer gewonnen hat. Die Felder sind mit den Zahlenwerten -1 (für “<code>O</code>”), 0 (leeres Feld) und +1 (für “<code>X</code>”) kodiert.</p>
-<hr>
+<div class="callout callout-style-default callout-tip callout-titled" title="Nimm das Kodieren ernst">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nimm das Kodieren ernst
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es ist selten eine gute Idee, die äußere Darstellung eines Sachverhalts eins zu eins auf die interne Datenrepräsentation zu übertragen. Es ist die Aufgabe einer Programmiererin bzw. eines Programmierers eine Kodierung zu finden oder anzuwenden, die computational vorteilhaft und/oder programmiersprachlich oder paradigmatisch geeignet und angemessen ist (siehe die obige Definition!).</p>
+</div>
+</div>
+</section>
+<section id="eine-kodierung-für-tic-tac-toe" class="level3 page-columns page-full" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="eine-kodierung-für-tic-tac-toe"><span class="header-section-number">2.3.2</span> Eine Kodierung für Tic-Tac-Toe</h3>
+<p>Mit den Instanzvariablen der Klasse <code>TicTacToe</code> fallen drei Entscheidungen für die interne Datenrepräsentation, siehe <a href="#fig-t3kodierung" class="quarto-xref">Abbildung&nbsp;<span>2.6</span></a>.</p>
+<ol type="1">
+<li>Das Spielfeld wird eindimensional durch ein Array <code>int[] board</code> abgebildet.</li>
+<li>Die Belegung eines Spielfelds ist wie folgt kodiert: Die Spielsteine der beginnenden Spielpartei (in der Darstellung das Symbol <code>X</code>) werden durch +1, die Spielsteine der nachziehenden Spielpartei (<code>O</code>) werden durch -1, leere Felder durch 0 abgebildet. Der Vorteil dieser Kodierung liegt darin, dass sich sehr effizient feststellen lässt, ob drei Spielsteine einer Partei eine Reihe ergeben: Man addiere die Feldwerte für eine Reihe auf. Ergibt sich eine +3 oder eine -3, sind drei Spielsteine einer Sorte in Reihe.</li>
+<li>Strikt von der internen Kodierung getrennt wird die Wahl der verwendeten Symbole für die Spielsteine durch das Array <code>symbols</code> vorgehalten.</li>
+</ol>
+<div id="fig-t3kodierung" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-t3kodierung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./KodierungUndRepräsentation/T3Kodierung.png" class="img-fluid figure-img" style="width:30.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-t3kodierung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2.6: Die Kodierung des Spiels Tic-Tac-Toe: Ein eindimensionales Spielfeld, das die Spielparteien mit +1 und -1 und leere Felder mit 0 unterscheidet
+</figcaption>
+</figure>
+</div>
+<p>Zusätzlich zu diesen Entscheidungen gibt es die folgenden Variablen:</p>
 <ul>
-<li>0 | 1 | 2</li>
-<li>—+—+—</li>
-<li>3 | 4 | 5</li>
-<li>—+—+—</li>
-<li>6 | 7 | 8 ***************</li>
+<li><code>int turn</code> merkt sich, wer am Zug ist, +1 oder -1. Entsprechend wechselt der Wert zwischen +1 und -1 hin und her.</li>
+<li>Der Spielverlauf wird in <code>int[] history</code> vorgehalten. Die Spielhistorie erlaubt die Rücknahme von Spielzügen.</li>
+<li>Der <code>counter</code> zählt die in <code>history</code> hinterlegten Züge mit und kann somit zudem als Füllstandsanzeiger verstanden werden.</li>
 </ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TicTacToe <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span><span class="op">[]</span> board <span class="op">=</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">};</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> turn <span class="op">=</span> <span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">char</span><span class="op">[]</span> symbols <span class="op">=</span> <span class="op">{</span><span class="ch">'O'</span><span class="op">,</span><span class="ch">'.'</span><span class="op">,</span><span class="ch">'X'</span><span class="op">};</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span><span class="op">[]</span> history <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span>board<span class="op">.</span><span class="fu">length</span><span class="op">];</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> counter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Die Variablen sind allesamt per <code>private</code> auf “unsichtbar” geschaltet und von außerhalb nicht zugreifbar. Damit kapselt das Spiel alle Interna von außen ab. Für Nutzende einer <code>TicTacToe</code>-Instanz ist es vollkommen intransparent und damit unwichtig, <em>wie</em> die Instanz intern das Spiel kodiert hat und arbeitet.</p>
+</section>
+<section id="objekt-repräsentation-mit-tostring-methode" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="objekt-repräsentation-mit-tostring-methode"><span class="header-section-number">2.3.3</span> Objekt-Repräsentation mit <code>toString</code>-Methode</h3>
+<p>Bei Referenztypen kann die textuelle Repräsentation eines Objekts mit Hilfe der <code>toString</code>-Methode individuell angepasst werden. Es ist eine Entscheidung der Programmierin bzw. des Programmierers, ob man dies nutzt, um Interna der internen Datenkodierung einsichtig zu machen oder um aus den Interna eine Abbildung für eine Außen-Darstellung zu konstruieren.</p>
+<p>In diesem Beispiel wird die interne Kodierung übersetzt in das anzuzeigendes Symbol. Das Spielfeld wird nur angedeutet, ich verzichte auf die horizontalen und vertikalen Linien.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> repr <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> board<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>i <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> repr <span class="op">+=</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            repr <span class="op">+=</span> symbols<span class="op">[</span>board<span class="op">[</span>i<span class="op">]</span> <span class="op">+</span> <span class="dv">1</span><span class="op">];</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> repr<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In der JShell sieht das dann so aus:</p>
+<pre><code>jshell&gt; TicTacToe t3 = new TicTacToe(0,1,4,8,6)
+t3 ==&gt;
+XO.
+.X.
+X.O</code></pre>
+</section>
+<section id="konstruktoren-spielzug-ausführen-move-und-rückgängig-machen-undomove" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="konstruktoren-spielzug-ausführen-move-und-rückgängig-machen-undomove"><span class="header-section-number">2.3.4</span> Konstruktoren, Spielzug ausführen (<code>move</code>) und rückgängig machen (<code>undoMove</code>)</h3>
+<p>Mit <code>new TicTacToe()</code> kann ein Spiel instanziiert werden. Bei Bedarf sind Spielzüge übergebbar, die per <code>move</code> ausgeführt werden.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">TicTacToe</span><span class="op">()</span> <span class="op">{</span> <span class="op">}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">TicTacToe</span><span class="op">(</span><span class="dt">int</span> <span class="kw">...</span>moves<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> move <span class="op">:</span> moves<span class="op">)</span> <span class="fu">move</span><span class="op">(</span>move<span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">move</span><span class="op">(</span><span class="dt">int</span> m<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="fu">contains</span><span class="op">(</span><span class="fu">generateMoves</span><span class="op">(),</span> m<span class="op">):</span> <span class="st">"move must address a valid, empty field"</span><span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="op">!</span><span class="fu">threeInARow</span><span class="op">():</span> <span class="st">"no party should have won the game"</span><span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        board<span class="op">[</span>m<span class="op">]</span> <span class="op">=</span> turn<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        turn <span class="op">=</span> <span class="op">-</span>turn<span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        history<span class="op">[</span>counter<span class="op">++]</span> <span class="op">=</span> m<span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wenn man von den verwendeten Methoden in den <code>assert</code>-Anweisungen absieht, ist die Umsetzung für einen Spielzug einfach nachzuvollziehen:</p>
+<ul>
+<li>Der Spielzug <code>m</code>, ein Wert von 0 bis 8, entspricht der Angabe des Indexes eines freien Feldes auf dem eindimensionalen Spielbrett.</li>
+<li>Das Feld wird mit dem Wert der am Zug befindlichen Spielpartei belegt. Anschließend wechselt die Spielpartei.</li>
+<li>Der Spielzug wird im Gedächtnis für den Spielverlauf eingetragen.</li>
+</ul>
+<pre><code>jshell&gt; t3.move(3)
+
+jshell&gt; t3
+t3 ==&gt;
+XO.
+OX.
+X.O</code></pre>
+<p>Die Methode, um einen Spielzug rückgängig zu machen, liest sich fast wie das Inverse (Umgekehrte) der <code>move</code>-Methode. Faktisch entpsricht dies auch der Intention: ein ausgeführter Zug wird rückabgewickelt.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">undoMove</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>counter <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        board<span class="op">[</span>history<span class="op">[--</span>counter<span class="op">]]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        turn <span class="op">=</span> <span class="op">-</span>turn<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>jshell&gt; t3.undoMove()
+
+jshell&gt; t3
+t3 ==&gt;
+XO.
+.X.
+X.O</code></pre>
+</section>
+<section id="der-spielzuggenerator-generatemoves-und-die-hilfsmethode-contains" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="der-spielzuggenerator-generatemoves-und-die-hilfsmethode-contains"><span class="header-section-number">2.3.5</span> Der Spielzuggenerator <code>generateMoves</code> und die Hilfsmethode <code>contains</code></h3>
+<p>Der Zuggenerator bei Tic-Tac-Toe ist äußerst simpel: Die freien Felder werden in einem Array eingetragen. Die Größe des Arrays ist vorab bestimmbar. (Ich habe mich hier für die Rückgabe eines <code>int</code>-Arrays entschieden, damit man keine Kenntnis von Datentypen wie <code>ArrayList</code> haben muss.)</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span><span class="op">[]</span> <span class="fu">generateMoves</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span><span class="op">[]</span> moves <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span>board<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> counter<span class="op">];</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> board<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>board<span class="op">[</span>i<span class="op">]</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> moves<span class="op">[</span>j<span class="op">++]</span> <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> moves<span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In der aktuellen Spielsituation sind folgende Spielzüge möglich:</p>
+<pre><code>jshell&gt; t3.generateMoves()
+$22 ==&gt; int[4] { 2, 3, 5, 7 }</code></pre>
+<p>Die Hilfsmethode <code>contains</code> dient generell zur Feststellung, ob sich ein Zahlenwert vom Typ <code>int</code> in einem <code>int</code>-Array befindet. Da diese Methode nicht auf den Kontext des aktuellen Objekts und/oder seiner Instanzvariablen basiert und eine generelle Dienstleistung erbringt, ist diese Methode als Klassenmethode (<code>static</code>) deklariert. Da diese Dienstleistung aber eine interne Angelegenheit ist und für das Tic-Tac-Toe ansonsten keine Bedeutung hat, ist die Methode außerdem als <code>private</code> deklariert.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">contains</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> numbers<span class="op">,</span> <span class="dt">int</span> number<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n <span class="op">:</span> numbers<span class="op">)</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>n <span class="op">==</span> number<span class="op">)</span> <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sind-drei-in-reihe-threeinarow" class="level3" data-number="2.3.6">
+<h3 data-number="2.3.6" class="anchored" data-anchor-id="sind-drei-in-reihe-threeinarow"><span class="header-section-number">2.3.6</span> Sind drei in Reihe? (<code>threeInARow</code>)</h3>
+<p>Es gibt insgesamt acht Möglichkeiten für “Drei in Reihe”: es gibt drei Spalten, drei Zeilen und zwei Diagonalen. Statt diese acht Möglichkeiten durch zahlreiche <code>if</code>-Anweisungen zu kodieren, kann man auch eine datenorientierte Lösung realisieren. In dem zweidimensionalen Array <code>rows</code> werden die acht Möglichkeiten schlicht notiert. Die sich daraus ergebende Ablauflogik zur Feststellung, ob in der aktuellen Spielsituation drei Spielsteine einer Spielpartei in Reihe sind, ist übersichtlich und einfach nachvollziehbar.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">threeInARow</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span><span class="op">[][]</span> rows <span class="op">=</span> <span class="op">{{</span><span class="dv">0</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">},{</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span><span class="op">},{</span><span class="dv">6</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">8</span><span class="op">},</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                        <span class="op">{</span><span class="dv">0</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">6</span><span class="op">},{</span><span class="dv">1</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">7</span><span class="op">},{</span><span class="dv">2</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">8</span><span class="op">},</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                        <span class="op">{</span><span class="dv">0</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">8</span><span class="op">},{</span><span class="dv">2</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">6</span><span class="op">}};</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> row <span class="op">:</span> rows<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> sum <span class="op">=</span> board<span class="op">[</span>row<span class="op">[</span><span class="dv">0</span><span class="op">]]</span> <span class="op">+</span> board<span class="op">[</span>row<span class="op">[</span><span class="dv">1</span><span class="op">]]</span> <span class="op">+</span> board<span class="op">[</span>row<span class="op">[</span><span class="dv">2</span><span class="op">]];</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span><span class="op">(</span>sum<span class="op">)</span> <span class="op">==</span> <span class="dv">3</span><span class="op">)</span> <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>jshell&gt; t3.threeInARow()
+$23 ==&gt; false</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Abbildung von Abläufen in Datenstrukturen">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Abbildung von Abläufen in Datenstrukturen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sie sehen in der Methode <code>threeInARow</code>, wie umfangreiche Anweisungsstrukturen in Datenstrukturen kodiert werden können. Die Repräsentationsebene der Anweisungsstruktur wird zu Teilen in eine Repräsentationsebene von Datenstrukturen abgebildet. Davon sollten Sie Gebrauch machen, wann immer das möglich ist. Der mit der Datenstrukture einhergehende “Restcode” an Anweisungen ist meist deutlich weniger umfangreich, besser verständlich und weniger anfällig gegen “Tippfehler”.</p>
+</div>
+</div>
+<details>
+<summary>
+Wenn Sie die Umsetzung der Kodierung von Reihen in einem Array sehen, könnte man auf eine effizientere Variante kommen: Je nachdem wo der letzte Spielstein gesetzt wurde, sind nur zwei, drei oder vier Reihen zu überprüfen. Wie müsste der Programmcode angepasst werden, um das umzusetzen?
+</summary>
+<p>Ich möchte hier nur die Idee skizzieren:</p>
+<ul>
+<li>Für das Feld mit dem Index 0 kommen nur die folgenden Reihen infrage: <code>{{0,1,2}, {0,4,8}, {0,3,6}}</code>. Entsprechendes gilt für die anderen Eckfelder.</li>
+<li>Für das Feld mit dem Index 1 sind es die Reihen <code>{{0,1,2}, {1,4,7}}</code>. Entsprechendes gilt für die Indizes 3, 5 und 7.</li>
+<li>Für das Feld in der Mitte mit dem Index 4 sind es die Reihen <code>{{0,4,8}, {2,4,6}, {1,4,7}, {3,4,5}}</code></li>
+</ul>
+<p>Mit jedem Index ist ein zweidimensionales Feld mit den Reihen zu verbinden. Entsprechend ist ein dreidimensionales Array zu konzipieren:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][][]</span> idx2rows <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{{</span><span class="dv">0</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">8</span><span class="op">},</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">6</span><span class="op">}},</span> <span class="co">// Index 0</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">{{</span><span class="dv">0</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">},</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">7</span><span class="op">}},</span>          <span class="co">// Index 1</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// usw.</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{{</span><span class="dv">0</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">8</span><span class="op">},</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">6</span><span class="op">},</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">7</span><span class="op">},</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span><span class="op">}}</span> <span class="co">// Index 4</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// usw.</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Abhängig vom letzten Zug können nun die zu begutachtenden Reihen abgerufen werden:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][]</span> rows <span class="op">=</span> idx2rows<span class="op">[</span>history<span class="op">[</span>counter <span class="op">-</span> <span class="dv">1</span><span class="op">]];</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+Der Rest des Codes, d.h. die <code>for</code>-Schleife und das abschließende <code>return</code>, bleibt unverändert.
+</details>
+</section>
+<section id="rückgabe-des-spielverlaufs-history" class="level3" data-number="2.3.7">
+<h3 data-number="2.3.7" class="anchored" data-anchor-id="rückgabe-des-spielverlaufs-history"><span class="header-section-number">2.3.7</span> Rückgabe des Spielverlaufs (<code>history</code>)</h3>
+<p>Die Variable <code>history</code>, die den Spielverlauf erinnert, ist <code>private</code> gesetzt und von außen nicht einsehbar. Man könnte eine Methode wie <code>int[] getHistory()</code> (oder kürzer <code>int[] history()</code>) anlegen, die per <code>return history</code> das <code>int</code>-Array zurückgibt.</p>
+<p>Das wäre ein schwerwiegender Fehler: Sie hätten damit die Referenz auf das Array ausgeliefert, was Außenstehenden beliebige Manipulationen an dem Array erlauben würde. Damit hätten Sie Ihren Programmcode unterwandert und könnten dessen <a href="https://de.wikipedia.org/wiki/Integrit%C3%A4tsbedingung">Integrität</a> nicht mehr garantieren.</p>
+<p>Um die Referenz nicht nach außen zu geben, erzeugen wir eine Kopie des Arrays. Und zwar nicht des ganzen Arrays sondern nur von der benötigten Größe.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span><span class="op">[]</span> <span class="fu">history</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span><span class="op">[]</span> moves <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span>counter<span class="op">];</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> moves<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>            moves<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> history<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> moves<span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>jshell&gt; t3.history()
+$24 ==&gt; int[5] { 0, 1, 4, 8, 6 }</code></pre>
+<details>
+<summary>
+Die Klasse <code>java.util.Arrays</code> (kurz <code>Arrays</code> in der JShell) bietet ein paar interessante Methoden im Umgang mit Arrays an, darunter die <code>copy</code>-Methode. Setzen Sie die obige Methode mit <code>copy</code> um.
+</summary>
+<p>Sie können den obigen Code damit verkürzen zu:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span><span class="op">[]</span> <span class="fu">history</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">copy</span><span class="op">(</span>history<span class="op">,</span> counter<span class="op">);</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="callout callout-style-default callout-note callout-titled" title="Mit immutablen Datenstrukturen gibt es kein Referenzproblem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mit immutablen Datenstrukturen gibt es kein Referenzproblem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Eine grundsätzlich andere Lösung zu der Herausforderung, die Datenintegrität durch herausgegebene Referenzen nicht zu verletzen, ist die Verwendung von <em>immutablen</em> (unveränderlichen) Datenstrukturen. Wenn sich nichts an einem Objekt ändern lässt, ist es egal, wenn seine Referenz Dritten zugänglich ist. Daher spricht man bei Immutabilität auch von <em>referentieller Intransparenz</em>. Auf die Immutabilität kommen wir in anderen Kontexten wieder zurück.</p>
+</div>
+</div>
+</section>
+<section id="veränderte-außendarstellung-interne-datenrepräsentation-toggle" class="level3" data-number="2.3.8">
+<h3 data-number="2.3.8" class="anchored" data-anchor-id="veränderte-außendarstellung-interne-datenrepräsentation-toggle"><span class="header-section-number">2.3.8</span> Veränderte Außendarstellung <code>!=</code> interne Datenrepräsentation (<code>toggle</code>)</h3>
+<p>An der Methode <code>toggle</code> möchte ich Ihnen demonstrieren, dass die Außendarstellung (Außenrepräsentation) von Tic-Tac-Toe eine Angelegenheit ist, die unabhängig von der internen Datenrepräsentation des Spiels gepflegt und behandelt werden kann.</p>
+<p>Wenn Sie die Spielparteien entschließen, die Symbole der Spielsteine zu tauschen, so dass beispielsweise auch <code>O</code> ein Spiel beginnen kann, so hat das überhaupt keinen Einfluss auf die interne Kodierung: dort wird stets der Anfang mit +1 gemacht.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    TicTacToe <span class="fu">toggle</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">char</span> c <span class="op">=</span> symbols<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        symbols<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> symbols<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        symbols<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> c<span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>jshell&gt; t3
+t3 ==&gt;
+XO.
+.X.
+X.O
+
+jshell&gt; t3.toggle()
+$26 ==&gt;
+OX.
+.O.
+O.X</code></pre>
+</section>
+<section id="zurück-zum-anfang-koordinaten-für-die-feldangabe" class="level3 page-columns page-full" data-number="2.3.9">
+<h3 data-number="2.3.9" class="anchored" data-anchor-id="zurück-zum-anfang-koordinaten-für-die-feldangabe"><span class="header-section-number">2.3.9</span> Zurück zum Anfang: Koordinaten für die Feldangabe</h3>
+<p>Kommen wir noch einmal zum Anfang zurück: Verständlicherweise könnte der Bedarf vorliegen, einen Spielzug nicht über einen eindimensionalen Feldindex anzugeben, der zudem mit Null beginnt, sondern über eine zweidimensionale Koordinatenangabe, ähnlich wie beim Schach, siehe <a href="#fig-t3koordinatensysteme" class="quarto-xref">Abbildung&nbsp;<span>2.7</span></a>.</p>
+<div id="fig-t3koordinatensysteme" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-t3koordinatensysteme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-t3koordinatensysteme" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-t3koordinatenv1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-t3koordinatenv1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./KodierungUndRepräsentation/T3KoordinatenV1.png" class="img-fluid figure-img" style="width:80.0%" data-ref-parent="fig-t3koordinatensysteme">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-t3koordinatenv1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Zahlenkoordinate: Zuerst wird eine untere Zahl für die Spalte, dann eine der Seitenzahlen für die Zeile angegeben
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-t3koordinatensysteme" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-t3koordinatenv2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-t3koordinatenv2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./KodierungUndRepräsentation/T3KoordinatenV2.png" class="img-fluid figure-img" style="width:80.0%" data-ref-parent="fig-t3koordinatensysteme">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-subfloat-caption quarto-subfloat-fig" id="fig-t3koordinatenv2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Buchstabe/Zahl-Koordinate: Zuerst wird der Buchstabe, dann die Zahl angegeben. Auch umgekehrt wäre die Kodierung eindeutig.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-t3koordinatensysteme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;2.7: Zwei mögliche Koordinatensysteme für Tic-Tac-Toe
+</figcaption>
+</figure>
+</div>
+<p>Diese Koordinatensysteme stellen mögliche Kodierungen dar, die mit der Außendarstellung des Spiels verbunden sind. Statt den Code der Klasse <code>TicTacToe</code> dafür “anzufassen”, stelle ich eine Klasse <code>Pos</code> mit der Klassenmethode <code>of</code> bereit, die die Umrechnung vornimmt.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Pos <span class="op">{</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="dt">int</span> <span class="fu">of</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> x <span class="op">&gt;=</span> <span class="dv">1</span> <span class="op">&amp;&amp;</span> x <span class="op">&lt;=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> y <span class="op">&gt;=</span> <span class="dv">1</span> <span class="op">&amp;&amp;</span> y <span class="op">&lt;=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">(</span><span class="dv">3</span> <span class="op">-</span> y<span class="op">)</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> <span class="op">(</span>x <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="dt">int</span> <span class="fu">of</span><span class="op">(</span><span class="dt">char</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">of</span><span class="op">(</span>x <span class="op">&lt;</span> <span class="ch">'a'</span> <span class="op">?</span> x <span class="op">-</span> <span class="ch">'A'</span> <span class="op">+</span> <span class="dv">1</span> <span class="op">:</span> x <span class="op">-</span> <span class="ch">'a'</span> <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> y<span class="op">);</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="testing" class="level3" data-number="2.3.10">
+<h3 data-number="2.3.10" class="anchored" data-anchor-id="testing"><span class="header-section-number">2.3.10</span> Testing</h3>
+<p>An den Tests, die ich mit der <code>assert</code>-Anweisung umsetze, möchte ich Ihnen zeigen, dass die <code>toString</code>-Methode mit der Ausgabe der Spielsituation bei der Formulierung von Testfällen helfen kann. Hier ein paar Beispiele:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">new</span> <span class="fu">TicTacToe</span><span class="op">().</span><span class="fu">toString</span><span class="op">().</span><span class="fu">equals</span><span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">...</span><span class="sc">\n</span><span class="st">...</span><span class="sc">\n</span><span class="st">..."</span><span class="op">);</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">new</span> <span class="fu">TicTacToe</span><span class="op">().</span><span class="fu">toggle</span><span class="op">().</span><span class="fu">toString</span><span class="op">().</span><span class="fu">equals</span><span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">...</span><span class="sc">\n</span><span class="st">...</span><span class="sc">\n</span><span class="st">..."</span><span class="op">);</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">new</span> <span class="fu">TicTacToe</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">2</span><span class="op">).</span><span class="fu">toString</span><span class="op">().</span><span class="fu">equals</span><span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">X.O</span><span class="sc">\n</span><span class="st">...</span><span class="sc">\n</span><span class="st">..."</span><span class="op">);</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">new</span> <span class="fu">TicTacToe</span><span class="op">(</span><span class="dv">7</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">2</span><span class="op">).</span><span class="fu">toString</span><span class="op">().</span><span class="fu">equals</span><span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">X.O</span><span class="sc">\n</span><span class="st">O..</span><span class="sc">\n</span><span class="st">.X."</span><span class="op">);</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">new</span> <span class="fu">TicTacToe</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">2</span><span class="op">).</span><span class="fu">toggle</span><span class="op">().</span><span class="fu">toString</span><span class="op">().</span><span class="fu">equals</span><span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">O.X</span><span class="sc">\n</span><span class="st">X..</span><span class="sc">\n</span><span class="st">.O."</span><span class="op">);</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">new</span> <span class="fu">TicTacToe</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">6</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">2</span><span class="op">).</span><span class="fu">threeInARow</span><span class="op">();</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">new</span> <span class="fu">TicTacToe</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">6</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">8</span><span class="op">).</span><span class="fu">threeInARow</span><span class="op">();</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Die Testfälle für die Klasse <code>Pos</code> arbeiten nicht mit Instanzen und müssen die Klassenmethode <code>of</code> unmittelbar testen.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">3</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">)</span> <span class="op">==</span> <span class="dv">1</span> <span class="op">&amp;&amp;</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span><span class="dv">3</span><span class="op">)</span> <span class="op">==</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">==</span> <span class="dv">3</span> <span class="op">&amp;&amp;</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">==</span> <span class="dv">4</span> <span class="op">&amp;&amp;</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">==</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">)</span> <span class="op">==</span> <span class="dv">6</span> <span class="op">&amp;&amp;</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span><span class="dv">1</span><span class="op">)</span> <span class="op">==</span> <span class="dv">7</span> <span class="op">&amp;&amp;</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span><span class="dv">1</span><span class="op">)</span> <span class="op">==</span> <span class="dv">8</span><span class="op">;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="ch">'a'</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">==</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="ch">'A'</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">&amp;&amp;</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="ch">'a'</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">==</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="ch">'b'</span><span class="op">,</span><span class="dv">1</span><span class="op">)</span> <span class="op">==</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="ch">'B'</span><span class="op">,</span><span class="dv">1</span><span class="op">)</span> <span class="op">&amp;&amp;</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="ch">'b'</span><span class="op">,</span><span class="dv">1</span><span class="op">)</span> <span class="op">==</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="ch">'c'</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">==</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="ch">'C'</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">&amp;&amp;</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="ch">'c'</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">==</span> Pos<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span><span class="dv">2</span><span class="op">);</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="aufgaben" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">2.4</span> Aufgaben</h2>
+<p>Ergänzen Sie folgende Methoden zu der Klasse <code>TicTacToe</code>:</p>
+<section id="verwende-eine-arraylist-für-history" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="verwende-eine-arraylist-für-history"><span class="header-section-number">2.4.1</span> Verwende eine <code>ArrayList</code> für <code>history</code></h3>
+<p>Verwenden Sie für <code>history</code> eine <code>ArrayList</code> statt des <code>int</code>-Arrays und verzichten Sie damit auf überflüssig gewordene Variablen und Methoden.</p>
+<details>
+<summary>
+Lösen Sie die Aufgabe, schauen Sie erst dann hier nach, welche Variablen bzw. Methoden infrage kommen.
+</summary>
+<ul>
+<li>Die <code>ArrayList</code> kann dynamisch wachsen und schrumpfen, der <code>counter</code> als Füllstandsanzeiger wird hinfällig, die <code>size()</code> gibt den Füllstand der <code>ArrayList</code> an.</li>
+<li>Die Hilfsmethode <code>contains</code> ist überflüssig, <code>ArrayList</code> liefert diese Methode mit.</li>
+<li>Wenn die Methode <code>history</code> ihren Rückgabetyp <code>int[]</code> beibehalten soll, muss sie neu implementiert werden. Aber selbst in der Gestalt von <code>ArrayList&lt;Integer&gt; history()</code> hat sie ihre Berechtigung: Es darf nicht einfach <code>history</code> zurückgegeben werden, weil damit die durch <code>private</code> geschützte Referenz nach außen durchgestochen wird und von außen veränderbar wird. Es muss also eine Kopie der <code>ArrayList</code> zurückgegeben werden.</li>
+</ul>
+</details>
+</section>
+<section id="speichern-und-laden-von-spielständen" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="speichern-und-laden-von-spielständen"><span class="header-section-number">2.4.2</span> Speichern und Laden von Spielständen</h3>
+<p>Mit der Methode <code>void save(String fileName)</code> kann der Spielstand in einer Textdatei gespeichert werden. Die Dateiextension <code>.txt</code> wird automatisch zu <code>fileName</code> ergänzt. Die Methode <code>void save()</code> wählt als Dateinamen <code>"t3"</code>. Die Datei enthält die Historie, wobei die Zahlen durch Kommata getrennt sind. Wurde noch kein Spielzug gemacht, wird eine leere Datei angelegt.</p>
+<p>Mit der Methode <code>TicTacToe load(String fileName)</code> wird ein Spielstand aus der abgespeicherten Historie rekonstruiert. Mit <code>TicTacToe load()</code> wird <code>t3.txt</code> geladen.</p>
+<details>
+<summary>
+Warum ist es sinnvoller, die Historie für die Rekonstruktion des Spielstands zu speichern, statt eines Abbilds des tatsächlichen Spielstands?
+</summary>
+<p>Es ist gar nicht so einfach, einen gegebenen Spielstand daraufhin zu überprüfen, ob er eine gültige Spielsituation wiedergibt. Denn die zu ladende Textdatei kann ja auch händisch angelegt worden oder schlicht fehlerhaft sein. Zum Beispiel darf die Summe aller Spielsteine auf dem Brett nur 0 oder +1 sein. Ansonsten hat eine Partei Spielsteine ohne Gegenzug auf dem Spielbrett positioniert. Wesentlich einfacher ist die Rekonstruktion eines Spielstands aus der Historie des Spielverlaufs. Die Spielzüge sind bei Verwendung der <code>move</code>-Methode (zusammen mit <code>generateMoves</code> und <code>contains</code>) sehr leicht auf Gültigkeit zu überprüfen. Wenn die Spielzüge gültig sind, muss es die ergebende Spielsitation ebenso sein. Sie setzen also auf der bereits implementierten Spielmechanik (auch der Gültigkeitsprüfung) auf, statt neue Überlegungen umsetzen zu müssen, ob eine gegebene Spielstellung (a) grundsätzlich gültig ist oder nicht und (b) ob sie überhaupt durch einen realen Spielverlauf so entstanden sein könnte.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wenn Sie bei Spielen wie Tic-Tac-Toe oder Brettspielen wie Schach, Mühle oder Dame den Spielstand speichern wollen, sollten Sie das immer über die Speicherung der bis dahin erfolgten Spielzüge tun. Die Rekonstruktion einer Spielsituation aus dem Spielverlauf ist leichter validierbar (überprüfbar) und sie kann korrumpierte Daten erkennen.</p>
+</div>
+</div>
+</details>
+</section>
+<section id="hocheffiziente-kodierungen-bitboards" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="hocheffiziente-kodierungen-bitboards"><span class="header-section-number">2.4.3</span> Hocheffiziente Kodierungen: Bitboards</h3>
+<p>Wenn es darum geht, bei Spielen möglichst effizient Spielzüge durchzurechnen (etwa bei der Suche nach einem besten Spielzug, wenn der Computer gegen den Menschen antritt), braucht es sehr ausgeklügelte Kodierungen. In dem Text “<a href="https://github.com/denkspuren/BitboardC4/blob/master/BitboardDesign.md">Bitboards and Connect Four</a>” erkläre ich ausführlich am Beispiel des Spiels “Vier gewinnt”, was Bitboards sind und wie sie funktionieren. In dem Video “<a href="https://www.youtube.com/watch?v=5t5jzkO0t7w">Bitboards für Tic-Tac-Toe</a>” zeige ich Ihnen die Umsetzung für das Spiel Tic-Tac-Toe.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es gibt im Bereich der Algorithmen und Datenstrukturen für viele Sachverhalte und Problemstellungen sehr raffinierte, effiziente und gründlich analysierte Kodierungen – das ist ein Teil dessen, was die Informatik so reizvoll und interessant macht. Machen Sie es sich zur Angewohnheit, zu dem Thema, das Sie beschäftigt, nach solchen Kodierungen zu recherchieren. Es ist unmöglich, selber auf all das zu kommen, was andere schon erfunden und ergründet haben. Vieles wird Ihnen auch durch Programmbibliotheken bereitgestellt.</p>
+</div>
+</div>
 
 
 </section>
@@ -723,9 +1276,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Anhang.html" class="pagination-link" aria-label="Anhang">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Anhang</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
