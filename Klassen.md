@@ -67,7 +67,7 @@ class Person {
 }
 
 Person p1 = new Person(); // p1 -> Person@1{ age = 0, name -> null }
-p1.name = "Ada";          // p1 -> Person@2{ age = 0, name -> "Ada" }
+p1.name = "Ada";          // p1 -> Person@1{ age = 0, name -> "Ada" }
 
 Person p2 = new Person(); // p2 -> Person@2{ age = 0, name -> null }
 p2.name = "Mo";           // p2 -> Person@2{ age = 0, name -> "Mo" }
